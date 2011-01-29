@@ -1,0 +1,71 @@
+::::
+  ::::  DB
+::::
+
+
+###
+# RECIPES
+#
+- id              [int]
+- ingredients     [:recipe_ingredients => @ingredient, ...]
+- name            [string]
+- calories        [int]
+- num_people      [int]
+- abstract        [text]
+- description     [text]
+- preparation     [text]
+- vegeterian      [bool]
+- dietetic        [bool]
+- time_to_prepare [int] # In minutes
+- time_to_cook    [int] # - || -
+- user            [@user]
+
+
+###
+# RECIPE INGREDIENT
+#
+- id
+- recipe        [@recipe]
+- ingredient    [@ingredient]
+- quantity      [int]
+- quantity_unit [@unit]
+- notes         [text]
+
+
+###
+# INGREDIENT
+#
+- id        [int]
+- name      [string]
+- product   [@product]
+- groups    [@ingredient_group, ...]
+- image     [file]
+- calories  [int] # Caloric value per gram.
+
+
+###
+# UNIT
+#
+- id          [int]
+- name        [string]
+- short_name  [string]
+- denominator [decimal] # Denominator to convert this unit from a gram.
+
+
+### 
+# USER
+#
+
+- id          [int]
+- first_name  [string]
+- last_name   [string]
+- email       [string]
+- password    [string]
+- kind        [@user_kind]
+
+
+###
+# USER KINDS
+- id      [int]
+- name    [string]
+

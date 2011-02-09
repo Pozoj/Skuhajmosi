@@ -9,6 +9,9 @@ set :scm, :git
 set :scm_verbose, true
 set :deploy_via, :remote_cache
 
+ssh_options[:compression] = "none"
+
+
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
@@ -30,6 +33,3 @@ require 'config/boot'
 # Hoptoad
 require 'hoptoad_notifier/capistrano'
 after "deploy:update", "deploy:notify_hoptoad"
-
-        require 'config/boot'
-        require 'hoptoad_notifier/capistrano'

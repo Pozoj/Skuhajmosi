@@ -24,6 +24,7 @@
         - if user_signed_in?
           Prijavljen
           = current_user
+          = link_to "(Odjava)", destroy_user_session_path
         - else
           = link_to "Prijava", new_user_session_path
           

@@ -1,0 +1,4 @@
+= title "Skupine sestavin"
+- if can? :manage, IngredientGroup
+  = link_to "Dodaj skupino sestavin", new_resource_path
+= render collection

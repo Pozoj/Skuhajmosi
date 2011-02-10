@@ -7,7 +7,7 @@
     = stylesheet_link_tag 'compiled/print', :media => 'print'
     /[if IE]
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
-    / = javascript_include_tag 'lib/jquery', 'lib/jquery-ui', 'lib/protovis', 'lib/jquery.form', 'lib/jquery-ui-timepicker', 'lib/jquery.uploadProgress', 'lib/rails', 'lib/rails-autocomplete', 'common/toggle', 'common/table_row_links', 'common/disable_submit_buttons','common/tooltip', 'common/nested_forms', 'i18n', 'translations', 'application', :cache => true
+    = javascript_include_tag 'lib/jquery', 'lib/jquery.form', 'lib/rails', 'lib/rails-autocomplete', 'application', :cache => true
     / = csrf_meta_tag
     / :erb
     /   <script type="text/javascript">
@@ -19,7 +19,12 @@
     #head
       %h1
         = link_to_span "Skuhajmo.si", root_path
-        
+      %ul#menu
+        %li= link_to "Recepti", recipes_path
+        %li= link_to "Sestavine", ingredients_path
+        %li= link_to "Skupine sestavin", ingredient_groups_path
+        %li= link_to "Enote", units_path
+      
       #current_user
         - if user_signed_in?
           Prijavljen

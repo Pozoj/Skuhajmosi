@@ -1,0 +1,15 @@
+= title resource
+
+- if can? :manage, resource
+  = link_to "Uredi sestavino", edit_resource_path
+  = link_to "Odstrani sestavino", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+
+.field
+  .description Kalorij
+  .value= resource.calories
+
+- if resource.recipes.any?
+  .field
+    .description Jedi, ki vsebujejo to sestavino
+    .value
+      %ul= render resource.recipes

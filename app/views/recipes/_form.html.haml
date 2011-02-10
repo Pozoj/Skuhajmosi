@@ -1,0 +1,13 @@
+= simple_form_for resource do |f|
+  = f.input :name
+  = f.input :calories
+  = f.input :num_people
+  = f.input :abstract
+  = f.input :description
+  = f.input :preparation
+  = f.input :vegeterian
+  = f.input :dietetic
+  = f.input :time_to_prepare
+  = f.input :time_to_cook
+  = f.input :user_id, :as => :hidden
+  = f.button :submit

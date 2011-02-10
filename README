@@ -51,6 +51,12 @@
 
 
 ###
+# PRODUCT
+#
+- id      [int]
+- name    [string]
+
+###
 # UNIT
 #
 - id          [int]

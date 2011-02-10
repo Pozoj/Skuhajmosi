@@ -1,0 +1,12 @@
+= title resource
+
+- if can? :manage, resource
+  = link_to "Uredi skupino sestavin", edit_resource_path
+  = link_to "Odstrani skupino sestavin", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+  
+- if resource.ingredients.any?
+  .field
+    .description Sestavine v skupini
+    .value
+      %ul= render resource.ingredients
+    

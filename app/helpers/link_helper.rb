@@ -35,7 +35,7 @@ module LinkHelper
         raise ArgumentError
       end
     end
-    link_to("&larr; #{t('crud.back')}".html_safe, path, :class => 'to_back')
+    link_to("&larr; Nazaj".html_safe, path, :class => 'to_back')
   end
   
   def link_to_self(url)

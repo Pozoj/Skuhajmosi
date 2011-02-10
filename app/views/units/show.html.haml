@@ -1,0 +1,18 @@
+= title resource
+
+- if can? :manage, resource
+  = link_to "Uredi enoto", edit_resource_path
+  = link_to "Odstrani enoto", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+
+.field
+  .description Dolgo ime
+  .value= resource.name
+
+- if resource.short_name?
+  .field
+    .description Kratko ime
+    .value= resource.short_name
+  
+.field
+  .description Denominator
+  .value= resource.denominator

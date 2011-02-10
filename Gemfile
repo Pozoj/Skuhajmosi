@@ -15,15 +15,12 @@ gem 'hoptoad_notifier'
 gem 'newrelic_rpm'
 gem 'i18n-js'
 
-
-
 group :development, :test do
   gem 'hpricot'
   gem 'ruby_parser'
   gem 'capistrano'
   gem 'capistrano-ext'
   gem 'fuubar'
-  # gem 'autotest'
   gem 'webrat'
   gem 'factory_girl_rails'
   gem 'faker'

@@ -1,0 +1,6 @@
+= title "Enote"
+- if can? :manage, Unit
+  = link_to "Dodaj enoto", new_resource_path
+  
+%ul= render collection
+= link_to_back

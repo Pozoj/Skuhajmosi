@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
   helper_method :body_attrs
   before_filter :authenticate_user!, :export_i18n_messages
   
+  # Cancan
+  check_authorization
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :error => exception.message
+  end
+  
   protected
     
   def body_attrs

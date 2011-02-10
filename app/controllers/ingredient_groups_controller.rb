@@ -1,2 +1,3 @@
-class IngredientGroupsController < ApplicationController
+class IngredientGroupsController < InheritedResources::Base
+  load_and_authorize_resource
 end

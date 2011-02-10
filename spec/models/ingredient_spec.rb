@@ -5,7 +5,7 @@ describe Ingredient do
   
   it { should be_valid }
   # it { should belong_to(:product) }
-  # it { should have_many(:ingredient_groups) }
+  it { should have_and_belong_to_many(:ingredient_groups) }
   it { should have_many(:recipe_ingredients) }
   it { should have_many(:recipes) }
   it { should validate_presence_of(:name) }

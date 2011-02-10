@@ -1,2 +1,3 @@
-class UnitsController < ApplicationController
+class UnitsController < InheritedResources::Base
+  load_and_authorize_resource
 end

@@ -1,0 +1,36 @@
+= title resource
+
+- if can? :manage, resource
+  = link_to "Uredi recept", edit_resource_path
+  = link_to "Odstrani recept", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
+
+.field
+  .description Kalorij
+  .value= resource.calories
+
+.field
+  .description Št. oseb
+  .value= resource.num_people
+  
+.field
+  .description Povzetek
+  .value= resource.abstract
+
+.field
+  .description Opis
+  .value= resource.description
+
+.field
+  .description Priprava
+  .value= resource.preparation
+
+.field
+  .description Čas priprave
+  .value= resource.time_to_prepare
+  
+.field
+  .description Čas kuhanja
+  .value= resource.time_to_cook
+  
+  
+= link_to_back

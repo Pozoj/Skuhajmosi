@@ -2,7 +2,6 @@ class CreateIngredients < ActiveRecord::Migration
   def self.up
     create_table :ingredients do |t|
       t.string :name
-      t.integer :product_id
       t.integer :calories
 
       t.timestamps

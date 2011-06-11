@@ -3,10 +3,10 @@ class CreateRecipeIngredients < ActiveRecord::Migration
     create_table :recipe_ingredients do |t|
       t.integer :recipe_id
       t.integer :ingredient_id
-      t.integer :quantity
-      t.integer :quantity_unit_id
-      t.text :notes
-
+      t.integer :unit_id
+      t.decimal :quantity, :precision => 8, :scale => 2, :default => 0.0
+      t.string  :quantity_description
+      
       t.timestamps
     end
   end

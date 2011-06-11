@@ -1,0 +1,7 @@
+= title "Proizvajalci"
+
+#resource-menu
+  - if can? :create, ProductFirm
+    = link_to "Dodaj proizvajalca", new_resource_path
+
+= collection_list_renderer(collection)

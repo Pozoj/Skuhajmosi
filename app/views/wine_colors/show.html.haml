@@ -1,0 +1,15 @@
+= title resource
+
+#resource-menu
+  - if can? :update, resource
+    = link_to "Uredi barvo vina", edit_resource_path
+  - if can? :destroy, resource
+    = link_to "Odstrani barvo vina", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+    
+#short-summary= resource.description
+
+#related-info
+  - if resource.wines.any?
+    .field
+      .description Vina te skupine
+      .value= wines_link_list(resource)

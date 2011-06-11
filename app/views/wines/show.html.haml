@@ -1,0 +1,34 @@
+= title resource
+
+#resource-menu
+  - if can? :update, resource
+    = link_to "Uredi vino", edit_resource_path
+  - if can? :destroy, resource
+    = link_to "Odstrani vino", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+
+#basic-info
+
+  #description-bar
+    #wine-color
+      .description Barva vina
+      .value= link_to resource.wine_color, resource.wine_color 
+
+    #wine-kind
+      .description Vrsta vina
+      .value= link_to resource.wine_kind, resource.wine_kind
+
+    #wine-group
+      .description Skupina vin
+      .value= link_to resource.wine_group, resource.wine_group
+  
+#short-summary
+  = resource.description
+
+#related-info
+  - if resource.recipes.any?
+    .field
+      .description Jedi, h katerim paše vino
+      .value
+        = association_link_list(resource, "recipes")
+
+= link_to_back

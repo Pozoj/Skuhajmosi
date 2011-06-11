@@ -1,0 +1,7 @@
+= simple_form_for [parent, resource] do |f|
+  %p
+    = f.association :ingredient, :prompt => "Izberite sestavino", :label_method => :name
+    = f.association :unit, :prompt => "Izberite enoto", :label_method => :name
+    = f.input :quantity
+  
+  = f.button :submit

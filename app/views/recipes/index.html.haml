@@ -1,6 +1,9 @@
 = title "Recepti"
 
-- if can? :manage, Recipe
-  = link_to "Dodaj recept", new_resource_path
+#resource-menu
+  - if can? :create, Recipe
+    = link_to "Dodaj recept", new_resource_path
+    
+  = link_to "Prenesi pdf", recipes_path("pdf")  
   
-%ul= render collection
+= collection_list_renderer(collection)

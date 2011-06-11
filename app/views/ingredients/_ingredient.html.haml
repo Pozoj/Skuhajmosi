@@ -1,1 +1,3 @@
-%li= link_to ingredient, ingredient
+%li
+  = link_to ingredient, ingredient
+  = render "common/small_photo_link", :resource => ingredient

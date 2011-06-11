@@ -1,0 +1,13 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: skuhajmo_development
+  username: skuhar
+  password: skuhar
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: skuhajmo_test
+  username: skuhar
+  password: skuhar

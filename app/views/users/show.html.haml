@@ -1,0 +1,26 @@
+= title "Pregled uporabnika"
+
+#resource-menu
+  - if can? :manage, resource
+    = link_to "Uredi uporabnika", edit_resource_path
+    = link_to "Odstrani uporabnika", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
+    = link_to "Dodaj fotografijo", new_user_photo_path(resource)  
+
+= render "common/photo", :resource => resource
+
+.field
+  .description Ime in priimek
+  .value= resource.full_name
+  
+.field
+  .description Elektronska pošta
+  .value= resource.email
+  
+.field
+  .description Vrsta uporabnika
+  .value= resource.user_kind
+
+- if resource.user_kind and resource.access_rights.any?
+  = render "access_rights/access_right", :collection => resource.access_rights
+
+= link_to_back

@@ -1,0 +1,23 @@
+= title "Pregled vina"
+
+#resource-menu
+  - if can? :manage, resource
+    = link_to "Uredi vino", edit_resource_path
+    = link_to "Odstrani vino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)
+
+- unless resource.wine.photos.empty?
+  - for photo in resource.wine.photos
+    .photo
+      = link_to image_tag(photo.photo.url(:small)), photo.photo.url(:original)
+
+.field
+  .description Vino
+  .value= resource
+
+.field
+  .description Vino paše tudi k naslednjim jedem
+  .value
+    - if resource.recipes.any? 
+      %ul= render resource.recipes
+  
+= link_to_back parent_path

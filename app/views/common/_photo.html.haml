@@ -1,0 +1,6 @@
+- if resource.photos.any?
+  - for photo in resource.photos
+    .photo
+      = link_to image_tag(photo.photo.url(:medium)), photo.photo.url(:original)
+      - if can? :destroy, Photo
+        = link_to "Odstrani fotografijo", photo_path(photo), :method => :delete, :confirm => destroy_confirmation(photo)

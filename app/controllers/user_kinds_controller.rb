@@ -1,2 +1,3 @@
-class UserKindsController < ApplicationController
+class UserKindsController < InheritedResources::Base
+  load_and_authorize_resource
 end

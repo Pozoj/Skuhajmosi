@@ -1,0 +1,8 @@
+= simple_form_for resource do |f|
+  = f.input :description  
+  = f.association :wine_group
+  = f.association :wine_kind
+  = f.association :wine_color
+  = f.association :author, :as => :hidden
+  
+  = f.button :submit

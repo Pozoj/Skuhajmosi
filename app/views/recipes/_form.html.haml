@@ -1,13 +1,19 @@
 = simple_form_for resource do |f|
   = f.input :name
-  = f.input :calories
+
+  %h3 Vrsta kuhinje  
+  - RecipeKind.all.each do |recipe_kind|
+    %p
+      %label
+        = check_box_tag "recipe[recipe_kind_ids][]", recipe_kind.id, resource.recipe_kind_ids.include?(recipe_kind.id)
+        = recipe_kind
+  
   = f.input :num_people
-  = f.input :abstract
-  = f.input :description
+  = f.input :summary
   = f.input :preparation
-  = f.input :vegeterian
-  = f.input :dietetic
+  = f.input :suggestion
   = f.input :time_to_prepare
   = f.input :time_to_cook
-  = f.input :user_id, :as => :hidden
+  = f.input :author_id, :as => :hidden
+
   = f.button :submit

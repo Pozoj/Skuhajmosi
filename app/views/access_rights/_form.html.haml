@@ -1,0 +1,4 @@
+= simple_form_for [parent, resource] do |f|
+  = f.input :user_kind_right, :as => :select, :collection => AccessRight.all_rights, :label_method => Proc.new {|access_right| access_right[:title] }, :value_method => Proc.new {|access_right| access_right[:value]}, :prompt => "Izberite pravico"
+  = f.input :user_kind_id, :as => :hidden, :value_method => params[:user_kind_id]
+  = f.submit

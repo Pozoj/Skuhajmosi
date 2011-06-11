@@ -1,0 +1,4 @@
+%li
+  = link_to ingredient, ingredient
+  - if ingredient.photos.any?
+    = link_to image_tag(ingredient.photos.first.photo.url(:super_small)), ingredient

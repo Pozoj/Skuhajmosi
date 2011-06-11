@@ -1,0 +1,7 @@
+= title "Izdelki"
+
+#resource-menu
+  - if can? :create, Product
+    = link_to "Dodaj izdelek", new_resource_path
+
+= collection_list_renderer(collection)

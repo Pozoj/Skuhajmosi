@@ -18,7 +18,7 @@ module LayoutHelper
   end
   
   def title(_title, heading = true)
-    default = "DoubleRecall"
+    default = "skuhajmo.si"
     title = (_title) ? "#{_title} (#{default})" : default
     content_for(:title) { title }
     
@@ -34,7 +34,7 @@ module LayoutHelper
   end
   
   def home_title(_title)
-    default = "DoubleRecall"
+    default = "skuhajmo.si"
     title = (_title) ? "#{_title} (#{default})" : default
     content_for(:title) { title }
     

@@ -1,4 +1,7 @@
 = title "Sestavine"
-- if can? :manage, Ingredient
-  = link_to "Dodaj sestavino", new_resource_path
-= render collection
+
+#resource-menu
+  - if can? :create, Ingredient
+    = link_to "Dodaj sestavino", new_resource_path
+
+= collection_list_renderer(collection)

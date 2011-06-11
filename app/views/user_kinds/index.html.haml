@@ -1,0 +1,7 @@
+= title "Pregled vrst uporabnikov"
+
+#resource-menu
+  - if can? :manage, UserKind
+    = link_to "Dodaj vrsto uporabnika", new_resource_path
+
+= collection_list_renderer(collection)

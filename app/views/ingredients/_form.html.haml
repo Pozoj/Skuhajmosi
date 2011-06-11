@@ -2,4 +2,11 @@
   = f.input :name
   = f.input :calories
   
+  %h3 Izberite v katere skupine sestavin spada sestavina  
+  - IngredientGroup.all.each do |ingredient_group|
+    %p
+      %label
+        = check_box_tag "ingredient[ingredient_group_ids][]", ingredient_group.id, resource.ingredient_group_ids.include?(ingredient_group.id)
+        = ingredient_group
+  
   = f.button :submit

@@ -1,0 +1,21 @@
+= title resource
+
+#resource-menu
+  - if can? :update, RecipeKind
+    = link_to "Uredi vrsto recepta", edit_recipe_kind_path(resource)
+  - if can? :destroy, RecipeKind
+    = link_to "Odstrani vrsto recepta", recipe_kind_path(resource), :method => :delete, :confirm => destroy_confirmation(resource)
+  - if can? :create, Photo
+    = link_to "Dodaj fotografijo", new_recipe_kind_photo_path(resource)
+
+#basic-info
+  = render "common/photo", :resource => resource
+
+#related-info          
+  - if resource.recipes.any?
+    .field
+      .description Jedi, ki spadajo v izbrano skupino
+      .value
+        %ul= render resource.recipes
+
+= link_to_back

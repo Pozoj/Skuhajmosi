@@ -1,36 +1,84 @@
 = title resource
+#author
+  .description Avtor
+  .value= resource.author.full_name
+  .authors_picture= render "common/small_photo_link", :resource => resource.author
 
-- if can? :manage, resource
-  = link_to "Uredi recept", edit_resource_path
-  = link_to "Odstrani recept", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
-
-.field
-  .description Kalorij
-  .value= resource.calories
-
-.field
-  .description Št. oseb
-  .value= resource.num_people
+#resource-menu
+  - recipe_wines = resource.recipe_wines.order(:id).all
+  - photos = resource.photos.order(:id).all 
   
-.field
-  .description Povzetek
-  .value= resource.abstract
-
-.field
-  .description Opis
-  .value= resource.description
-
-.field
-  .description Priprava
-  .value= resource.preparation
-
-.field
-  .description Čas priprave
-  .value= resource.time_to_prepare
+  - if can? :update, Recipe
+    = link_to "Uredi recept", edit_resource_path
+  - if can? :destroy, Recipe
+    = link_to "Odstrani recept", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
+  - if can? :create, Ingredient
+    = link_to "Dodaj sestavino", new_recipe_recipe_ingredient_path(resource)
   
-.field
-  .description Čas kuhanja
-  .value= resource.time_to_cook
-  
-  
+  - if can? :create, Photo
+    = link_to "Dodaj fotografijo", new_recipe_photo_path(resource)  
+  - if can? :destroy, Photo and photos.any? 
+    = link_to "Odstrani fotografijo", photos.last, :method => :delete, :confirm => destroy_confirmation(photos.last)
+    
+  - if can? :create, Wine
+    = link_to "Dodaj vino", new_recipe_recipe_wine_path(resource)
+  - if can? :destroy, RecipeWine and recipe_wines.any?
+    = link_to "Odstrani vino", [resource, recipe_wines.last], :method => :delete, :confirm => destroy_confirmation(recipe_wines.last)
+    
+  = link_to "Prenesi pdf", recipe_path(resource, "pdf")
+
+#basic-info
+  - if resource.photos.any?
+    .photos
+      = link_to image_tag(resource.photos.last.photo.url(:big)), resource.photos.last.photo.url(:original)
+
+  #description-bar
+    - if resource.time_to_prepare.present?  
+      #time-to-prepare
+        .description Čas priprave
+        .value= distance_of_time_in_words(resource.time_to_prepare.minutes) if resource.time_to_prepare
+
+    - if resource.time_to_cook.present?  
+      #time-to-cook
+        .description Čas kuhanja
+        .value= distance_of_time_in_words(resource.time_to_cook.minutes) if resource.time_to_cook
+
+    - if resource.num_people.present?
+      #nr-of-people
+        .description Št. oseb
+        .value= link_to resource.num_people, by_number_of_people_recipes_path(:nr_of_people => resource.num_people)
+
+#related-info
+  - if resource.recipe_ingredients.any?
+    #ingredient-list
+      .description Sestvine
+      .value= ingredient_list(resource)
+
+  - if resource.recipe_kinds.any?  
+    #recipe-kinds
+      .description Vrste receptov
+      .value= recipe_kinds_link_list(resource)
+      
+  - if resource.wines.any?  
+    #recipe-wines
+      .description
+        = resource.recipe_wines.last.wine.author 
+        k jedi priporoča
+      .value= link_to resource.recipe_wines.last.wine, resource.recipe_wines.last.wine
+
+- if resource.summary.present?  
+  #summary
+    /.description Povzetek
+    .value= resource.summary
+
+- if resource.preparation.present?  
+  #preperation
+    .description Priprava
+    .value= resource.preparation
+
+- if resource.suggestion.present?  
+  #suggestion
+    .description Sugestije
+    .value= resource.suggestion
+
 = link_to_back

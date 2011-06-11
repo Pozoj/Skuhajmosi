@@ -1,0 +1,7 @@
+= title "Pregled uporabnikov"
+
+#resource-menu
+  - if can? :manage, User
+    = link_to "Dodaj uporabnika", new_resource_path
+
+= render "users/user", :collection => collection

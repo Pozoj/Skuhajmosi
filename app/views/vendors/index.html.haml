@@ -1,0 +1,7 @@
+= title "Ponudniki"
+
+#resource-menu
+  - if can? :create, Vendor
+    = link_to "Dodaj ponudnika", new_resource_path
+
+= collection_list_renderer(collection)

@@ -1,0 +1,10 @@
+= simple_form_for resource do |f|
+  = f.input :name
+  = f.input :quantity
+  = f.association :unit, :prompt => "Izberite enoto"
+  = f.input :product_code
+  = f.association :ingredient, :prompt => "Izberite sestavino"
+  = f.association :product_firm, :prompt => "Izberite proizvajalca"
+  
+  
+  = f.button :submit

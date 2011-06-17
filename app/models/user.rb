@@ -28,14 +28,19 @@ class User < ActiveRecord::Base
     new_record? or not password.blank?
   end
   
-  def full_name
-    if first_name and last_name
-      "#{first_name} #{last_name}"
-    elsif first_name
-      first_name
-    else
-      "User##{id}"
+  class << self
+    def external_authors
+      external_author_user_kind = UserKind.external_author_user_kind
+      if external_author_user_kind.present?
+        self.all.reject {|user| user.user_kind != external_author_user_kind } 
+      else 
+        []
+      end
     end
+  end
+  
+  def full_name
+    "#{first_name} #{last_name}"
   end
   
   def access_rights

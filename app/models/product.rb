@@ -10,8 +10,10 @@ class Product < ActiveRecord::Base
   validates_presence_of :product_firm
   validates_presence_of :ingredient
   
+  default_scope order("name ASC")
+  
   def quantity_title
-    unit.short_name.present? ? quantity.to_s + unit.short_name : quantity.to_s + unit.name
+    unit.short_name.present? ? quantity.to_s + " " + unit.short_name : quantity.to_s + " " + unit.name
   end
   
   def to_s

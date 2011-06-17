@@ -24,4 +24,8 @@ describe Unit do
     unit.should validate_numericality_of :denominator
   end
   
+  it "should return name when to_s is called" do
+    subject.to_s.should == subject.name
+  end
+  
 end

@@ -1,0 +1,7 @@
+= title "Vrste zunanjih vsebin"
+
+#resource-menu
+  - if can? :create, RecipeKind
+    = link_to "Dodaj zunanjo vsebino", new_resource_path
+  
+= collection_list_renderer(collection)

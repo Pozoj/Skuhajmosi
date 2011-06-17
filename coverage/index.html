@@ -1,0 +1,906 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <title>Skuhajmo C0 Coverage Information - RCov</title>
+    <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="print.css" media="print" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="rcov.js"></script>
+  </head>
+  <body>
+    <h1>Skuhajmo C0 Coverage Information - RCov</h1>
+    
+
+    <noscript><style type="text/css">.if_js { display:none; }</style></noscript>
+
+    <div class="filters if_js">
+      <fieldset>
+        <label>File Filter:</label>
+        <select id="file_filter" class="filter">
+          <option value="all_files">Show All</option>
+          <option value="app">app/</option><option value="controllers">controllers/</option><option value="helpers">helpers/</option><option value="models">models/</option>
+        </select>
+      </fieldset>
+      <fieldset>
+        <label>Code Coverage Threshold:</label>
+        <select id="coverage_filter" class="filter">
+          <option value="all_coverage">Show All</option>
+          <option value="10">&lt; 10% Coverage</option><option value="20">&lt; 20% Coverage</option><option value="30">&lt; 30% Coverage</option><option value="40">&lt; 40% Coverage</option><option value="50">&lt; 50% Coverage</option><option value="60">&lt; 60% Coverage</option><option value="70">&lt; 70% Coverage</option><option value="80">&lt; 80% Coverage</option><option value="90">&lt; 90% Coverage</option><option value="100">&lt; 100% Coverage</option>
+          <option value="110">= 100% Coverage</option>
+        </select>
+      </fieldset>
+    </div>
+    
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td class="left_align">TOTAL</td>
+            <td class='right_align'><tt>939</tt></td>
+            <td class='right_align'><tt>750</tt></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class=''>71.35%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:71px"></div>
+            <div class="uncovered" style="width:29px"></div>
+          </div></td>
+            <td class="left_align"><div class="percent_graph_legend"><tt class='coverage_total'>66.40%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:66px"></div>
+            <div class="uncovered" style="width:34px"></div>
+          </div></td>
+          </tr>
+        </tfoot>
+        <tbody>
+          
+            <tr class="all_files all_coverage 50 60 70 80 90 100 app controllers even">
+              <td class="left_align"><a href="app-controllers-access_rights_controller_rb.html">app/controllers/access_rights_controller.rb</a></td>
+              <td class='right_align'><tt>24</tt></td>
+              <td class='right_align'><tt>17</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>50.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:50px"></div>
+            <div class="uncovered" style="width:50px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>41.18%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:41px"></div>
+            <div class="uncovered" style="width:59px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 80 90 100 app controllers odd">
+              <td class="left_align"><a href="app-controllers-application_controller_rb.html">app/controllers/application_controller.rb</a></td>
+              <td class='right_align'><tt>33</tt></td>
+              <td class='right_align'><tt>26</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>75.76%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:76px"></div>
+            <div class="uncovered" style="width:24px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>73.08%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:73px"></div>
+            <div class="uncovered" style="width:27px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers even">
+              <td class="left_align"><a href="app-controllers-ingredient_groups_controller_rb.html">app/controllers/ingredient_groups_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers odd">
+              <td class="left_align"><a href="app-controllers-ingredients_controller_rb.html">app/controllers/ingredients_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 30 40 50 60 70 80 90 100 app controllers even">
+              <td class="left_align"><a href="app-controllers-photos_controller_rb.html">app/controllers/photos_controller.rb</a></td>
+              <td class='right_align'><tt>64</tt></td>
+              <td class='right_align'><tt>38</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>51.56%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:52px"></div>
+            <div class="uncovered" style="width:48px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>21.05%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:21px"></div>
+            <div class="uncovered" style="width:79px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers odd">
+              <td class="left_align"><a href="app-controllers-product_firms_controller_rb.html">app/controllers/product_firms_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers even">
+              <td class="left_align"><a href="app-controllers-products_controller_rb.html">app/controllers/products_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 50 60 70 80 90 100 app controllers odd">
+              <td class="left_align"><a href="app-controllers-recipe_ingredients_controller_rb.html">app/controllers/recipe_ingredients_controller.rb</a></td>
+              <td class='right_align'><tt>17</tt></td>
+              <td class='right_align'><tt>13</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>52.94%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:53px"></div>
+            <div class="uncovered" style="width:47px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>46.15%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:46px"></div>
+            <div class="uncovered" style="width:54px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers even">
+              <td class="left_align"><a href="app-controllers-recipe_kinds_controller_rb.html">app/controllers/recipe_kinds_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 50 60 70 80 90 100 app controllers odd">
+              <td class="left_align"><a href="app-controllers-recipe_wines_controller_rb.html">app/controllers/recipe_wines_controller.rb</a></td>
+              <td class='right_align'><tt>17</tt></td>
+              <td class='right_align'><tt>13</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>52.94%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:53px"></div>
+            <div class="uncovered" style="width:47px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>46.15%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:46px"></div>
+            <div class="uncovered" style="width:54px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 30 40 50 60 70 80 90 100 app controllers even">
+              <td class="left_align"><a href="app-controllers-recipes_controller_rb.html">app/controllers/recipes_controller.rb</a></td>
+              <td class='right_align'><tt>27</tt></td>
+              <td class='right_align'><tt>23</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>37.04%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:37px"></div>
+            <div class="uncovered" style="width:63px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>26.09%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:26px"></div>
+            <div class="uncovered" style="width:74px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers odd">
+              <td class="left_align"><a href="app-controllers-sessions_controller_rb.html">app/controllers/sessions_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers even">
+              <td class="left_align"><a href="app-controllers-units_controller_rb.html">app/controllers/units_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers odd">
+              <td class="left_align"><a href="app-controllers-user_kinds_controller_rb.html">app/controllers/user_kinds_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers even">
+              <td class="left_align"><a href="app-controllers-users_controller_rb.html">app/controllers/users_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app controllers odd">
+              <td class="left_align"><a href="app-controllers-vendors_controller_rb.html">app/controllers/vendors_controller.rb</a></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class='right_align'><tt>3</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 60 70 80 90 100 app controllers even">
+              <td class="left_align"><a href="app-controllers-wine_colors_controller_rb.html">app/controllers/wine_colors_controller.rb</a></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class='right_align'><tt>6</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>50.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:50px"></div>
+            <div class="uncovered" style="width:50px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>50.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:50px"></div>
+            <div class="uncovered" style="width:50px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 60 70 80 90 100 app controllers odd">
+              <td class="left_align"><a href="app-controllers-wine_groups_controller_rb.html">app/controllers/wine_groups_controller.rb</a></td>
+              <td class='right_align'><tt>7</tt></td>
+              <td class='right_align'><tt>6</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>57.14%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:57px"></div>
+            <div class="uncovered" style="width:43px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>50.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:50px"></div>
+            <div class="uncovered" style="width:50px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 60 70 80 90 100 app controllers even">
+              <td class="left_align"><a href="app-controllers-wine_kinds_controller_rb.html">app/controllers/wine_kinds_controller.rb</a></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class='right_align'><tt>6</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>50.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:50px"></div>
+            <div class="uncovered" style="width:50px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>50.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:50px"></div>
+            <div class="uncovered" style="width:50px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 40 50 60 70 80 90 100 app controllers odd">
+              <td class="left_align"><a href="app-controllers-wines_controller_rb.html">app/controllers/wines_controller.rb</a></td>
+              <td class='right_align'><tt>16</tt></td>
+              <td class='right_align'><tt>12</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>37.50%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:38px"></div>
+            <div class="uncovered" style="width:62px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>33.33%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:33px"></div>
+            <div class="uncovered" style="width:67px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 50 60 70 80 90 100 app helpers even">
+              <td class="left_align"><a href="app-helpers-application_helper_rb.html">app/helpers/application_helper.rb</a></td>
+              <td class='right_align'><tt>24</tt></td>
+              <td class='right_align'><tt>21</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>54.17%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:54px"></div>
+            <div class="uncovered" style="width:46px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>47.62%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:48px"></div>
+            <div class="uncovered" style="width:52px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 40 50 60 70 80 90 100 app helpers odd">
+              <td class="left_align"><a href="app-helpers-layout_helper_rb.html">app/helpers/layout_helper.rb</a></td>
+              <td class='right_align'><tt>43</tt></td>
+              <td class='right_align'><tt>36</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>46.51%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:47px"></div>
+            <div class="uncovered" style="width:53px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>38.89%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:39px"></div>
+            <div class="uncovered" style="width:61px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 30 40 50 60 70 80 90 100 app helpers even">
+              <td class="left_align"><a href="app-helpers-link_helper_rb.html">app/helpers/link_helper.rb</a></td>
+              <td class='right_align'><tt>93</tt></td>
+              <td class='right_align'><tt>70</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>40.86%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:41px"></div>
+            <div class="uncovered" style="width:59px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>22.86%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:23px"></div>
+            <div class="uncovered" style="width:77px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 50 60 70 80 90 100 app helpers odd">
+              <td class="left_align"><a href="app-helpers-product_firms_helper_rb.html">app/helpers/product_firms_helper.rb</a></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>40.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:40px"></div>
+            <div class="uncovered" style="width:60px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>40.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:40px"></div>
+            <div class="uncovered" style="width:60px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 20 30 40 50 60 70 80 90 100 app helpers even">
+              <td class="left_align"><a href="app-helpers-recipes_helper_rb.html">app/helpers/recipes_helper.rb</a></td>
+              <td class='right_align'><tt>37</tt></td>
+              <td class='right_align'><tt>31</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>29.73%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:30px"></div>
+            <div class="uncovered" style="width:70px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>19.35%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:19px"></div>
+            <div class="uncovered" style="width:81px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 50 60 70 80 90 100 app helpers odd">
+              <td class="left_align"><a href="app-helpers-wines_helper_rb.html">app/helpers/wines_helper.rb</a></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>40.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:40px"></div>
+            <div class="uncovered" style="width:60px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>40.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:40px"></div>
+            <div class="uncovered" style="width:60px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 100 app models even">
+              <td class="left_align"><a href="app-models-ability_rb.html">app/models/ability.rb</a></td>
+              <td class='right_align'><tt>24</tt></td>
+              <td class='right_align'><tt>22</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>95.83%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:96px"></div>
+            <div class="uncovered" style="width:4px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>95.45%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:95px"></div>
+            <div class="uncovered" style="width:5px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-access_right_rb.html">app/models/access_right.rb</a></td>
+              <td class='right_align'><tt>92</tt></td>
+              <td class='right_align'><tt>72</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-external_content_rb.html">app/models/external_content.rb</a></td>
+              <td class='right_align'><tt>6</tt></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-external_content_kind_rb.html">app/models/external_content_kind.rb</a></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class='right_align'><tt>4</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-ingredient_rb.html">app/models/ingredient.rb</a></td>
+              <td class='right_align'><tt>12</tt></td>
+              <td class='right_align'><tt>11</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-ingredient_group_rb.html">app/models/ingredient_group.rb</a></td>
+              <td class='right_align'><tt>9</tt></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 40 50 60 70 80 90 100 app models even">
+              <td class="left_align"><a href="app-models-pdf_rb.html">app/models/pdf.rb</a></td>
+              <td class='right_align'><tt>66</tt></td>
+              <td class='right_align'><tt>55</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>36.36%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:36px"></div>
+            <div class="uncovered" style="width:64px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>30.91%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:31px"></div>
+            <div class="uncovered" style="width:69px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-photo_rb.html">app/models/photo.rb</a></td>
+              <td class='right_align'><tt>21</tt></td>
+              <td class='right_align'><tt>16</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-product_rb.html">app/models/product.rb</a></td>
+              <td class='right_align'><tt>20</tt></td>
+              <td class='right_align'><tt>17</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-product_firm_rb.html">app/models/product_firm.rb</a></td>
+              <td class='right_align'><tt>9</tt></td>
+              <td class='right_align'><tt>7</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-recipe_rb.html">app/models/recipe.rb</a></td>
+              <td class='right_align'><tt>25</tt></td>
+              <td class='right_align'><tt>22</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-recipe_author_rb.html">app/models/recipe_author.rb</a></td>
+              <td class='right_align'><tt>6</tt></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-recipe_ingredient_rb.html">app/models/recipe_ingredient.rb</a></td>
+              <td class='right_align'><tt>21</tt></td>
+              <td class='right_align'><tt>17</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-recipe_kind_rb.html">app/models/recipe_kind.rb</a></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class='right_align'><tt>7</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-recipe_source_rb.html">app/models/recipe_source.rb</a></td>
+              <td class='right_align'><tt>7</tt></td>
+              <td class='right_align'><tt>6</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-recipe_wine_rb.html">app/models/recipe_wine.rb</a></td>
+              <td class='right_align'><tt>4</tt></td>
+              <td class='right_align'><tt>4</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-unit_rb.html">app/models/unit.rb</a></td>
+              <td class='right_align'><tt>11</tt></td>
+              <td class='right_align'><tt>10</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-user_rb.html">app/models/user.rb</a></td>
+              <td class='right_align'><tt>42</tt></td>
+              <td class='right_align'><tt>29</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-user_kind_rb.html">app/models/user_kind.rb</a></td>
+              <td class='right_align'><tt>21</tt></td>
+              <td class='right_align'><tt>17</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-vendor_rb.html">app/models/vendor.rb</a></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class='right_align'><tt>7</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-vendors_product_rb.html">app/models/vendors_product.rb</a></td>
+              <td class='right_align'><tt>7</tt></td>
+              <td class='right_align'><tt>5</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-wine_rb.html">app/models/wine.rb</a></td>
+              <td class='right_align'><tt>27</tt></td>
+              <td class='right_align'><tt>22</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-wine_color_rb.html">app/models/wine_color.rb</a></td>
+              <td class='right_align'><tt>10</tt></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models odd">
+              <td class="left_align"><a href="app-models-wine_group_rb.html">app/models/wine_group.rb</a></td>
+              <td class='right_align'><tt>10</tt></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+            <tr class="all_files all_coverage 110 app models even">
+              <td class="left_align"><a href="app-models-wine_kind_rb.html">app/models/wine_kind.rb</a></td>
+              <td class='right_align'><tt>10</tt></td>
+              <td class='right_align'><tt>8</tt></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+              <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
+          <div class="percent_graph">
+            <div class="covered" style="width:100px"></div>
+            <div class="uncovered" style="width:0px"></div>
+          </div></td>
+            </tr>
+          
+        </tbody>
+      </table>
+    </div>
+    
+    <p>Generated on Mon Jun 13 19:32:21 +0200 2011 with <a href="http://github.com/relevance/rcov">rcov 0.9.8</a></p>
+
+    <script type="text/javascript">
+      $(document).ready(function(){$("#report_table").tablesorter({widgets: ['zebra'], textExtraction: 'complex'});});
+      $('.filter').change(function(){
+        ff = $('#file_filter').val();
+        cf = $('#coverage_filter').val();
+        $('table#report_table tbody tr').each(function(i){ 
+          if ((this.className.split(" ").indexOf(ff) > -1) && (this.className.split(" ").indexOf(cf) > -1)) {
+            this.style.display = "";
+          } else {
+            this.style.display = "none";
+          };
+          restripe();
+        })
+      })
+    </script>
+
+  </body>
+</html>

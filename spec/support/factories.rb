@@ -3,6 +3,15 @@ Factory.define :access_right do |f|
   f.user_kind_right "manageRecipe"
 end
 
+Factory.define :external_content do |f|
+  f.name "Delo"
+  f.title "Na danasnji dan ga trgamo."
+end
+
+Factory.define :external_content_kind do |f|
+  f.name "Revija"
+end
+
 Factory.define :ingredient do |f|
   f.name "Korencek"
 end

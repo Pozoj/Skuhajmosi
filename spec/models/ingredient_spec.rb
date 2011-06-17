@@ -9,4 +9,8 @@ describe Ingredient do
   it { should have_many(:recipes).through(:recipe_ingredients) }
   it { should validate_presence_of(:name) }
   it { should have_many(:photos)}
+  
+  it "should return name when to_s is called" do
+    subject.to_s.should == subject.name
+  end
 end

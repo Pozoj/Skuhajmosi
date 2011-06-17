@@ -1,0 +1,14 @@
+= simple_form_for [parent, resource], :html => {:multipart => true} do |f|
+  = f.association :author, :collection => @external_authors
+  = f.input :name
+  = f.input :title
+  = f.input :content
+  = f.input :url_title
+  = f.input :url
+  = f.input :photo
+  .input.optional
+    - if resource.photo.file?
+      %label= t("existing_image")
+      = image_tag resource.photo.url(:small)
+  = f.submit
+  

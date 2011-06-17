@@ -16,6 +16,6 @@ class RecipeIngredient < ActiveRecord::Base
   end
   
   def info
-    [ingredient, ": #{quantity} #{unit.short_name}"]
+    [ingredient, ": #{quantity} #{ unit.short_name.present? ? unit.short_name : unit.name }"]
   end
 end

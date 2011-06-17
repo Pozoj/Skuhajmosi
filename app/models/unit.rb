@@ -5,6 +5,8 @@ class Unit < ActiveRecord::Base
   validates_presence_of :denominator, :if => Proc.new {|unit| unit.convertable == true }
   validates_numericality_of :denominator, :if => Proc.new {|unit| unit.convertable == true }
   
+  default_scope order("name ASC")
+  
   def to_s
     name
   end

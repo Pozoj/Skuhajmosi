@@ -4,7 +4,13 @@ App::Application.routes.draw do
   
   resources :access_rights, :only => [:destroy, :edit, :update]
   
-  resources :ingredient_groups, :product_firms, :products, :stores, :units, :user_kinds, :users, :vendors, :wines, :wine_groups, :wine_kinds, :wine_colors
+  resources :ingredient_groups, :product_firms, :products, :stores, :units, :user_kinds, :users, :vendors, :wines, :wine_groups, :wine_kinds, :wine_colors, :external_content_kinds, :externals
+  
+  resources :external_content_kinds do
+    resources :external_contents
+  end
+  
+  resources :external_contents
   
   resources :ingredient_groups do
     resources :photos, :only => [:new, :create]

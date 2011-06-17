@@ -18,13 +18,26 @@
         %li= link_to "Vrste receptov", recipe_kinds_path
         %li= link_to "Sestavine", ingredients_path
         %li= link_to "Skupine sestavin", ingredient_groups_path
-        %li= link_to "Enote", units_path
         %li= link_to "Izdelki", products_path
         %li= link_to "Proizvajalci", product_firms_path
         %li= link_to "Ponudniki", vendors_path
-        - if can?(:manage, [User, UserKind, AccessRight])
+        - if can?(:manage, [Unit, User, UserKind, AccessRight, ExternalContentKind])
+          %li= link_to "Enote", units_path
+          %li= link_to "Vrste zunanjih vsebin", external_content_kinds_path
           %li= link_to "Vrste uporabnikov", user_kinds_path
           %li= link_to "Uporabniki", users_path
+        
+      %ul#submenu
+        - if ExternalContentKind.all.any?
+          - for content_kind in ExternalContentKind.all
+            - if content_kind.external_contents.any?
+              %strong= content_kind
+              %ul
+                - for content in content_kind.external_contents
+                  %li= link_to content, external_path(content)
+                  
+          
+          
         
       
       #current_user

@@ -17,6 +17,7 @@ gem 'newrelic_rpm'
 gem 'i18n-js'
 gem "prawn", "0.8.4"
 gem "prawnto"
+gem "RedCloth", "~> 4.2.7"
 #gem 'pdf_renderer', :path => "vendor/plugins/pdf_renderer"
 
 group :development, :test do
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'faker'
   gem 'cucumber'
   gem 'shoulda'
+  gem 'rcov'
   gem 'rspec-rails', "~> 2.6.0"
   gem 'mocha'
 end

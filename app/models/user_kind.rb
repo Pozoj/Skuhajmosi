@@ -5,9 +5,15 @@ class UserKind < ActiveRecord::Base
   validates_presence_of :name
   validates_uniqueness_of :name
   
+  EXTERNAL_AUTHOR_KIND_NAME = "Zunanji"
+  
   class << self
     def kinds
       self.all.collect {|uk| uk.to_sym }
+    end
+    
+    def external_author_user_kind
+      self.find_by_name(EXTERNAL_AUTHOR_KIND_NAME)
     end
   end
   

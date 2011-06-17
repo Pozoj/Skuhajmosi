@@ -18,5 +18,14 @@ describe Recipe do
   it { should validate_numericality_of :num_people }
   it { should validate_numericality_of :time_to_prepare }
   it { should validate_numericality_of :time_to_cook }
+  
+  it "should return name when to_s is called" do
+    subject.to_s.should == subject.name
+  end
+  
+  it "should return an array with the given recipe" do
+    recipe = Factory :recipe, :num_people => 4
+    Recipe.by_nr_of_people(4).should == [recipe]
+  end
     
 end

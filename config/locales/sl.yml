@@ -103,10 +103,16 @@ sl:
       vendor: "Ponudnik"
       access_right: "Pravica dostopa"
       wine: "Vino"
+      external_content: "Zunanje vsebine"
       
     attributes:
       access_right:
         user_kind_right: "Pravica dostopa"
+        
+      external_content:
+        content: "Vsebina"
+        url_title: "Naziv spletnega naslova"
+        url: "Spletni naslov"
       ingredient_group:
         name: "Naziv skupine sestavin"
       ingredient:

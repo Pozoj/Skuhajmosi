@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe ExternalContentKind do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { Factory :external_content_kind }
+  
+  it { should be_valid }
+  it { should have_many :external_contents }
+  it { should validate_presence_of :name }
 end

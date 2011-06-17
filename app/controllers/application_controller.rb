@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   def admin?
     current_user and current_user.admin
   end
-  
+      
   def body_attrs
     klass = controller_name
     klass += " signed_out" unless current_user

@@ -1,0 +1,25 @@
+= title resource
+
+#resource-menu
+  - if can? :update, resource and current_user_is_the_author?(resource)
+    = link_to "Uredi objavo", edit_resource_path
+
+#basic-info  
+  %h2= resource.title
+  
+  - if resource.photo.file?
+    .photo
+      = link_to image_tag(resource.photo.url(:medium)), resource.photo.url(:original)
+      
+  = resource.content_to_html
+      
+#related-info
+  - if resource.author
+    .field
+      .description Avtor
+      .value= resource.author
+      
+  - if resource.url_title and resource.url
+    .field
+      .description Zunanja povezava
+      .value= link_to resource.url_title, resource.url

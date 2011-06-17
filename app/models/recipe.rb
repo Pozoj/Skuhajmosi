@@ -13,6 +13,8 @@ class Recipe < ActiveRecord::Base
   validates_numericality_of :time_to_prepare, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_prepare.nil? }
   validates_numericality_of :time_to_cook, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_cook.nil? }
   
+  default_scope order("name ASC")
+  
   class << self
     def by_nr_of_people(nr_of_people)
       where(:num_people => nr_of_people)

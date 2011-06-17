@@ -16,14 +16,20 @@ class AccessRight < ActiveRecord::Base
     IngredientGroup => "skupine sestavin", 
     Photo => "fotografije",
     Product => "izdelke",
-    ProductFirm => "proizvajalce receptov", 
+    ProductFirm => "proizvajalce produktov", 
     Recipe => "recepte", 
     RecipeKind => "vrste receptov", 
     Unit => "enote",
-    Vendor => "ponudnike"
+    Vendor => "ponudnike",
+    ExternalContent => "zunanje vsebine"
   }
   
-  USELESS_RIGHTS = [ {:title => "Lahko ureja fotografije", :value => [ :update, Photo ]} ]
+  USELESS_RIGHTS = [ 
+    {:value => [:update,  Photo], :title => "Lahko ureja fotografije" },
+    {:value => [:create,  ExternalContent], :title => "Lahko ustvarja zunanje vsebine"},
+    {:value => [:manage,  ExternalContent], :title => "Lahko upravlja zunanje vsebine"},
+    {:value => [:destroy, ExternalContent], :title => "Lahko briše zunanje vsebine"} 
+  ]
   
   #Returns an array of hashes representing every needed premeision on accessible classes
   # Returned hash looks like this:
@@ -36,7 +42,7 @@ class AccessRight < ActiveRecord::Base
         all_rights << { :title => rv + ' ' + mv, :value => [rk, mk] } 
       end
     end
-    all_rights - USELESS_RIGHTS
+    (all_rights - USELESS_RIGHTS).sort_by {|hash| hash[:title] }
   end
   
   def user_kind_right

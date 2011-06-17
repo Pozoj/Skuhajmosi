@@ -1,0 +1,16 @@
+= form_tag external_path(resource), :html => {:multipart => true }, :method => :put do
+  = simple_fields_for resource do |f|
+    = f.association :author, :as => :hidden
+    = f.association :external_content_kind, :as => :hidden
+    = f.input :title
+    = f.input :content
+    = f.input :url_title
+    = f.input :url
+    = f.input :photo
+    .input.optional
+      - if resource.photo.file?
+        %label= t("existing_image")
+        = image_tag resource.photo.url(:small)
+        
+        - # TODO ADD CHECK BOX FOR DESTRUCTION
+    = f.submit

@@ -21,6 +21,14 @@ class Recipe < ActiveRecord::Base
     end
   end
   
+  def number_of_calories
+    recipe_ingredients.each.sum {|ri| ri.ingredient.calories * (ri.quantity / ri.unit.denominator ) if ri.unit.denominator and ri.ingredient.calories }
+  end
+  
+  def calculated_ingredients
+    recipe_ingredients.reject {|ri|  ri.unit.denominator.nil? or ri.ingredient.calories.nil? }.collect {|ri| ri.ingredient }
+  end
+  
   def to_s
     name
   end

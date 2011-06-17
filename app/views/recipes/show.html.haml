@@ -59,6 +59,16 @@
       .description Vrste receptov
       .value= recipe_kinds_link_list(resource)
       
+
+  - if resource.calculated_ingredients.any?
+    #calories-description
+      .description= "Število kalorij je preračunano iz slednjih sestavin:"
+      .value= array_to_link_list(resource.calculated_ingredients)
+    
+    #calories-calculation
+      .description= "Število kalorij:"
+      .value= "#{resource.number_of_calories} kcal"
+
   - if resource.wines.any?  
     #recipe-wines
       .description

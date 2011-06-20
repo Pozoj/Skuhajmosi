@@ -24,4 +24,16 @@ class RecipesController < InheritedResources::Base
       format.pdf { render :pdf => resource, :filename => "#{resource.to_s}.pdf", :type => "application/pdf", :page_size => 'A4' }
     end
   end
+  
+  
+  protected
+  
+  def collection
+    unless params[:search].blank?
+      @recipes = Recipe.search(params[:search])
+    else
+      @recipes = Recipe.all
+    end
+  end
+  
 end

@@ -19,6 +19,19 @@ class Recipe < ActiveRecord::Base
     def by_nr_of_people(nr_of_people)
       where(:num_people => nr_of_people)
     end
+    
+    def search(search)
+      if search #for recipes
+        recipe_query = self.where('name LIKE ?', "%#{search}%")
+        if recipe_query.any?
+          recipe_query
+        else #search for ingredient, return recipes ingredients
+          Ingredient.recipes_by_ingredient_search(search)
+        end
+      else
+        scoped
+      end
+    end
   end
   
   def number_of_calories

@@ -1,5 +1,4 @@
 App::Application.routes.draw do
-
   devise_for :users, :controllers => { :sessions => "sessions" }
   
   resources :access_rights, :only => [:destroy, :edit, :update]
@@ -47,5 +46,7 @@ App::Application.routes.draw do
     resources :photos, :only => [:new, :create]
   end
   
-  root :to => "recipes#index"
+  match "home/index", :to => "home#index"
+  
+  root :to => "home#index"
 end

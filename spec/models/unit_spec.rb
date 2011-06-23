@@ -7,16 +7,18 @@ describe Unit do
   it { should validate_presence_of(:name) }
   
   it "should not validate presence of denominator when the unit is not convertable" do
-    subject.should_not validate_presence_of(:denominator)
+    u = Factory :unit, :convertable => false
+    u.should_not validate_presence_of :denominator
+  end
+  
+  it "should not validate denominators numericallity when the unit is not convertable" do
+    u = Factory :unit, :convertable => false
+    u.should_not validate_numericality_of :denominator
   end
 
   it "should validate presence of denominator when the unit is convertable" do
     unit = Factory :unit, :convertable => true
     unit.should validate_presence_of(:denominator)
-  end
-  
-  it "should not validate denominators numericallity when the unit is not convertable" do
-    subject.should_not validate_numericality_of :denominator
   end
   
   it "should validate numericallity of denominator when the unit is convertable" do

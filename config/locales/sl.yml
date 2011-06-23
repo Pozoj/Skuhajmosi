@@ -118,6 +118,8 @@ sl:
       ingredient:
         name: "Naziv sestavine"
         calories: "Št. kalorij na 100g"
+        price_for_weight_in_grams: "Cena v €"
+        weight_in_grams: "na težo v gramih"
       product:
         ingredient: "Sestavina"
         product_firm: "Proizvajalec"
@@ -139,6 +141,7 @@ sl:
         notes: "Zapisek"
         ingredient: "Sestavina"
         unit: "Enota"
+        weight_in_grams: "Teža v gramih"
       unit:
         name: "Naziv enote"
         short_name: "Kratek naziv"
@@ -227,8 +230,9 @@ sl:
        format:
          # These three are to override number.format and are optional
          # separator:
-         delimiter: ""
-         # precision:
+         separator: ","
+         delimiter: "."
+         precision: 2
    
      # Used in number_to_human_size()
      human:

@@ -9,7 +9,7 @@ class Recipe < ActiveRecord::Base
   has_many :wines, :through => :recipe_wines
   
   validates_presence_of :name, :author
-  validates_numericality_of :num_people, :greater_than_or_equal_to => 1, :only_integer => true, :if => Proc.new { |recipe| not recipe.num_people.nil? }
+  validates_numericality_of :num_people, :greater_than_or_equal_to => 1, :only_integer => true
   validates_numericality_of :time_to_prepare, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_prepare.nil? }
   validates_numericality_of :time_to_cook, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_cook.nil? }
   
@@ -34,12 +34,21 @@ class Recipe < ActiveRecord::Base
     end
   end
   
-  def number_of_calories
-    recipe_ingredients.each.sum {|ri| ri.ingredient.calories * (ri.quantity / ri.unit.denominator ) if ri.unit.denominator and ri.ingredient.calories }
+  def number_of_kcal_per_meal
+    kcal_per_recipe = recipe_ingredients.each.sum do |recipe_ingredient|
+      calories_per_gram = recipe_ingredient.ingredient.calories / 100 
+      kilograms_of_ingredient = recipe_ingredient.calculated_weight_in_grams / 1000
+      (calories_per_gram * kilograms_of_ingredient)   #kcal
+    end
+    kcal_per_recipe / num_people
   end
   
   def calculated_ingredients
     recipe_ingredients.reject {|ri|  ri.unit.denominator.nil? or ri.ingredient.calories.nil? }.collect {|ri| ri.ingredient }
+  end
+  
+  def calculated_price
+    recipe_ingredients.map(&:price).sum
   end
   
   def to_s

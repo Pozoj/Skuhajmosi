@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616082617) do
+ActiveRecord::Schema.define(:version => 20110621132933) do
 
   create_table "access_rights", :force => true do |t|
     t.integer  "user_kind_id"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(:version => 20110616082617) do
     t.integer  "calories"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "price_for_weight_in_grams", :precision => 8,  :scale => 2, :default => 0.0
+    t.decimal  "weight_in_grams",           :precision => 10, :scale => 5, :default => 0.0
   end
 
   create_table "photos", :force => true do |t|
@@ -101,10 +103,11 @@ ActiveRecord::Schema.define(:version => 20110616082617) do
     t.integer  "recipe_id"
     t.integer  "ingredient_id"
     t.integer  "unit_id"
-    t.decimal  "quantity",             :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "quantity",             :precision => 8,  :scale => 2, :default => 0.0
     t.string   "quantity_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.decimal  "weight_in_grams",      :precision => 10, :scale => 5, :default => 0.0
   end
 
   create_table "recipe_kinds", :force => true do |t|

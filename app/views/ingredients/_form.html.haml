@@ -9,4 +9,7 @@
         = check_box_tag "ingredient[ingredient_group_ids][]", ingredient_group.id, resource.ingredient_group_ids.include?(ingredient_group.id)
         = ingredient_group
   
+  %p
+    = f.input :price_for_weight_in_grams
+    = f.input :weight_in_grams
   = f.button :submit

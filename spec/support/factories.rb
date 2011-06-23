@@ -14,6 +14,8 @@ end
 
 Factory.define :ingredient do |f|
   f.name "Korencek"
+  f.price_for_weight_in_grams BigDecimal("1")
+  f.weight_in_grams BigDecimal("2")
 end
 
 Factory.define :ingredient_group do |f|
@@ -40,6 +42,7 @@ end
 Factory.define :recipe do |f|
   f.name "Piscanec v kozji omaki"
   f.association :author, :factory => :user
+  f.num_people 4
 end
 
 Factory.define :recipe_author do |f|
@@ -53,6 +56,7 @@ Factory.define :recipe_ingredient do |f|
   f.association :ingredient
   f.association :unit
   f.quantity 40
+  f.weight_in_grams 0 
 end
 
 Factory.define :recipe_kind do |f|
@@ -73,6 +77,7 @@ Factory.define :unit do |f|
   f.name "gram"
   f.short_name "g"
   f.denominator 1000
+  f.convertable true
 end
 
 Factory.define :user do |f|

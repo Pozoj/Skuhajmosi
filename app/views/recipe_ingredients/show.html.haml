@@ -21,6 +21,6 @@
     .field
       .description Jedi, ki vsebujejo sestavino
       .value
-        %ul= render resource.ingredient.recipes
+        %ul= render resource.ingredient.recipes.uniq
   
 = link_to_back parent_path

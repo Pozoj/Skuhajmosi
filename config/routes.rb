@@ -34,6 +34,7 @@ App::Application.routes.draw do
     resources :recipe_wines, :except => [:index]
     resources :photos, :only => [:new, :create]
     collection do
+      match "advanced_search" => "recipes#advanced_search"
       get :by_number_of_people
     end
   end

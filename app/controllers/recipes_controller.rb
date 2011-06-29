@@ -1,5 +1,7 @@
 class RecipesController < InheritedResources::Base
   load_and_authorize_resource
+  skip_load_resource :only => [:advanced_search]
+  impressionist :actions => [:show]
   
   def index
     index! do |format|
@@ -25,12 +27,17 @@ class RecipesController < InheritedResources::Base
     end
   end
   
+  def advanced_search
+    render "recipes/index"
+  end
   
   protected
   
   def collection
-    unless params[:search].blank?
+    if params[:search].present?
       @recipes = Recipe.search(params[:search])
+    elsif params[:specifics].present?
+      @recipes = Recipe.advanced_search(params)
     else
       @recipes = Recipe.all
     end

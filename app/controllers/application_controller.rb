@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   helper_method :body_attrs, :admin?
   before_filter :authenticate_user!, :except => [:index, :show]
   before_filter :export_i18n_messages
-  protect_from_forgery
   
   # Cancan
   check_authorization

@@ -1,2 +1,8 @@
-<h1>Dobrodošli na spletno stran skuhajmo.si</h1>
-<p>Peter bo v kratkem naštudiral, kaj se bo prikazalo in kako se bo prikazalo na tej strani.</p>
+<h1>Dobrodošli</h1>
+= render "common/advanced_search"
+
+- if @top_5_recipes.any?
+  %section#top-five-recipes
+    %h3 Najbolj obiskani recepti
+    %ul
+      = render @top_5_recipes

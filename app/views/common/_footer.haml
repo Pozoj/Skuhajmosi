@@ -1,0 +1,10 @@
+%footer
+  %nav#submenu
+    - if ExternalContentKind.all.any?
+      - for content_kind in ExternalContentKind.all
+        - if content_kind.external_contents.any?
+          %h3= content_kind
+          %ul
+            - for content in content_kind.external_contents
+              %li= link_to content, external_path(content)
+  %p &copy; Pozoj d.o.o.

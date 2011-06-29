@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+  is_impressionable
   belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   has_one :recipe_source
   has_many :recipe_ingredients
@@ -31,6 +32,49 @@ class Recipe < ActiveRecord::Base
       else
         scoped
       end
+    end
+    
+    def advanced_search(params)
+      nr_of_people, min_price, max_price, min_kcal, max_kcal = self.load_params_for_advanced_search(params)
+      query = self.scoped
+      query = query.by_nr_of_people(nr_of_people) if nr_of_people > 0
+      query = query.where(:id => self.ids_between_values(min_price, max_price, { :subject => :price })) if min_price > 0 or max_price > 0
+      query = query.where(:id => self.ids_between_values(min_kcal,  max_kcal,  { :subject => :kcal  })) if min_kcal  > 0 or max_kcal  > 0
+      query
+    end
+    
+    def load_params_for_advanced_search(params)
+      if params[:specifics].present?
+        [params[:specifics][:nr_of_people].to_i, BigDecimal(params[:specifics][:min_price]), BigDecimal(params[:specifics][:max_price]), BigDecimal(params[:specifics][:min_kcal]), BigDecimal(params[:specifics][:max_kcal])]
+      else
+        [0, BigDecimal("0"), BigDecimal("0"), BigDecimal("0"), BigDecimal("0")]
+      end
+    end
+    
+    def ids_between_values(min_value, max_value, options = {:subject => :placeholder} )
+      matching_recipes = []
+      if [:price, :kcal].include?(options[:subject])
+        if min_value > max_value
+          tmp = min_value
+          min_value = max_value
+          max_value = tmp
+        end
+      
+        if options[:subject] == :price
+          if min_value > 0
+            matching_recipes = self.all.reject {|recipe| (min_value..max_value).include?(recipe.calculated_price) == false }
+          else
+            matching_recipes = self.all.reject {|recipe| recipe.calculated_price < max_value  }
+          end
+        else
+          if min_value > 0
+            matching_recipes = self.all.reject {|recipe| (min_value..max_value).include?(recipe.number_of_kcal_per_meal) == false }
+          else
+            matching_recipes = self.all.reject {|recipe| recipe.number_of_kcal_per_meal < max_value  }
+          end
+        end   
+      end
+      matching_recipes.collect(&:id)
     end
   end
   

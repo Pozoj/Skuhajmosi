@@ -18,6 +18,7 @@ gem 'i18n-js'
 gem "prawn", "0.8.4"
 gem "prawnto"
 gem "RedCloth", "~> 4.2.7"
+gem "impressionist"
 #gem 'pdf_renderer', :path => "vendor/plugins/pdf_renderer"
 
 group :development, :test do

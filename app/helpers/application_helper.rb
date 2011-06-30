@@ -15,7 +15,7 @@ module ApplicationHelper
   end
   
   def collection_list_renderer(collection)
-    if collection.any?
+    if Array(collection).any?
       content_tag(:div, content_tag(:ul, render(collection)), :class => "collection-list")
     else
       tag("div", :class => "collection-list")

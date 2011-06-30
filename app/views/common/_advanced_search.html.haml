@@ -1,0 +1,19 @@
+%section#advanced-search
+  %h2 Napredno iskanje
+  = form_tag recipes_path, :method => 'get' do
+    %p
+      Kaj kuhati za
+      = text_field :specifics, :nr_of_people, { :type => :search }
+      oseb?
+    %p
+      Naj bo cena med
+      = text_field :specifics, :min_price, { :type => :search }
+      in
+      = text_field :specifics, :max_price, { :type => :search }
+    %p
+      Kcal naj bo med
+      = text_field :specifics, :min_kcal, { :type => :search }
+      in
+      = text_field :specifics, :max_kcal, { :type => :search }
+      
+    = submit_tag "Išči"

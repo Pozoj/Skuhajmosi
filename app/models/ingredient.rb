@@ -10,35 +10,30 @@ class Ingredient < ActiveRecord::Base
     
   default_scope order("name ASC")
   
+  FAIL_SEARCH_MESSAGE = "Žal iskane sestavine ne moremo najti. Na voljo so slednje sestavine."
+  NOTHING_ENTERED_MESSAGE = "Kaj iščete? Na voljo so slednje sestavine."
+  
   class << self
-    def search(search)
-      if search #for ingredients
-        ingredient_query = self.where('name LIKE ?', "%#{search}%")
+    def search(params)
+      query = params[:search][:ingredient] if params[:search][:ingredient]
+      if query 
+        ingredient_query = self.where("name LIKE ?", "%#{query}%")
         if ingredient_query.any?
-          ingredient_query
+          count = ingredient_query.length
+          return [ ingredient_query, self.build_message(count) ]
+        else
+          return [ scoped, FAIL_SEARCH_MESSAGE ]
         end
       else
-        scoped
+        return [ scoped, NOTHING_ENTERED_MESSAGE ]
       end
     end
     
-    def recipes_by_ingredient_search(search)
-      ingredient_query = self.where('name LIKE ?', "%#{search}%")
-      if ingredient_query.any?
-        recipes = []
-        for ingredient in ingredient_query
-          recipes << ingredient.recipes
-        end
-        if recipes.any?
-          recipes.flatten.uniq.sort_by {|r| r.name }
-        else
-          Recipe.scoped
-        end
-      else
-        Recipe.scoped
-      end
+    def build_message(count)
+      "Našli smo #{count} #{ case count; when 1 : "sestavino"; when 2 : "sestavini"; when 3..4 : "sestavine"; else "sestavin"; end }."
     end
-  end
+     
+  end #class << self
   
   def price_per_gram
     price_for_weight_in_grams / weight_in_grams

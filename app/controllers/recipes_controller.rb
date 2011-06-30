@@ -1,6 +1,6 @@
 class RecipesController < InheritedResources::Base
   load_and_authorize_resource
-  skip_load_resource :only => [:advanced_search]
+  skip_authorization_check :only => [:index, :advanced_search]
   impressionist :actions => [:show]
   
   def index
@@ -35,12 +35,13 @@ class RecipesController < InheritedResources::Base
   
   def collection
     if params[:search].present?
-      @recipes = Recipe.search(params[:search])
+      @recipes, flash.now[:notice] = Recipe.search(params)
     elsif params[:specifics].present?
-      @recipes = Recipe.advanced_search(params)
+      @recipes, flash.now[:notice] = Recipe.advanced_search(params)
     else
       @recipes = Recipe.all
     end
+    @recipes
   end
   
 end

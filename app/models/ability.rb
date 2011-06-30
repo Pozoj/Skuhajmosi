@@ -4,9 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new
         
-    if user.admin?
+    if user.admin? # User is an admin
       can :manage, :all
-    elsif user and user.user_kind and user.access_rights.any?
+    elsif user and user.user_kind and user.access_rights.any? # User has defined access rights
       external_author_user_kind = UserKind.external_author_user_kind
       can :read, :all
       cannot :read, [AccessRight, UserKind, User]
@@ -17,7 +17,7 @@ class Ability
           can access_right.rights_sym, access_right.models_class_name
         end
       end
-    else
+    else # User is a visitor
       can :read, :all
       cannot :read, [AccessRight, UserKind, User]
       cannot :destroy, [Photo, Recipe]

@@ -4,10 +4,6 @@
   - if can? :create, Ingredient
     = link_to "Dodaj sestavino", new_resource_path
 
-#search
-  = form_tag ingredients_path, :method => 'get' do
-    %p
-      = text_field_tag :search, params[:search]
-      = submit_tag "Poišči sestavino", :name => nil
+= render "common/ingredient_search"
       
 = collection_list_renderer(collection)

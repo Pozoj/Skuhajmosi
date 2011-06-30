@@ -1,0 +1,6 @@
+%section#recipe-search
+  %h2 Iskanje recepta
+  = form_tag recipes_path, :method => 'get' do
+    %p
+      = text_field :search, :recipe, { :type => :search }
+      = submit_tag "Išči", :name => nil

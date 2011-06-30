@@ -16,7 +16,7 @@ class PhotosController < ApplicationController
     @holder = find_holder
     @photo = @holder.photos.build(params[:photo])
     if @photo.save
-      flash[:notice] = "Fotografija je bila uspešno dodana."
+      flash.now[:notice] = "Fotografija je bila uspešno dodana."
       redirect_to @holder
     else
       render :action => 'new'
@@ -27,7 +27,7 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
     @holder = @photo.holder
     @photo.destroy
-    flash[:notice] = "Uspešno ste izbrisali fotografijo."
+    flash.now[:notice] = "Uspešno ste izbrisali fotografijo."
     
     redirect_to @holder
   end
@@ -44,7 +44,7 @@ class PhotosController < ApplicationController
   # def update
   #   @photo = Photo.find(params[:id])
   #   if @photo.update_attributes(params[:photo])
-  #     flash[:notice] = "Fotografija je bila uspešno posodobljena."
+  #     flash.now[:notice] = "Fotografija je bila uspešno posodobljena."
   #     redirect_to @photo
   #   else
   #     render :action => 'edit'

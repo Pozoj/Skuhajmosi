@@ -5,9 +5,11 @@ class IngredientsController < InheritedResources::Base
   
   def collection
     unless params[:search].blank?
-      @ingredients = Ingredient.search(params[:search])
+      @ingredients, flash.now[:notice] = Ingredient.search(params)
     else
       @ingredients = Ingredient.all
     end
+    @ingredients
   end
+  
 end

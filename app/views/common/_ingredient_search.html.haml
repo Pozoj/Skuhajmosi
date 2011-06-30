@@ -1,0 +1,6 @@
+%section#ingredient-search
+  %h2 Iskanje sestavine
+  = form_tag ingredients_path, :method => 'get' do
+    %p
+      = text_field :search, :ingredient, { :type => :search }
+      = submit_tag "Išči"

@@ -1,12 +1,15 @@
 = title resource
 
-#resource-menu
-  - if can? :update, resource
-    = link_to "Uredi skupino sestavin", edit_resource_path
-  - if can? :destroy, resource
-    = link_to "Odstrani skupino sestavin", resource, :method => :delete, :confirm => destroy_confirmation(resource)
-  - if can? :create, Photo
-    = link_to "Dodaj fotografijo", new_ingredient_group_photo_path(resource)
+- if can?(:update, resource) or can?(:destroy, resource) or can?(:create, Photo)
+  %nav#editors-resource-menu
+    %ul        
+      - if can? :update, resource
+        %li= link_to "Uredi skupino sestavin", edit_resource_path
+      - if can? :destroy, resource
+        %li= link_to "Odstrani skupino sestavin", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+      - if can? :create, Photo
+        %li= link_to "Dodaj fotografijo", new_ingredient_group_photo_path(resource)
+    
 
 #basic-info
   = render "common/photo", :resource => resource

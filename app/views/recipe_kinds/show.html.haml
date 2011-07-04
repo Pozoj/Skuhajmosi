@@ -1,12 +1,14 @@
 = title resource
 
-#resource-menu
-  - if can? :update, RecipeKind
-    = link_to "Uredi vrsto recepta", edit_recipe_kind_path(resource)
-  - if can? :destroy, RecipeKind
-    = link_to "Odstrani vrsto recepta", recipe_kind_path(resource), :method => :delete, :confirm => destroy_confirmation(resource)
-  - if can? :create, Photo
-    = link_to "Dodaj fotografijo", new_recipe_kind_photo_path(resource)
+- if can?(:update, RecipeKind) or can?(:destroy, RecipeKind) or can?(:create, Photo)
+  %nav#editors-resource-menu
+    %ul
+      - if can? :update, RecipeKind
+        %li= link_to "Uredi vrsto recepta", edit_recipe_kind_path(resource)
+      - if can? :destroy, RecipeKind
+        %li= link_to "Odstrani vrsto recepta", recipe_kind_path(resource), :method => :delete, :confirm => destroy_confirmation(resource)
+      - if can? :create, Photo
+        %li= link_to "Dodaj fotografijo", new_recipe_kind_photo_path(resource)
 
 #basic-info
   = render "common/photo", :resource => resource

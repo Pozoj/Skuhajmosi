@@ -1,9 +1,12 @@
 = title "Pregled sestavine recepta"
 
-#resource-menu
-  - if can? :manage, resource
-    = link_to "Uredi sestavino", edit_resource_path
-    = link_to "Odstrani sestavino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)
+- if can?(:update, resource) or can?(:destroy, resource)
+  %nav#editors-resource-menu
+    %ul
+      - if can? :update, resource
+        %li= link_to "Uredi sestavino", edit_resource_path
+      - if can? :destroy, resource
+        %li= link_to "Odstrani sestavino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)    
 
 #basic-info
   - unless resource.ingredient.photos.empty?

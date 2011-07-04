@@ -1,10 +1,13 @@
 = title resource
 
 #resource-menu
-  - if can? :update, resource
-    = link_to "Uredi enoto", edit_resource_path
-  - if can? :destroy, resource
-    = link_to "Odstrani enoto", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+- if can?(:update, resource) or can?(:destroy, resource)
+  %nav#editors-resource-menu
+    %ul
+      - if can? :update, resource
+        %li= link_to "Uredi enoto", edit_resource_path
+      - if can? :destroy, resource
+        %li= link_to "Odstrani enoto", resource, :method => :delete, :confirm => destroy_confirmation(resource)
 
 .field
   .description Dolgo ime

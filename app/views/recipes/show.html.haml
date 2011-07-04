@@ -4,28 +4,29 @@
   .value= resource.author.full_name
   .authors_picture= render "common/small_photo_link", :resource => resource.author
 
-#resource-menu
-  - recipe_wines = resource.recipe_wines.order(:id).all
-  - photos = resource.photos.order(:id).all 
+- if can?(:update, Recipe) or can?(:destroy, Recipe) or can?(:create, Ingredient) or can?(:create, Photo) or can?(:destroy, Photo) or can?(:create, Wine) or (can?(:destroy, RecipeWine) and recipe_wines.any?)
+  %nav#editors-resource-menu
+    %ul
+      - recipe_wines = resource.recipe_wines.order(:id).all
+      - photos = resource.photos.order(:id).all 
+      - if can? :update, Recipe
+        %li= link_to "Uredi recept", edit_resource_path
+      - if can? :destroy, Recipe
+        %li= link_to "Odstrani recept", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
+      - if can? :create, Ingredient
+        %li= link_to "Dodaj sestavino", new_recipe_recipe_ingredient_path(resource)
+      - if can? :create, Photo
+        %li= link_to "Dodaj fotografijo", new_recipe_photo_path(resource)  
+      - if can? :destroy, Photo and photos.any? 
+        %li= link_to "Odstrani fotografijo", photos.last, :method => :delete, :confirm => destroy_confirmation(photos.last)
+      - if can? :create, Wine
+        %li= link_to "Dodaj vino", new_recipe_recipe_wine_path(resource)
+      - if can? :destroy, RecipeWine and recipe_wines.any?
+        %li= link_to "Odstrani vino", [resource, recipe_wines.last], :method => :delete, :confirm => destroy_confirmation(recipe_wines.last)
   
-  - if can? :update, Recipe
-    = link_to "Uredi recept", edit_resource_path
-  - if can? :destroy, Recipe
-    = link_to "Odstrani recept", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
-  - if can? :create, Ingredient
-    = link_to "Dodaj sestavino", new_recipe_recipe_ingredient_path(resource)
-  
-  - if can? :create, Photo
-    = link_to "Dodaj fotografijo", new_recipe_photo_path(resource)  
-  - if can? :destroy, Photo and photos.any? 
-    = link_to "Odstrani fotografijo", photos.last, :method => :delete, :confirm => destroy_confirmation(photos.last)
-    
-  - if can? :create, Wine
-    = link_to "Dodaj vino", new_recipe_recipe_wine_path(resource)
-  - if can? :destroy, RecipeWine and recipe_wines.any?
-    = link_to "Odstrani vino", [resource, recipe_wines.last], :method => :delete, :confirm => destroy_confirmation(recipe_wines.last)
-    
-  = link_to "Prenesi pdf", recipe_path(resource, "pdf")
+%nav#resource-menu
+  %ul
+    %li= link_to "Prenesi pdf", recipe_path(resource, "pdf")
 
 #basic-info
   - if resource.photos.any?

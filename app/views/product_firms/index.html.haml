@@ -1,7 +1,8 @@
 = title "Proizvajalci"
 
-#resource-menu
-  - if can? :create, ProductFirm
-    = link_to "Dodaj proizvajalca", new_resource_path
+- if can? :create, ProductFirm
+  %nav#editors-resource-menu
+    %ul
+      %li= link_to "Dodaj proizvajalca", new_resource_path
 
 = collection_list_renderer(collection)

@@ -1,8 +1,9 @@
 = title resource
 
-#resource-menu
-  - if can? :update, resource and current_user_is_the_author?(resource)
-    = link_to "Uredi objavo", edit_resource_path
+- if can? :update, resource and current_user_is_the_author?(resource)
+  %nav#editors-resource-menu
+    %ul
+      %li= link_to "Uredi objavo", edit_resource_path
 
 #basic-info  
   %h2= resource.title

@@ -1,10 +1,13 @@
 = title "Recepti"
 
-#resource-menu
-  - if can? :create, Recipe
-    = link_to "Dodaj recept", new_resource_path
+- if can? :create, Recipe
+  %nav#editors-resource-menu
+    %ul
+      %li= link_to "Dodaj recept", new_resource_path
     
-  = link_to "Prenesi pdf", recipes_path("pdf")  
+%nav#resource-menu
+  %ul
+    %li= link_to "Prenesi pdf", recipes_path("pdf")  
 
 = render "common/recipe_search"
 

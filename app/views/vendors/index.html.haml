@@ -1,7 +1,8 @@
 = title "Ponudniki"
 
-#resource-menu
-  - if can? :create, Vendor
-    = link_to "Dodaj ponudnika", new_resource_path
+- if can? :create, Vendor
+  %nav#editors-resource-menu
+    %ul
+      %li= link_to "Dodaj ponudnika", new_resource_path
 
 = collection_list_renderer(collection)

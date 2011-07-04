@@ -1,12 +1,14 @@
 = title resource
 
-#resource-menu
-  - if can? :update, RecipeKind
-    = link_to "Uredi vrsto vsebin", edit_external_content_kind_path(resource)
-  - if can? :destroy, RecipeKind
-    = link_to "Odstrani vrsto vsebin", external_content_kind_path(resource), :method => :delete, :confirm => destroy_confirmation(resource)
-  - if can? :create, ExternalContent
-    = link_to "Dodaj vsebino", new_external_content_kind_external_content_path(resource)
+- if can?(:update, RecipeKind) or can?(:destroy, RecipeKind) or can?(:create, ExternalContent)
+  %nav#editors-resource-menu
+    %ul
+      - if can? :update, RecipeKind
+        %li= link_to "Uredi vrsto vsebin", edit_external_content_kind_path(resource)
+      - if can? :destroy, RecipeKind
+        %li= link_to "Odstrani vrsto vsebin", external_content_kind_path(resource), :method => :delete, :confirm => destroy_confirmation(resource)
+      - if can? :create, ExternalContent
+        %li= link_to "Dodaj vsebino", new_external_content_kind_external_content_path(resource)
 
 #related-info          
   = external_contents_link_list(resource)

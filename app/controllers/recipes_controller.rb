@@ -1,6 +1,5 @@
 class RecipesController < InheritedResources::Base
   load_and_authorize_resource
-  skip_authorization_check :only => [:index, :advanced_search]
   impressionist :actions => [:show]
   
   def index

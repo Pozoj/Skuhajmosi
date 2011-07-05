@@ -122,8 +122,10 @@ class Recipe < ActiveRecord::Base
     # Searches for recipes by number of people
     #
     def by_nr_of_people(nr_of_people)
-      where(:num_people => nr_of_people)
+      recipes_by_nr_of_people = where(:num_people => nr_of_people).order(:name)
+      [ recipes_by_nr_of_people, self.build_message(recipes_by_nr_of_people.size) ] 
     end
+    
   end #class << self
   
   # Returns number of calories of a single meal

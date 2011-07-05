@@ -1,0 +1,21 @@
+- if can?(:update, Recipe) or can?(:destroy, Recipe) or can?(:create, Ingredient) or can?(:create, Photo) or can?(:create, Wine) or can?(:destroy, RecipeWine) or can?(:destroy, Photo)
+  %nav#editors-resource-menu
+    %ul 
+      - if can? :update, Recipe
+        %li= link_to "Uredi recept", edit_resource_path
+      - if can? :destroy, Recipe
+        %li= link_to "Odstrani recept", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
+      - if can? :create, Ingredient
+        %li= link_to "Dodaj sestavino", new_recipe_recipe_ingredient_path(resource)
+      - if can? :create, Photo and not @recipe_info.photos_added?
+        %li= link_to "Dodaj fotografijo", new_recipe_photo_path(resource)  
+      - if can? :destroy, Photo and @recipe_info.photos_added?
+        %li= link_to "Odstrani fotografijo", @recipe_info.photo, :method => :delete, :confirm => destroy_confirmation(@recipe_info.photo)
+      - if can? :create, Wine and not @recipe_info.wines_added?
+        %li= link_to "Dodaj vino", new_recipe_recipe_wine_path(resource)
+      - if can? :destroy, RecipeWine and @recipe_info.wines_added?
+        %li= link_to "Odstrani vino", [resource, @recipe_info.wine], :method => :delete, :confirm => destroy_confirmation(@recipe_info.wine)
+
+%nav#resource-menu
+  %ul
+    %li= link_to "Prenesi pdf", recipe_path(resource, "pdf")

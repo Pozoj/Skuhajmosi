@@ -25,7 +25,7 @@ describe Recipe do
   
   it "should return an array with the given recipe" do
     recipe = Factory :recipe, :num_people => 4
-    Recipe.by_nr_of_people(4).should == [recipe]
+    Recipe.by_nr_of_people(4).should == [[recipe], "Našli smo 1 recept."]
   end
   
   it "should return correct calculation of calories" do

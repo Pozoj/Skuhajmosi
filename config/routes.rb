@@ -33,9 +33,6 @@ App::Application.routes.draw do
     resources :recipe_ingredients, :except => [:index]
     resources :recipe_wines, :except => [:index]
     resources :photos, :only => [:new, :create]
-    collection do
-      get :by_number_of_people
-    end
   end
     
   resources :user_kinds do

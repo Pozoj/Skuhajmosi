@@ -1,93 +1,27 @@
 = title resource
+
 #author
   .description Avtor
-  .value= resource.author.full_name
-  .authors_picture= render "common/small_photo_link", :resource => resource.author
+  .value= @recipe_info.authors_full_name
+  .authors_picture= render "common/small_photo_link", :resource => @recipe_info.author
 
-- if can?(:update, Recipe) or can?(:destroy, Recipe) or can?(:create, Ingredient) or can?(:create, Photo) or can?(:destroy, Photo) or can?(:create, Wine) or (can?(:destroy, RecipeWine) and recipe_wines.any?)
-  %nav#editors-resource-menu
-    %ul
-      - recipe_wines = resource.recipe_wines.order(:id).all
-      - photos = resource.photos.order(:id).all 
-      - if can? :update, Recipe
-        %li= link_to "Uredi recept", edit_resource_path
-      - if can? :destroy, Recipe
-        %li= link_to "Odstrani recept", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
-      - if can? :create, Ingredient
-        %li= link_to "Dodaj sestavino", new_recipe_recipe_ingredient_path(resource)
-      - if can? :create, Photo
-        %li= link_to "Dodaj fotografijo", new_recipe_photo_path(resource)  
-      - if can? :destroy, Photo and photos.any? 
-        %li= link_to "Odstrani fotografijo", photos.last, :method => :delete, :confirm => destroy_confirmation(photos.last)
-      - if can? :create, Wine
-        %li= link_to "Dodaj vino", new_recipe_recipe_wine_path(resource)
-      - if can? :destroy, RecipeWine and recipe_wines.any?
-        %li= link_to "Odstrani vino", [resource, recipe_wines.last], :method => :delete, :confirm => destroy_confirmation(recipe_wines.last)
-  
-%nav#resource-menu
-  %ul
-    %li= link_to "Prenesi pdf", recipe_path(resource, "pdf")
+= render "navigation"
+= render "basic_info"
+= render "related_info"
 
-#basic-info
-  - if resource.photos.any?
-    .photos
-      = link_to image_tag(resource.photos.last.photo.url(:big)), resource.photos.last.photo.url(:original)
-
-  #description-bar
-    - if resource.time_to_prepare.present?  
-      #time-to-prepare
-        .description Čas priprave
-        .value= distance_of_time_in_words(resource.time_to_prepare.minutes) if resource.time_to_prepare
-
-    - if resource.time_to_cook.present?  
-      #time-to-cook
-        .description Čas kuhanja
-        .value= distance_of_time_in_words(resource.time_to_cook.minutes) if resource.time_to_cook
-
-    - if resource.num_people.present?
-      #nr-of-people
-        .description Št. oseb
-        .value= link_to resource.num_people, by_number_of_people_recipes_path(:nr_of_people => resource.num_people)
-
-#related-info
-  - if resource.recipe_ingredients.any?
-    #ingredient-list
-      .description Sestvine
-      .value= ingredient_list(resource)
-
-  - if resource.recipe_kinds.any?  
-    #recipe-kinds
-      .description Vrste receptov
-      .value= recipe_kinds_link_list(resource)
-      
-  #calories-calculation
-    .description Število kalorij
-    .value= "#{number_with_precision resource.number_of_kcal_per_meal, :precision => 3} kcal/osebo"
-      
-  #price-calculation
-    .description= "Cena recepta"
-    .value= number_to_currency(resource.calculated_price, :precision => 2)
-  
-  - if resource.wines.any?  
-    #recipe-wines
-      .description
-        = resource.recipe_wines.last.wine.author 
-        k jedi priporoča
-      .value= link_to resource.recipe_wines.last.wine, resource.recipe_wines.last.wine
-
-- if resource.summary.present?  
+- if @recipe_info.summary.present?  
   #summary
     /.description Povzetek
-    .value= resource.summary
+    .value= @recipe_info.summary
 
-- if resource.preparation.present?  
+- if @recipe_info.preparation.present?  
   #preperation
     .description Priprava
-    .value= resource.preparation
+    .value= @recipe_info.preparation
 
-- if resource.suggestion.present?  
+- if @recipe_info.suggestion.present?  
   #suggestion
     .description Sugestije
-    .value= resource.suggestion
+    .value= @recipe_info.suggestion
 
 = link_to_back

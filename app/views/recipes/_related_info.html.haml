@@ -1,0 +1,25 @@
+#related-info
+  - if resource.recipe_ingredients.any?
+    #ingredient-list
+      .description Sestvine
+      .value= ingredient_list(@recipe_info.recipe)
+
+  - if resource.recipe_kinds.any?  
+    #recipe-kinds
+      .description Vrste receptov
+      .value= recipe_kinds_link_list(@recipe_info.recipe)
+      
+  #calories-calculation
+    .description Število kalorij
+    .value= @recipe_info.calories_per_meal
+      
+  #price-calculation
+    .description= "Cena recepta"
+    .value= @recipe_info.price
+  
+  - if @recipe_info.wines_added?  
+    #recipe-wines
+      .description
+        = @recipe_info.wine_author
+        k jedi priporoča
+      .value= link_to @recipe_info.wine.wine, @recipe_info.wine.wine

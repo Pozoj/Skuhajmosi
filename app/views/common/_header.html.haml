@@ -8,39 +8,10 @@
     %li= link_to "Recepti", recipes_path
     %li= link_to "Vina", wines_path
     %li= link_to "Sestavine", ingredients_path
-    %li Šola kuhanja
-    %li Zdravo
-    %li EKO
-    %li Nostalgija
-    %li Dobre gostilne
+    %li= link_to "Šola kuhanja", "#"
+    %li= link_to "Zdravo", "#"
+    %li= link_to "EKO", "#"
+    %li= link_to "Nostalgija", "#"
+    %li= link_to "Dobre gostilne", "#"
     
 %br.clear
-  
-- if [RecipeKind, IngredientGroup, Product, ProductFirm, Vendor, Unit, ExternalContentKind, AccessRight].collect {|m| can?(:manage, m)}.include?(true)
-  %nav#admin_menu
-    %ul
-      - if can? :manage, RecipeKind
-        %li= link_to "Vrste receptov", recipe_kinds_path
-      - if can? :manage, IngredientGroup
-        %li= link_to "Skupine sestavin", ingredient_groups_path
-      - if can? :manage, Product
-        %li= link_to "Izdelki", products_path
-      - if can? :manage, ProductFirm
-        %li= link_to "Proizvajalci", product_firms_path
-      - if can? :manage, Vendor
-        %li= link_to "Ponudniki", vendors_path
-      - if can? :manage, Unit
-        %li= link_to "Enote", units_path
-      - if can? :manage, ExternalContentKind
-        %li= link_to "Vrste zunanjih vsebin", external_content_kinds_path
-      - if can? :manage, [User, AccessRight]
-        %li= link_to "Uporabniki", users_path
-    
-
-- if user_signed_in?
-  #current-user
-    Prijavljen
-    = current_user
-    = link_to "(Odjava)", destroy_user_session_path
-- else
-  = link_to "", new_user_session_path, :id => "sign-in"

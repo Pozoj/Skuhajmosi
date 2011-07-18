@@ -13,6 +13,7 @@
       = render "common/header"
     #main.wrapper
       = render "common/flash", :flash => flash
+      = render "common/signed_in_nav"
       = yield
-      %br.clear
+    %br.clear
     = render "common/footer"

@@ -92,7 +92,7 @@ body{
 }
 
 #header-container{
-	background:url(/system/page_photos/header.jpg) repeat-x center;
+	background:url(/images/header.jpg) repeat-x center;
 	height:114px;
 
 
@@ -119,7 +119,7 @@ h2, h3{
 }
 
 #title{
-	background:url(/system/page_photos/logo.png) no-repeat;
+	background:url(/images/logo.png) no-repeat;
 	width:384px;
 	height:96ppx;
 	font-size: 55px;
@@ -539,7 +539,7 @@ hr{
 		width:700px;
 		height:3px;
 		display:block;
-		background:url(/system/page_photos/hr.jpg) no-repeat center;
+		background:url(/images/hr.jpg) no-repeat center;
 		border:none;
 	}
 	
@@ -549,7 +549,7 @@ hr{
 #footer-container{
 
 	/*background-color:#f3f3f3;*/
-	background:url(/system/page_photos/footer.jpg) repeat center;
+	background:url(/images/footer.jpg) repeat center;
 	height:240px;
 
 	border-top:15px solid #222;

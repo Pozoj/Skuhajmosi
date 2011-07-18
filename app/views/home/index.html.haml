@@ -1,7 +1,3 @@
-<h1>Dobrodošli</h1>
-%aside
-  = render "common/advanced_search"
-  
 %section
   = render "common/recipe_search"
 
@@ -11,7 +7,7 @@
       %article
         - if recipe.photos.any?
           = image_tag(recipe.photos.first.photo.url(:big), :class => "recipe_pic")
-      
+    
         %header
           = link_to recipe.short_name, recipe_path(recipe), :class => "recipe_title"
           %p.recipe_summary= recipe.summary
@@ -22,3 +18,6 @@
             %li.time_to_prepare= distance_of_time_in_words(recipe.time_to_prepare.minutes)
             %li.cooking_time= distance_of_time_in_words(recipe.time_to_cook.minutes)
             %li.calories= "#{number_with_precision recipe.number_of_kcal_per_meal, :precision => 3} kcal/osebo"
+            
+%aside
+  = render "common/advanced_search"

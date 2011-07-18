@@ -10,7 +10,8 @@ class Recipe < ActiveRecord::Base
   has_many :recipe_wines
   has_many :wines, :through => :recipe_wines
   
-  validates_presence_of :name
+  validates_presence_of :name, :short_name, :num_people, :summary, :preparation, :suggestion, :time_to_prepare, :time_to_cook, :status_id
+  
   validates_numericality_of :num_people, :greater_than_or_equal_to => 1, :only_integer => true
   validates_numericality_of :time_to_prepare, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_prepare.nil? }
   validates_numericality_of :time_to_cook, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_cook.nil? }

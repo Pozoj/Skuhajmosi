@@ -9,7 +9,7 @@ class Popular < Impression
     def recipes
       page_view_oredered_recipes = []
       for recipe_id in self.five_recipe_ids_ordered_by_pageviews.collect(&:impressionable_id)
-        page_view_oredered_recipes << Recipe.find(recipe_id)
+        page_view_oredered_recipes << Recipe.find_by_id(recipe_id)
       end
       page_view_oredered_recipes
     end

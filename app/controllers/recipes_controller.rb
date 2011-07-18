@@ -11,7 +11,7 @@ class RecipesController < InheritedResources::Base
   
   def new
     @recipe = Recipe.new
-    @recipe.author = current_user
+    append_original_recipe
   end
   
   def by_number_of_people
@@ -33,6 +33,17 @@ class RecipesController < InheritedResources::Base
   end
   
   protected
+  
+  def append_original_recipe
+    @recipe.original = OriginalRecipe.find_by_id(params[:original_id]) if params[:original_id]
+    if og = @recipe.original
+      @recipe.name        = og.name
+      @recipe.num_people  = og.num_people
+      @recipe.summary     = og.summary
+      @recipe.preparation = og.preparation
+      @recipe.suggestion  = og.suggestion
+    end
+  end
   
   def collection
     if params[:nr_of_people].present?

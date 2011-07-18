@@ -1,6 +1,6 @@
 Factory.define :access_right do |f|
-  f.association :user_kind
   f.user_kind_right "manageRecipe"
+  f.user_kind_id "worker"
 end
 
 Factory.define :external_content do |f|
@@ -41,8 +41,16 @@ end
 
 Factory.define :recipe do |f|
   f.name "Piscanec v kozji omaki"
-  f.association :author, :factory => :user
   f.num_people 4
+end
+
+Factory.define :original_recipe do |f|
+  f.authors_name "Zdravko Čolić"
+  f.authors_email "cola_do_bola@gmail.com"
+  f.name "Prazen testis s krompirjem"
+  f.num_people 4
+  f.preparation "Treba je poprazit testis, spect mal krompirja in to je to."
+  f.ingredients "Testis 100g, Ena zlicka olja"
 end
 
 Factory.define :recipe_author do |f|
@@ -86,11 +94,7 @@ Factory.define :user do |f|
   f.sequence(:email) { |n| "lojze.slak#{n}@skuhajmo.si" }
   f.password "SimonTalek"
   f.password_confirmation "SimonTalek"
-  f.association :user_kind
-end
-
-Factory.define :user_kind do |f|
-  f.sequence(:name) { |n| "adminstrator_#{n}" }
+  f.user_kind_id "worker"
 end
 
 Factory.define :vendor do |f|

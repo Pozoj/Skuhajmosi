@@ -4,7 +4,6 @@ describe AccessRight do
   subject { Factory :access_right }
   
   it { should be_valid }  
-  it { should belong_to(:user_kind) }
   
   it "should return these proper rights" do
     AccessRight.all_rights.sort_by {|hash| hash[:title] }.should == [

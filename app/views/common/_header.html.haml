@@ -12,7 +12,7 @@
       %li Nostalgija
       %li Dobre gostilne
   
-  - if [RecipeKind, IngredientGroup, Product, ProductFirm, Vendor, Unit, ExternalContentKind, UserKind, AccessRight].collect {|m| can?(:manage, m)}.include?(true)
+  - if [RecipeKind, IngredientGroup, Product, ProductFirm, Vendor, Unit, ExternalContentKind, AccessRight].collect {|m| can?(:manage, m)}.include?(true)
     %nav#admin_menu
       %ul
         - if can? :manage, RecipeKind
@@ -29,10 +29,12 @@
           %li= link_to "Enote", units_path
         - if can? :manage, ExternalContentKind
           %li= link_to "Vrste zunanjih vsebin", external_content_kinds_path
-        - if can? :manage, UserKind
-          %li= link_to "Vrste uporabnikov", user_kinds_path
+        / TODO: check out
+        / %li= link_to "Vrste uporabnikov", user_kinds_path
         - if can? :manage, [User, AccessRight]
           %li= link_to "Uporabniki", users_path
+    
+  #add-recipe= link_to "Oddaj recept", new_original_recipe_path
     
   #current_user
     - if user_signed_in?

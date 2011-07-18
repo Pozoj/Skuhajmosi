@@ -1,19 +1,26 @@
 = simple_form_for resource do |f|
-  = f.input :name
-
+  - if resource.original.present?
+    = render "with_original_form", :f => f, :og => resource.original  
+  - else
+    = f.input :name
+    = f.input :short_name
+    = f.input :num_people
+    = f.input :summary
+    = f.input :preparation
+    = f.input :suggestion
+    = f.input :time_to_prepare
+    = f.input :time_to_cook
+    
   %h3 Vrsta kuhinje  
   - RecipeKind.all.each do |recipe_kind|
     %p
       %label
         = check_box_tag "recipe[recipe_kind_ids][]", recipe_kind.id, resource.recipe_kind_ids.include?(recipe_kind.id)
         = recipe_kind
+        
+  #memo
+    = f.input :memo
   
-  = f.input :num_people
-  = f.input :summary
-  = f.input :preparation
-  = f.input :suggestion
-  = f.input :time_to_prepare
-  = f.input :time_to_cook
-  = f.input :author_id, :as => :hidden
+  = f.input :status_id, :as => :select, :collection => RecipeStatus.all
 
   = f.button :submit

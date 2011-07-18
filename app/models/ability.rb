@@ -7,11 +7,10 @@ class Ability
     if user.admin? # User is an admin
       can :manage, :all
     elsif user and user.user_kind and user.access_rights.any? # User has defined access rights
-      external_author_user_kind = UserKind.external_author_user_kind
       can :read, :all
       cannot :read, [AccessRight, UserKind, User]
-      for access_right in user.user_kind.access_rights
-        if user.user_kind == external_author_user_kind and access_right.models_class_name == ExternalContent
+      for access_right in user.access_rights
+        if user.user_kind.external? and access_right.models_class_name == ExternalContent
           can access_right.rights_sym, access_right.models_class_name, :author_id => user.id
         else
           can access_right.rights_sym, access_right.models_class_name
@@ -19,7 +18,8 @@ class Ability
       end
     else # User is a visitor
       can :read, :all
-      cannot :read, [AccessRight, UserKind, User]
+      can :create, OriginalRecipe
+      cannot :read, [AccessRight, UserKind, User, OriginalRecipe]
       cannot :destroy, [Photo, Recipe]
       cannot :manage, AccessRight
       cannot :manage, UserKind

@@ -2,7 +2,7 @@ class RecipeInfo
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::NumberHelper
   
-  delegate :author, :recipe_wines, :photos, :time_to_prepare, :time_to_cook, :num_people, :recipe_ingredients, :recipe_kinds, :number_of_kcal_per_meal, :calculated_price, :summary, :preparation, :suggestion, :to => :recipe
+  delegate :recipe_wines, :photos, :time_to_prepare, :time_to_cook, :num_people, :recipe_ingredients, :recipe_kinds, :number_of_kcal_per_meal, :calculated_price, :summary, :preparation, :suggestion, :to => :recipe
   
   def initialize(params)
     @recipe = Recipe.find_by_id(params[:id])
@@ -12,9 +12,9 @@ class RecipeInfo
     @recipe
   end
   
-  def authors_full_name
-    author.full_name if author
-  end
+  # def authors_full_name
+  #   author.full_name if author
+  # end
     
   def photos_added?
     photos.any?

@@ -98,6 +98,7 @@ sl:
       unit: "Enota"
       user: "Uporabnik"
       user_kind: "Vrsta uporabnika"
+      original_recipe: "Uporabniško posredovan recept"
       product: "Izdelek"
       product_firm: "Podjetje izdelka"
       vendor: "Ponudnik"
@@ -120,6 +121,17 @@ sl:
         calories: "Št. kalorij na 100g"
         price_for_weight_in_grams: "Cena v €"
         weight_in_grams: "na težo v gramih"
+      original_recipe:
+        authors_name: "Vaše ime"
+        authors_email: "Vaš email"
+        name: "Naziv recepta"
+        num_people: "Število ljudi"
+        ingredients: "Sestavine s količinami"
+        summary: "Povzetek recepta"
+        preparation: "Priprava recepta"
+        suggestion: "Sugestije pri kuhanju"
+        time_to_prepare: "Čas priprave"
+        time_to_cook: "Čas kuhanja"
       product:
         ingredient: "Sestavina"
         product_firm: "Proizvajalec"
@@ -127,6 +139,7 @@ sl:
         unit: "Enota"
         quantity: "Količina"
       recipe:
+        short_name: "Kratek naziv recepta"
         name: "Naziv recepta"
         calories: "Število kalorij"
         num_people: "Število ljudi"
@@ -136,6 +149,7 @@ sl:
         suggestion: "Sugestije"
         time_to_prepare: "Čas priprave v minutah"
         time_to_cook: "Čas kuhanja v minutah"
+        memo: "Opombe"
       recipe_ingredient:
         quantity: "Količina"
         notes: "Zapisek"

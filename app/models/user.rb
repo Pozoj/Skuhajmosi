@@ -8,13 +8,13 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable
   
   has_many :photos, :as => :holder, :dependent => :destroy
-  has_many :recipes, :foreign_key => "author_id"
+  #has_many :recipes, :foreign_key => "author_id"
   has_many :external_contents, :foreign_key => "author_id"
-  belongs_to :user_kind
+  #belongs_to :user_kind
 
   validates_presence_of :first_name, :last_name, :email
   validates_uniqueness_of :email
-  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  validates_format_of :email, :with => Configuration::EMAIL_CHECK #/^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
   
   scope :admins, where(:admin => true)
   
@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
   
   def should_validate_password?
     new_record? or not password.blank?
+  end
+  
+  def user_kind
+    UserKind.find(user_kind_id)
   end
   
   class << self
@@ -44,7 +48,8 @@ class User < ActiveRecord::Base
   end
   
   def access_rights
-    return user_kind.access_rights if user_kind
+    return AccessRight.where(:user_kind_id => user_kind_id) if user_kind_id.present?
+    return []
   end
   
   def to_s

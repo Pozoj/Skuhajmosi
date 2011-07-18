@@ -19,6 +19,8 @@ App::Application.routes.draw do
     resources :photos, :only => [:new, :create]
   end
 
+  resources :original_recipes, :except => [:edit]
+  
   resources :photos, :only => [:destroy]
   
   resources :products do

@@ -1,5 +1,6 @@
 class AccessRight < ActiveRecord::Base
-  belongs_to :user_kind
+  #belongs_to :user_kind
+  
   validates_presence_of :user_kind_id, :name, :right
   validate :validate_selected_right
       

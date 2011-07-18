@@ -1,27 +1,64 @@
-class UserKind < ActiveRecord::Base
-  has_many :users
-  has_many :access_rights
+class UserKind 
+  attr_accessor :id, :title
+    
+  USER_KINDS = {
+    :external     => "Zunanji",
+    :worker       => "Delavec",
+    :master_cook  => "Mojster",
+    :lector       => "Lektor",
+    :firm         => "Podjetje",
+    :special      => "Posebnež",
+    :other        => "Dodatna vrsta"
+  }
   
-  validates_presence_of :name
-  validates_uniqueness_of :name
-  
-  EXTERNAL_AUTHOR_KIND_NAME = "Zunanji"
+  def initialize(options = {})
+    self.id = options[:id].to_sym if options[:id]
+    self.title = options[:title].to_s if options[:title]
+    return unless @id.present? and @title.present?
+  end
   
   class << self
-    def kinds
-      self.all.collect {|uk| uk.to_sym }
+    def find(id)
+      return unless id and USER_KINDS.include?(id.to_sym)
+      id = id.to_sym
+      self.new :id => id, :title => USER_KINDS[id]
     end
-    
-    def external_author_user_kind
-      self.find_by_name(EXTERNAL_AUTHOR_KIND_NAME)
+
+    def all
+      USER_KINDS.map { |array| self.new :id => array[0], :title => array[1] }
     end
+
+    def to_hash
+      USER_KINDS
+    end
+  end
+  
+  def external?
+    id == :external
+  end
+  
+  def worker?
+    id == :worker
+  end
+  
+  def master_cook?
+    id == :master_cook
+  end
+  
+  def lector?
+    id == :lector
+  end
+  
+  def firm?
+    id == :firm
+  end
+  
+  def other?
+    id == :other
   end
   
   def to_s
-    name
+    title
   end
-  
-  def to_sym
-    name.to_permalink.sub('-','_').to_sym
-  end
+
 end

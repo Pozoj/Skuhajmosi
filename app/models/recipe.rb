@@ -1,6 +1,7 @@
 class Recipe < ActiveRecord::Base
   is_impressionable
-  belongs_to :author, :class_name => "User", :foreign_key => "author_id"
+  #belongs_to :author, :class_name => "User", :foreign_key => "author_id"
+  belongs_to :original, :class_name => "OriginalRecipe", :foreign_key => "original_id"
   has_one :recipe_source
   has_many :recipe_ingredients
   has_many :ingredients, :through => :recipe_ingredients
@@ -9,12 +10,19 @@ class Recipe < ActiveRecord::Base
   has_many :recipe_wines
   has_many :wines, :through => :recipe_wines
   
-  validates_presence_of :name, :author
+  validates_presence_of :name
   validates_numericality_of :num_people, :greater_than_or_equal_to => 1, :only_integer => true
   validates_numericality_of :time_to_prepare, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_prepare.nil? }
   validates_numericality_of :time_to_cook, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_cook.nil? }
   
   default_scope order("name ASC")
+  
+  scope :treated, where(:status_id => "treated")
+  scope :master_treated, where(:status_id => "master_treated")
+  scope :lectored, where(:status_id => "lectored")
+  scope :rejected, where(:status_id => "rejected")
+  scope :approved, where(:status_id => "approved")
+  
   
   FAIL_SEARCH_MESSAGE = "Žal iskanega recepta ne moremo najti. Na voljo so slednji recepti."
   NOTHING_ENTERED_MESSAGE = "Kaj iščete? Na voljo so slednji recepti."
@@ -126,7 +134,17 @@ class Recipe < ActiveRecord::Base
       [ recipes_by_nr_of_people, self.build_message(recipes_by_nr_of_people.size) ] 
     end
     
+    
+    def original_ids
+      unscoped.select("DISTINCT original_id").where("original_id > 0").map &:original_id
+    end
+    
   end #class << self
+  
+  # Returns a RecipeStatus instance
+  def status
+    @status ||= RecipeStatus.find status_id
+  end
   
   # Returns number of calories of a single meal
   #

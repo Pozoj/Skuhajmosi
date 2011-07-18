@@ -10,10 +10,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110624083517) do
+ActiveRecord::Schema.define(:version => 20110715131404) do
 
   create_table "access_rights", :force => true do |t|
-    t.integer  "user_kind_id"
+    t.string   "user_kind_id"
     t.string   "name"
     t.string   "right"
     t.datetime "created_at"
@@ -84,6 +84,22 @@ ActiveRecord::Schema.define(:version => 20110624083517) do
     t.datetime "updated_at"
     t.decimal  "price_for_weight_in_grams", :precision => 8,  :scale => 2, :default => 0.0
     t.decimal  "weight_in_grams",           :precision => 10, :scale => 5, :default => 0.0
+    t.text     "description"
+  end
+
+  create_table "original_recipes", :force => true do |t|
+    t.string   "authors_name"
+    t.string   "authors_email"
+    t.string   "name"
+    t.integer  "num_people"
+    t.text     "summary"
+    t.text     "preparation"
+    t.text     "suggestion"
+    t.text     "ingredients"
+    t.string   "time_to_cook"
+    t.string   "time_to_prepare"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photos", :force => true do |t|
@@ -161,7 +177,6 @@ ActiveRecord::Schema.define(:version => 20110624083517) do
   end
 
   create_table "recipes", :force => true do |t|
-    t.integer  "author_id"
     t.string   "name"
     t.integer  "num_people"
     t.text     "summary"
@@ -171,6 +186,10 @@ ActiveRecord::Schema.define(:version => 20110624083517) do
     t.integer  "time_to_cook"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status_id"
+    t.integer  "original_id"
+    t.string   "short_name"
+    t.text     "memo"
   end
 
   create_table "units", :force => true do |t|
@@ -182,16 +201,10 @@ ActiveRecord::Schema.define(:version => 20110624083517) do
     t.datetime "updated_at"
   end
 
-  create_table "user_kinds", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "user_kind_id"
+    t.string   "user_kind_id"
     t.boolean  "admin",                               :default => false
     t.string   "reset_password_token"
     t.string   "email",                               :default => "",    :null => false

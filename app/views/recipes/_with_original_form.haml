@@ -1,0 +1,66 @@
+= f.input :original_id, :as => :hidden
+
+%p Recept nam je posredoval #{og.authors_name} s spletno pošto #{mail_to og.authors_email}.
+
+.admin-entry
+  = f.input :short_name
+
+.original-entry
+  .description Posredovan naziv recepta
+  .value= og.name
+
+.admin-entry
+  = f.input :name
+
+.original-entry
+  .description Posredovano št. ljudi
+  .value= og.num_people
+
+.admin-entry
+  = f.input :num_people 
+
+.original-entry
+  .description Posredovana priprava
+  .value= og.preparation
+
+.admin-entry
+  = f.input :preparation
+
+- if og.summary.present?
+  .original-entry
+    .description Posredovan povzetek
+    .value= og.summary
+
+.admin-entry
+  = f.input :summary
+
+- if og.suggestion.present?
+  .original-entry
+    .description Posredovane sugestije
+    .value= og.suggestion
+
+.admin-entry
+  = f.input :suggestion
+
+- if og.time_to_prepare.present?
+  .original-entry
+    .description Posredovan čas priprave
+    .value= og.time_to_prepare
+
+.admin-entry
+  = f.input :time_to_prepare
+
+
+- if og.time_to_cook.present?
+  .original-entry
+    .description Posredovan čas kuhanja
+    .value= og.time_to_cook
+
+.admin-entry
+  = f.input :time_to_cook
+
+- if og.photos.any?
+  .original-entry
+    .description Posredovana slika
+    .value= render "common/photo", :resource => og
+- else

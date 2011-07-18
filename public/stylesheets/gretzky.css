@@ -191,9 +191,9 @@ background: linear-gradient(top, #da532f 0%,#901b0f 100%); /* W3C */
 			#header-container nav ul li a {
 				display: block;
 			
-				width:140px;
+				
 				font-size: 14px;
-				padding-top:10px;
+				padding:20px 35px 0 0;
 				
 				text-align: left;
 				text-decoration: none;
@@ -225,6 +225,11 @@ background: linear-gradient(top, #da532f 0%,#901b0f 100%); /* W3C */
 		background:#fff;
 		border:1px solid #ccc;
 	}	
+	
+	#main{
+			margin-top:45px;
+		
+	}
 	
 /**************GUMBI******************/
 
@@ -287,7 +292,7 @@ section .searchform {
 	border: solid 1px #d2d2d2;
 	padding: 3px 5px;
 
-	margin: 15px 0 20px 0;
+	margin: 5px 0 20px 0;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -443,7 +448,7 @@ aside{
 	color:#222;
 	
 	float:right;
-	height:300px;
+	border:1px solid red;
 	width:250px;
 	/*background-color:#f16529;*/
 /*	border-bottom:20px solid #e44d26;
@@ -452,6 +457,27 @@ aside{
 	   -moz-box-shadow:0 0px 40px -10px #AAA;
 	        box-shadow:0 0px 40px -10px #AAA;	*/
 }
+
+.admin{
+	border:1px solid red;
+	padding:0;
+	margin-top:8px;
+	width:250px;
+	float:right;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+.admin ul{padding:8px;}
+.admin ul li a{
+	color:#222;
+	
+}
+#admin_menu{
+		margin-top:10px;
+	
+}
+
 
 #current_user{
 		height:50px;
@@ -471,9 +497,8 @@ aside{
 	}
 
 section{
+	float:left;
 		width:700px;
-	
-	
 	}
 article{
 		height:90px;
@@ -542,9 +567,6 @@ hr{
 		background:url(/images/hr.jpg) no-repeat center;
 		border:none;
 	}
-	
-	
-	
 	
 #footer-container{
 
@@ -641,10 +663,9 @@ footer nav{
 /*------------------------------
 =NAPREDNO search
 ------------------------------*/
+form div{margin: 0;clear:both; }
 
-form div{margin:.5em 0;clear:both; }
-
-	fieldset{margin:0;padding:0;border:none; width:400px;}
+	fieldset{margin:0;padding:0; border:none; width:197px;}
 	legend{font-weight:bold;}
 	input[type="radio"],input[type="checkbox"], .radio, .checkbox{margin:0 .25em 0 0;}
 
@@ -652,7 +673,11 @@ caption{font-style:italic;color:#777;margin:.5em 0;}
 	fieldset{
 		border:1px solid #ccc;
 		padding:1em 2em;
+		/*background:#593b2d;*/
 		margin:0 0 1.5em 0;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
 		}
 	legend{padding:2px 5px;}	
 	form div.col{clear:none;}form div.first{clear:both;}
@@ -662,15 +687,15 @@ caption{font-style:italic;color:#777;margin:.5em 0;}
 		border:1px solid #aaa;
 		padding:5px;
 		background:#fff;
-		width:40px;
+		width:25px;
 		line-height:1em;
 		margin:0;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
 		}
-	select{width:312px;}
-	textarea, .area{overflow:auto; height:150px; width:400px;}
+
+
 	input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus, .focus{background:#f5f5f5;outline:none;}
 	.submit{}
 	button{
@@ -682,7 +707,7 @@ caption{font-style:italic;color:#777;margin:.5em 0;}
 		line-height:2em;
 		cursor:pointer;
 		}
-
+		
 .clear{clear:both;}
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .hidden { display: none; visibility: hidden; }

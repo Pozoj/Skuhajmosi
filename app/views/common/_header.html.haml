@@ -1,6 +1,5 @@
 %header.wrapper
-  %h1.ir#title
-    = link_to_span "Skuhajmo.si", root_path
+  = link_to "<h1 class='ir' id='title'>Skuhajmo si.</h1>".html_safe, root_path
   = link_to ("Oddaj recept <span>pridruži se nam s svojim receptom</span>").html_safe, new_original_recipe_path, :class => "large red awesome"
   
 %nav#menu

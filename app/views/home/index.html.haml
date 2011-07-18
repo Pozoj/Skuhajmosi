@@ -6,7 +6,7 @@
       %hr.ir
       %article
         - if recipe.photos.any?
-          = image_tag(recipe.photos.first.photo.url(:big), :class => "recipe_pic")
+          = image_tag(recipe.photos.first.photo.url(:small_slice), :class => "recipe_pic")
     
         %header
           = link_to recipe.short_name, recipe_path(recipe), :class => "recipe_title"

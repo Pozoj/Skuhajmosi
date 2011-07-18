@@ -11,6 +11,13 @@ module RecipesHelper
     content_tag(:ul, list_items, :class => "recipe-kind-list")
   end
   
+  def recipe_kinds_as_tags(recipe)
+    tags = recipe.recipe_kinds.collect do |recipe_kind|
+      link_to(recipe_kind, recipe_kind)
+    end.join(", ").html_safe
+    content_tag(:p, tags, :class => "tags")
+  end
+  
   def pdf_links_to_recipe_kinds(recipe) 
     recipe.recipe_kinds.collect do |recipe_kind|
       "<u><link href='#{recipe_kind_url}'>#{recipe_kind}</link></u>"

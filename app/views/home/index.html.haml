@@ -10,7 +10,7 @@
       %header
         = link_to recipe.short_name, recipe_path(recipe), :class => "recipe_title"
         %p.recipe_summary= recipe.summary
-        = recipe_kinds_link_list(recipe)
+        = recipe_kinds_as_tags(recipe) 
         %p.recipe_price= "Obrok za #{ recipe.num_people } #{ case recipe.num_people; when 1 : "osebo"; when 2 : "osebi"; when 3..4 : "osebe"; else "oseb"; end } stane #{ number_to_currency(recipe.calculated_price, :precision => 2) }"
       %footer
         %ul

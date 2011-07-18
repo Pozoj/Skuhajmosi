@@ -1,10 +1,25 @@
-%footer
-  %nav#submenu
-    - if ExternalContentKind.all.any?
-      - for content_kind in ExternalContentKind.all
-        - if content_kind.external_contents.any?
-          %h3= content_kind
-          %ul
-            - for content in content_kind.external_contents
-              %li= link_to content, external_path(content)
-  %p &copy; Pozoj d.o.o.
+#footer-container
+  %footer.wrapper
+    %h3 Koristne povezave
+    %nav#external-contents
+      %ul
+        %li= link_to "Revije", "#"
+        %li= link_to "Knjige", "#"
+    
+    %nav#page-related
+      %ul
+        %li= link_to "Kuharji", "#"
+        %li= link_to "Pripomočki", "#"
+        %li= link_to "Pogrinjki", "#"
+        %li= link_to "Dobro je vedeti", "#"
+        %li= link_to "Stoletne gostilne", "#"
+        %li= link_to "Dogodki", "#"
+    
+    %nav#page-info
+      %ul
+        %li= link_to "Uredništvo", "#"
+        %li= link_to "Komentiraj", "#"
+        %li= link_to "Kontakt", "#"
+        %li= link_to "Pogoji uporabe", "#"
+
+    %p &copy; Pozoj d.o.o.

@@ -1,19 +1,24 @@
 <h1>Dobrodošli</h1>
-= render "common/advanced_search"
+%aside
+  = render "common/advanced_search"
+  
+%section
+  = render "common/recipe_search"
 
-- if @top_5_recipes.any?
-  - for recipe in @top_5_recipes
-    %article
-      - if recipe.photos.any?
-        = image_tag(recipe.photos.first.photo.url(:big), :class => "recipe_pic")
+  - if @top_5_recipes.any?
+    - for recipe in @top_5_recipes
+      %hr.ir
+      %article
+        - if recipe.photos.any?
+          = image_tag(recipe.photos.first.photo.url(:big), :class => "recipe_pic")
       
-      %header
-        = link_to recipe.short_name, recipe_path(recipe), :class => "recipe_title"
-        %p.recipe_summary= recipe.summary
-        = recipe_kinds_as_tags(recipe) 
-        %p.recipe_price= "Obrok za #{ recipe.num_people } #{ case recipe.num_people; when 1 : "osebo"; when 2 : "osebi"; when 3..4 : "osebe"; else "oseb"; end } stane #{ number_to_currency(recipe.calculated_price, :precision => 2) }"
-      %footer
-        %ul
-          %li.time_to_prepare= distance_of_time_in_words(recipe.time_to_prepare.minutes)
-          %li.cooking_time= distance_of_time_in_words(recipe.time_to_cook.minutes)
-          %li.calories= "#{number_with_precision recipe.number_of_kcal_per_meal, :precision => 3} kcal/osebo"
+        %header
+          = link_to recipe.short_name, recipe_path(recipe), :class => "recipe_title"
+          %p.recipe_summary= recipe.summary
+          = recipe_kinds_as_tags(recipe) 
+          %p.recipe_price= "Obrok za #{ recipe.num_people } #{ case recipe.num_people; when 1 : "osebo"; when 2 : "osebi"; when 3..4 : "osebe"; else "oseb"; end } stane #{ number_to_currency(recipe.calculated_price, :precision => 2) }"
+        %footer
+          %ul
+            %li.time_to_prepare= distance_of_time_in_words(recipe.time_to_prepare.minutes)
+            %li.cooking_time= distance_of_time_in_words(recipe.time_to_cook.minutes)
+            %li.calories= "#{number_with_precision recipe.number_of_kcal_per_meal, :precision => 3} kcal/osebo"

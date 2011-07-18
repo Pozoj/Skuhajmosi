@@ -9,8 +9,9 @@
     = yield :javascripts
     = csrf_meta_tag
   %body{body_attrs}
-    = render "common/header"
-    #content
+    #header-container
+      = render "common/header"
+    #main.wrapper
       = render "common/flash", :flash => flash
       = yield
       %br.clear

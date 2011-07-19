@@ -1,14 +1,17 @@
 pdf = Pdf.style(pdf)
 
 for resource in collection
-  
-  pdf = Pdf.h1 pdf, resource.to_s
-  
-  pdf = Pdf.authors_image_with_name(pdf, resource.author)
-  pdf.move_down Pdf::VERTICAL_SPACER * 3
+  pdf = Pdf.style(pdf)
 
-  pdf = Pdf.h2 pdf, "Info"
+  pdf.move_down Pdf::VERTICAL_SPACER
+
+  pdf = Pdf.h1 pdf, resource.to_s
+
+  pdf.move_down Pdf::VERTICAL_SPACER
+  #pdf = Pdf.authors_image_with_name(pdf, resource.author)
   
+  pdf = Pdf.h2 pdf, "Info"
+
   if resource.num_people.present?
     pdf.text "Število oseb: #{resource.num_people}"
   end
@@ -31,7 +34,13 @@ for resource in collection
   end
 
   pdf.move_down Pdf::VERTICAL_SPACER
-  
+
+  if resource.photos.any?
+    pdf.image File.join Rails.root, "public", resource.photos.first.photo.url(:medium).split('?').first
+  end
+
+  pdf.move_down Pdf::VERTICAL_SPACER
+
   if resource.summary.present?
     pdf = Pdf.h3 pdf, "Povzetek"
     pdf.text resource.summary
@@ -50,8 +59,6 @@ for resource in collection
     pdf = Pdf.h3 pdf, "Sugestije"
     pdf.text resource.suggestion
   end
-  
-  pdf = Pdf.image(pdf, resource, :big, :center, :center)
   
   pdf.start_new_page if resource != collection.last
 end

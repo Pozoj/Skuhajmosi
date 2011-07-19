@@ -1,11 +1,13 @@
 pdf = Pdf.style(pdf)
 
-pdf = Pdf.h1 pdf, resource.to_s
-
-pdf = Pdf.authors_image_with_name(pdf, resource.author)
 pdf.move_down Pdf::VERTICAL_SPACER
 
-pdf = Pdf.h1 pdf, "Info"
+pdf = Pdf.h1 pdf, resource.to_s
+
+pdf.move_down Pdf::VERTICAL_SPACER
+#pdf = Pdf.authors_image_with_name(pdf, resource.author)
+
+pdf = Pdf.h2 pdf, "Info"
 
 if resource.num_people.present?
   pdf.text "Število oseb: #{resource.num_people}"

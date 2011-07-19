@@ -448,7 +448,7 @@ aside{
 	color:#222;
 	
 	float:right;
-	border:1px solid red;
+	
 	width:250px;
 	/*background-color:#f16529;*/
 /*	border-bottom:20px solid #e44d26;
@@ -459,7 +459,7 @@ aside{
 }
 
 .admin{
-	border:1px solid red;
+	
 	padding:0;
 	margin-top:8px;
 	width:250px;

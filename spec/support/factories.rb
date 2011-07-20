@@ -41,7 +41,14 @@ end
 
 Factory.define :recipe do |f|
   f.name "Piscanec v kozji omaki"
-  f.num_people 4
+  f.short_name "Pisce"
+  f.num_people 4  
+  f.summary "Tole bo kratek opis madafaka."
+  f.preparation "Tkle se recept pripravi mofo"
+  f.suggestion "Priporoceno je, da tk naredis mofo"
+  f.time_to_prepare 10
+  f.time_to_cook 65
+  f.status_id "master_treated"
 end
 
 Factory.define :original_recipe do |f|

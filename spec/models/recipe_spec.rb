@@ -3,20 +3,24 @@ require 'spec_helper'
 describe Recipe do
   subject { Factory :recipe }
   
-  it { should be_valid }
-
-  it { should have_one :recipe_source }
-  it { should have_many :ingredients  }
-  it { should have_many :recipe_ingredients }
-  it { should have_many :photos }
-  it { should have_and_belong_to_many :recipe_kinds }
-  it { should have_many :recipe_wines }
-  it { should have_many(:wines).through(:recipe_wines) }
+  describe "validations" do
+    it { should be_valid }
+    it { should validate_presence_of      :name  }
+    it { should validate_numericality_of  :num_people }
+    it { should validate_numericality_of  :time_to_prepare }
+    it { should validate_numericality_of  :time_to_cook }
+    it { should ensure_length_of(:summary).is_at_most(300) }    
+  end
   
-  it { should validate_presence_of :name  }
-  it { should validate_numericality_of :num_people }
-  it { should validate_numericality_of :time_to_prepare }
-  it { should validate_numericality_of :time_to_cook }
+  describe "associations" do
+    it { should have_one :recipe_source }
+    it { should have_many :ingredients  }
+    it { should have_many :recipe_ingredients }
+    it { should have_many :photos }
+    it { should have_and_belong_to_many :recipe_kinds }
+    it { should have_many :recipe_wines }
+    it { should have_many(:wines).through(:recipe_wines) }    
+  end
   
   it "should return name when to_s is called" do
     subject.to_s.should == subject.name

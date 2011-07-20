@@ -15,7 +15,6 @@ module RecipesHelper
     tags = recipe.recipe_kinds.collect do |recipe_kind|
       link_to(recipe_kind, recipe_kind)
     end.join(", ").html_safe
-    content_tag(:p, tags, :class => "tags")
   end
   
   def pdf_links_to_recipe_kinds(recipe) 

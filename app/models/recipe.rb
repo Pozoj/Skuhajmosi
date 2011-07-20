@@ -15,6 +15,7 @@ class Recipe < ActiveRecord::Base
   validates_numericality_of :num_people, :greater_than_or_equal_to => 1, :only_integer => true
   validates_numericality_of :time_to_prepare, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_prepare.nil? }
   validates_numericality_of :time_to_cook, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_cook.nil? }
+  validates_length_of :summary, :maximum => 300
   
   default_scope order("name ASC")
   

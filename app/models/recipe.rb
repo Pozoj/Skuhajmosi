@@ -57,9 +57,10 @@ class Recipe < ActiveRecord::Base
     def advanced_search(params)
       nr_of_people, min_price, max_price, min_kcal, max_kcal = self.load_params_for_advanced_search(params)
       query = self.scoped
-      query = query.by_nr_of_people(nr_of_people) if nr_of_people > 0
+      query = query.where(:num_people => nr_of_people) if nr_of_people > 0
       query = query.where(:id => self.ids_between_values(min_price, max_price, { :subject => :price })) if min_price > 0 or max_price > 0
       query = query.where(:id => self.ids_between_values(min_kcal,  max_kcal,  { :subject => :kcal  })) if min_kcal  > 0 or max_kcal  > 0
+      query = query.order(:name)
       [ query, self.build_message(query.length) ]
     end
     

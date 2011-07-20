@@ -1,7 +1,7 @@
 
 /* ==== Scroll down to find where to put your styles :) ==== */
 
-/*  HTML5 ✰ Boilerplate  */
+/*  HTML5 â° Boilerplate  */
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -92,24 +92,17 @@ body{
 }
 
 #header-container{
-	background:url(/images/header.jpg) repeat-x center;
-	height:114px;
-
-
-	/*-webkit-box-shadow:0 40px 40px -40px #AAA;
-	   -moz-box-shadow:0 40px 40px -40px #AAA;
-	        box-shadow:0 40px 40px -40px #AAA;*/
+	background:url(/images/header.jpg) repeat-x top center;
+	
+	height:160px;
 }
 
-.wrapper{
-	margin:auto;
+#header-container header{
+	margin:0 auto;
 	width:980px;
-	padding-top:15px;
-	height:96px;
+	height:112px;
 
 }
-
-
 h2, h3{
 	margin:20px 0;
 }
@@ -121,10 +114,11 @@ h2, h3{
 #title{
 	background:url(/images/logo.png) no-repeat;
 	width:384px;
-	height:96ppx;
-	font-size: 55px;
+	height:96px;
+	font-size:55px;
 	color:white;
-	padding-top:20px;
+
+	margin-top:15px;
 	float:left;
 }
 
@@ -133,8 +127,8 @@ h2{
 }
 
 h3{
-	font-size: 40px;
-	padding:10px 0 0 0;
+	font-size: 32px;
+	padding: 0 0 0 0;
 }
 
 #login{
@@ -150,11 +144,12 @@ h3{
 		background:#600;
 	}
 
-#main{
-		margin:20px auto;
-		width:980px;
-	}
 
+#main{
+		width:980px;
+		margin:25px auto;
+	}
+	
 /*------------------------------
 =NAVIGATION
 ------------------------------*/
@@ -165,6 +160,7 @@ h3{
 	border-bottom:1px solid #5e0c08;
 	width: 100%;
 	height:52px;
+
 background: #da532f; /* Old browsers */
 background: -moz-linear-gradient(top, #da532f 0%, #901b0f 100%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#da532f), color-stop(100%,#901b0f)); /* Chrome,Safari4+ */
@@ -193,7 +189,7 @@ background: linear-gradient(top, #da532f 0%,#901b0f 100%); /* W3C */
 			
 				
 				font-size: 14px;
-				padding:20px 35px 0 0;
+				padding:18px 35px 0 0;
 				
 				text-align: left;
 				text-decoration: none;
@@ -226,17 +222,14 @@ background: linear-gradient(top, #da532f 0%,#901b0f 100%); /* W3C */
 		border:1px solid #ccc;
 	}	
 	
-	#main{
-			margin-top:45px;
-		
-	}
+
 	
 /**************GUMBI******************/
 
 .awesome, .awesome:visited {
 	float:right;
 	text-align:center;
-	margin: 15px 0 0 0;
+	margin: 35px 0 0 0;
 	background: #222 repeat-x; 
 	display: inline-block; 
 	padding: 5px 10px 6px; 
@@ -267,7 +260,7 @@ background: linear-gradient(top, #da532f 0%,#901b0f 100%); /* W3C */
 	.small.awesome, .small.awesome:visited 			{ font-size: 11px; padding: ; }
 	.awesome, .awesome:visited,
 	.medium.awesome, .medium.awesome:visited 		{ font-size: 13px; font-weight: bold; line-height: 1; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
-	.large.awesome, .large.awesome:visited 			{ font-size: 15px; width:250px; padding: 10px 0 10px 0; }
+	.large.awesome, .large.awesome:visited 			{ font-size: 15px; width:260px; padding: 10px 0 10px 0; }
 	
 	.green.awesome, .green.awesome:visited		{ background-color: #91bd09; }
 	.green.awesome:hover						{ background-color: #749a02; }
@@ -444,25 +437,23 @@ aside .searchform .searchbutton {
 /***********************************/
 
 
+section{
+		float:left;
+		width:700px;
+	}
 aside{
 	color:#222;
 	
 	float:right;
 	
-	width:250px;
-	/*background-color:#f16529;*/
-/*	border-bottom:20px solid #e44d26;
-	margin-bottom:50px;*/
-	/*-webkit-box-shadow:0 0px 40px -10px #AAA;
-	   -moz-box-shadow:0 0px 40px -10px #AAA;
-	        box-shadow:0 0px 40px -10px #AAA;	*/
+	width:260px;
 }
 
 .admin{
 	
 	padding:0;
 	margin-top:8px;
-	width:250px;
+	width:260px;
 	float:right;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -496,68 +487,91 @@ aside{
 		color:#da532f;
 	}
 
-section{
-	float:left;
-		width:700px;
-	}
-article{
-		height:90px;
-	}
-article p{
+
+#main article p{
 	font-size:14px;
 	margin-top:0;
-	padding-right:20px;
+	padding-right:10px;
 	text-shadow:none;
 	color:#222;
 }
 
-article img{
+#main article img{
 		float:left;
 		padding:2px;
 		background:#fff;
 		border:1px solid #ccc;
+		width:232px;
+		margin-bottom:15px;
+		
 	}	
-article header{
+#main article header{
 	float:left;
 	margin-left:10px;
+	width:320px;
+		
+	
 	/*-webkit-box-shadow:0 45px 60px -60px #AAA;
 	   -moz-box-shadow:0 45px 60px -60px #AAA;
 	        box-shadow:0 40px 60px -60px #AAA;*/
 }
 a{text-decoration:none;}
 
-article header .recipe_title{
+#main article header .recipe_title{
 	margin:0;
 	text-decoration:none;
 	padding-bottom:0px;
 	font-size:18px;
 	color:#901b0f;
 }
-article header .recipe_title:hover{
+#main article header .recipe_title:hover{
 	color:#da532f;
 	}
-article .recipe_summary{
+#main article .recipe_summary{
 		color:#777;
+		font-size:12px;
 	}
-article .tags{
-		margin-bottom:15px;
+#main article .tags{
+		padding:4px 0 2px 0;
+		color:#777;
+		font-size:14px;
+	}
+#main article .tags a{
+		color:#da532f;
 		
 	}
-article .tags a{
+	
+#main article .tags a:hover{
 		color:#901b0f;
 		
-	}
-	
-article .tags a:hover{
-		color:#da532f;
-		text-decoration:underline;
 		
 	}
-article .tags ul li{display:inline}
-article .recipe_price{font-size:16px;}
-article footer{
+#main article .tags ul li{display:inline}
+#main article .recipe_price{
+		font-size:14px;
+		margin-bottom:15px;
+			padding:2px 0 2px 0;
+}
+#main article footer{
 		float:right;
-	
+		width:130px;
+
+}
+#main article footer ul{
+		list-style:none;
+		margin:0;
+		
+	}
+#main article footer ul li{
+		padding:0px 0 0 18px;
+		background:url(/images/icon.jpg) left no-repeat;
+		
+	}
+#main .time_to_prepare{
+		margin-bottom:5px;
+	}
+#main .cooking_time{
+		margin-bottom:30px;
 	}
 
 hr{
@@ -575,7 +589,7 @@ hr{
 	height:240px;
 
 	border-top:15px solid #222;
-	margin-top:70px;
+	margin-top:50px;
 	-webkit-box-shadow:0 -40px 40px -40px #AAA;
 	   -moz-box-shadow:0 -40px 40px -40px #AAA;
 	        box-shadow:0 -40px 40px -40px #AAA;
@@ -583,6 +597,8 @@ hr{
 
 #footer-container footer{
 	color:#fff;
+	width:980px;
+	margin:0 auto;
 }
 
 #footer-container footer nav ul{
@@ -608,7 +624,7 @@ footer nav{
 ------------------------------*/
 #info{
 		float:left;
-		width:250px;
+		width:260px;
 
 	}
 #info h2{
@@ -663,31 +679,39 @@ footer nav{
 /*------------------------------
 =NAPREDNO search
 ------------------------------*/
-form div{margin: 0;clear:both; }
-
-	fieldset{margin:0;padding:0; border:none; width:197px;}
-	legend{font-weight:bold;}
-	input[type="radio"],input[type="checkbox"], .radio, .checkbox{margin:0 .25em 0 0;}
-
-caption{font-style:italic;color:#777;margin:.5em 0;}	
-	fieldset{
-		border:1px solid #ccc;
-		padding:1em 2em;
-		/*background:#593b2d;*/
-		margin:0 0 1.5em 0;
+#advance_search{
+		background:#624132;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
-		}
-	legend{padding:2px 5px;}	
+		border:2px solid rgba(0,0,0,0.2);
+		padding:18px 5px 10px 12px;
+		color:#fff;
+	}
+#advance_search h4{
+		font-size:20px;
+		margin-bottom:15px;
+		
+	}
+form div{margin:0 0 10px 0;clear:both;font-size:14px;	line-height:25px; }
+
+
+	
+	input[type="radio"],input[type="checkbox"], .radio, .checkbox{margin:0 .25em 0 0;}
+
 	form div.col{clear:none;}form div.first{clear:both;}
 	form div{overflow:hidden;}
-	
+	label{
+			width:110px;
+			display:block;
+			float:left;
+		
+		}
 	input[type="text"], input[type="password"], textarea, .field, .area, select{
 		border:1px solid #aaa;
 		padding:5px;
 		background:#fff;
-		width:25px;
+		width:30px;
 		line-height:1em;
 		margin:0;
 		-webkit-border-radius: 4px;
@@ -696,17 +720,36 @@ caption{font-style:italic;color:#777;margin:.5em 0;}
 		}
 
 
-	input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus, .focus{background:#f5f5f5;outline:none;}
-	.submit{}
-	button{
-		border:none;
-		background:#555;
-		color:#fff;
-		padding:0 2.5em;
-		height:2em;
-		line-height:2em;
-		cursor:pointer;
+	input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus, .focus{ border:1px solid #c2d200; outline:none;}
+	.submit{
+		
+		
+	text-align:center;
+	margin: 10px 0 10px 0;
+	background: #222 repeat-x; 
+	display: inline-block; 
+	padding: 5px 10px 6px; 
+	color: #fff;
+	text-transform:uppercase; 
+	text-decoration: none;
+	-moz-border-radius: 4px; 
+	-webkit-border-radius: 4px;
+	-moz-box-shadow: 0 2px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+	position: relative;
+	cursor: pointer;
+	border:none;
+	background-color: #a5b300 ;
+	font-weight:bold;
+	font-size: 15px; width:230px; padding: 10px 0 10px 0;	
+		/*#c2d200	*/
 		}
+
+.submit:hover{
+		background:#c2d200;
+	}
 		
 .clear{clear:both;}
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }

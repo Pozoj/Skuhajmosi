@@ -1,19 +1,30 @@
 !!!
-%html
-  %head
-    %title= yield(:title).empty?? "Skuhajmo.si" : yield(:title)
-    %link{:rel => "shortcut icon", :href => "/images/favicon.png", :type => "image/png"}  
-    = stylesheet_link_tag 'gretzky', :media => 'screen, projection'
-    = stylesheet_link_tag 'compiled/print', :media => 'print'
-    = javascript_include_tag 'lib/jquery', 'lib/jquery.form', 'lib/rails', 'lib/rails-autocomplete', 'application', :cache => true
-    = yield :javascripts
-    = csrf_meta_tag
-  %body{body_attrs}
-    #header-container
-      = render "common/header"
-    #main.wrapper
-      = render "common/flash", :flash => flash
-      = render "common/signed_in_nav"
-      = yield
-    %br.clear
-    = render "common/footer"
+<!--[if lt IE 7 ]> <html lang="sl" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="sl" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="sl" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="sl" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="sl" class="no-js"> <!--<![endif]-->
+%head
+  %meta{:charset => "UTF-8"}
+  %meta{"http-equiv" => "X-UA-Compatible", :content => "IE=edge,chrome=1" }
+  %meta{:description => ""}
+  %meta{:author => "Koda: Ljubomir Marković, Oblika: Jernej Gračner, za podjetje Pozoj d.o.o."}
+  %meta{:name =>"viewport", :content => "width=device-width, initial-scale=1.0"}
+  %title= yield(:title).empty?? "Skuhajmo.si" : yield(:title)
+  %link{:rel => "shortcut icon", :href => "/images/favicon.png", :type => "image/png"}  
+  %link{:rel => "apple-touch-icon", :href => "/apple-touch-icon.png"}  
+  = stylesheet_link_tag 'gretzky', :media => 'screen, projection'
+  = stylesheet_link_tag 'compiled/print', :media => 'print'
+  = javascript_include_tag 'lib/modernizr.2.0.6', 'lib/jquery', 'lib/jquery.form', 'lib/rails', 'lib/rails-autocomplete', 'application', :cache => true
+  = yield :javascripts
+  = csrf_meta_tag
+%body{body_attrs}
+  #header-container
+    = render "common/header"
+  #main.wrapper
+    = render "common/flash", :flash => flash
+    = render "common/signed_in_nav"
+    = yield
+  %br.clear
+  = render "common/footer"
+</html>

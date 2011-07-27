@@ -1,14 +1,16 @@
-= title resource
+%section
+  = title resource
 
-- if can? :manage, [UserKind, AccessRight]
-  %nav#editors-resource-menu
-    %ul
-      %li= link_to "Uredi vrsto uporabnika", edit_resource_path
-      %li= link_to "Odstrani vrsto uporabnika", resource, :method => :delete, :confirm => destroy_confirmation(resource)
-      %li= link_to "Dodaj pravice uporabniku", new_user_kind_access_right_path(resource)
+  - if can? :manage, [UserKind, AccessRight]
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Uredi vrsto uporabnika", edit_resource_path
+        %li= link_to "Odstrani vrsto uporabnika", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+        %li= link_to "Dodaj pravice uporabniku", new_user_kind_access_right_path(resource)
 
-- if resource.access_rights.any?
-  = render "access_rights/access_right", :collection => resource.access_rights
+  - if resource.access_rights.any?
+    = render "access_rights/access_right", :collection => resource.access_rights
 
 
-= link_to_back
+  = link_to_back
+%aside

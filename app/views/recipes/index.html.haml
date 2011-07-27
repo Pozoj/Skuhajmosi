@@ -1,17 +1,20 @@
-= title "Recepti"
+%section
+  = title "Recepti"
 
-- if can?(:create, Recipe) or admin?
-  %nav#editors-resource-menu
-    %ul
-      - if can?(:create, Recipe)
-        %li= link_to "Dodaj recept", new_resource_path
-      - if admin?
-        %li= link_to "Neobdelani recepti", original_recipes_path
+  - if can?(:create, Recipe) or admin?
+    %nav#editors-resource-menu
+      %ul
+        - if can?(:create, Recipe)
+          %li= link_to "Dodaj recept", new_resource_path
+        - if admin?
+          %li= link_to "Neobdelani recepti", original_recipes_path
     
-%nav#resource-menu
-  %ul
-    %li= link_to "Prenesi pdf", recipes_path("pdf")  
+  %nav#resource-menu
+    %ul
+      %li= link_to "Prenesi pdf", recipes_path("pdf")  
 
-= render "common/recipe_search"
+  = render "common/recipe_search"
 
-= collection_list_renderer(collection)
+  = collection_list_renderer(collection)
+
+%aside

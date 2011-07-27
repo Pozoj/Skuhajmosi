@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :user_kind_id
+  attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me, :user_kind_id, :user_kind
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
@@ -32,14 +32,13 @@ class User < ActiveRecord::Base
     UserKind.find(user_kind_id)
   end
   
+  def user_kind=(uk)
+    self.user_kind_id = UserKind.find(uk).id if UserKind.find(uk)
+  end
+  
   class << self
     def external_authors
-      external_author_user_kind = UserKind.external_author_user_kind
-      if external_author_user_kind.present?
-        self.all.reject {|user| user.user_kind != external_author_user_kind } 
-      else 
-        []
-      end
+      self.where(:user_kind_id => UserKind.external)
     end
   end
   

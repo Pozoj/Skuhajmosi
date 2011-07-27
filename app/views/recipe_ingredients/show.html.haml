@@ -1,29 +1,31 @@
-= title "Pregled sestavine recepta"
+%section
+  = title "Pregled sestavine recepta"
 
-- if can?(:update, resource) or can?(:destroy, resource)
-  %nav#editors-resource-menu
-    %ul
-      - if can? :update, resource
-        %li= link_to "Uredi sestavino", edit_resource_path
-      - if can? :destroy, resource
-        %li= link_to "Odstrani sestavino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)    
+  - if can?(:update, resource) or can?(:destroy, resource)
+    %nav#editors-resource-menu
+      %ul
+        - if can? :update, resource
+          %li= link_to "Uredi sestavino", edit_resource_path
+        - if can? :destroy, resource
+          %li= link_to "Odstrani sestavino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)    
 
-#basic-info
-  - unless resource.ingredient.photos.empty?
-    - for photo in resource.ingredient.photos
-      .photo
-        = link_to image_tag(photo.photo.url(:medium)), photo.photo.url(:original)
+  #basic-info
+    - unless resource.ingredient.photos.empty?
+      - for photo in resource.ingredient.photos
+        .photo
+          = link_to image_tag(photo.photo.url(:medium)), photo.photo.url(:original)
   
-  #description-bar
-    .field
-      .description Sestavina
-      .value= resource.ingredient
+    #description-bar
+      .field
+        .description Sestavina
+        .value= resource.ingredient
 
-#related-info
-  - if resource.ingredient.recipes.any? 
-    .field
-      .description Jedi, ki vsebujejo sestavino
-      .value
-        %ul= render resource.ingredient.recipes.uniq
+  #related-info
+    - if resource.ingredient.recipes.any? 
+      .field
+        .description Jedi, ki vsebujejo sestavino
+        .value
+          %ul= render resource.ingredient.recipes.uniq
   
-= link_to_back parent_path
+  = link_to_back parent_path
+%aside

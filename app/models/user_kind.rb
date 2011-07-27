@@ -31,6 +31,36 @@ class UserKind
     def to_hash
       USER_KINDS
     end
+    
+    def external
+      "external"
+    end
+
+    def worker
+      "worker"
+    end
+
+    def master_cook
+      "master_cook"
+    end
+
+    def lector
+      "lector"
+    end
+    
+    def special
+      "special"
+    end
+    
+    def firm
+      "firm"
+    end
+
+    def other
+      "other"
+    end
+    
+    
   end
   
   def external?

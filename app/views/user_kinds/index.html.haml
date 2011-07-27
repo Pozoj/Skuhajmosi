@@ -1,8 +1,16 @@
-= title "Pregled vrst uporabnikov"
+%section
+  = title "Pregled vrst uporabnikov"
 
-- if can? :manage, UserKind
-  %nav#editors-resource-menu
-    %ul
-      %li= link_to "Dodaj vrsto uporabnika", new_resource_path
-
-= collection_list_renderer(collection)
+  - for user_kind in UserKind.all
+    %h2= user_kind
+    - access_rights = AccessRight.where(:user_kind_id => user_kind.id)
+    = link_to "Dodaj pravico vrsti uporabnika", new_access_right_path(:user_kind_id => user_kind.id)
+    - if access_rights.present?
+      %ul
+        - for access_right in access_rights
+          %li
+            = access_right
+            = link_to "Odstrani pravico", access_right, :method => :delete, :confirm => destroy_confirmation(resource)
+%aside
+    
+  

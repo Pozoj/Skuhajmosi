@@ -1,26 +1,28 @@
-= title "Pregled vina"
+%section
+  = title "Pregled vina"
 
-- if can?(:edit, resource) or can?(:destroy, resource)
-  %nav#editors-resource-menu
-    %ul
-      - if can?(:edit, resource)
-        %li= link_to "Uredi vino", edit_resource_path
-      - if can?(:destroy, resource)
-        %li= link_to "Odstrani vino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)
+  - if can?(:edit, resource) or can?(:destroy, resource)
+    %nav#editors-resource-menu
+      %ul
+        - if can?(:edit, resource)
+          %li= link_to "Uredi vino", edit_resource_path
+        - if can?(:destroy, resource)
+          %li= link_to "Odstrani vino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)
 
-- unless resource.wine.photos.empty?
-  - for photo in resource.wine.photos
-    .photo
-      = link_to image_tag(photo.photo.url(:small)), photo.photo.url(:original)
+  - unless resource.wine.photos.empty?
+    - for photo in resource.wine.photos
+      .photo
+        = link_to image_tag(photo.photo.url(:small)), photo.photo.url(:original)
 
-.field
-  .description Vino
-  .value= resource
+  .field
+    .description Vino
+    .value= resource
 
-.field
-  .description Vino paše tudi k naslednjim jedem
-  .value
-    - if resource.recipes.any? 
-      %ul= render resource.recipes
+  .field
+    .description Vino paše tudi k naslednjim jedem
+    .value
+      - if resource.recipes.any? 
+        %ul= render resource.recipes
   
-= link_to_back parent_path
+  = link_to_back parent_path
+%aside

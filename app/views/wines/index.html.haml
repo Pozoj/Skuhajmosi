@@ -1,31 +1,33 @@
-= title "Vina"
+%section
+  = title "Vina"
 
-- if can?(:create, Wine) or can?(:create, WineColor) or can?(:create, WineKind) or can?(:create, WineGroup)
-  %nav#editors-resource-menu
-    %ul
-      - if can? :create, Wine
-        %li= link_to "Dodaj vino", new_resource_path
-      - if can? :create, WineColor
-        %li= link_to "Dodaj barvo", new_wine_color_path
-      - if can? :create, WineKind
-        %li= link_to "Dodaj vrsto", new_wine_kind_path
-      - if can? :create, WineGroup
-        %li= link_to "Dodaj grupo", new_wine_group_path
+  - if can?(:create, Wine) or can?(:create, WineColor) or can?(:create, WineKind) or can?(:create, WineGroup)
+    %nav#editors-resource-menu
+      %ul
+        - if can? :create, Wine
+          %li= link_to "Dodaj vino", new_resource_path
+        - if can? :create, WineColor
+          %li= link_to "Dodaj barvo", new_wine_color_path
+        - if can? :create, WineKind
+          %li= link_to "Dodaj vrsto", new_wine_kind_path
+        - if can? :create, WineGroup
+          %li= link_to "Dodaj grupo", new_wine_group_path
 
-= collection_list_renderer(collection)
+  = collection_list_renderer(collection)
 
-#related-info
-  - if @wine_colors.any?
-    .field
-      .description Barve vin
-      .value= array_to_link_list(@wine_colors, "wine-colors")
+  #related-info
+    - if @wine_colors.any?
+      .field
+        .description Barve vin
+        .value= array_to_link_list(@wine_colors, "wine-colors")
   
-  - if @wine_kinds.any?
-    .field
-      .description Vrste vin
-      .value= array_to_link_list(@wine_kinds, "wine-kinds")
+    - if @wine_kinds.any?
+      .field
+        .description Vrste vin
+        .value= array_to_link_list(@wine_kinds, "wine-kinds")
 
-  - if @wine_groups.any?
-    .field
-      .description Grupe vin
-      .value= array_to_link_list(@wine_groups, "wine_groups")
+    - if @wine_groups.any?
+      .field
+        .description Grupe vin
+        .value= array_to_link_list(@wine_groups, "wine_groups")
+%aside

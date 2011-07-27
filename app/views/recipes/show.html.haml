@@ -1,26 +1,28 @@
-= title resource
+%section
+  = title resource
 
-#author
-  .description Avtor
-  .value tole se bo spremenilo
+  #author
+    .description Avtor
+    .value tole se bo spremenilo
   
-= render "navigation"
-= render "basic_info"
-= render "related_info"
+  = render "navigation"
+  = render "basic_info"
+  = render "related_info"
 
-- if @recipe_info.summary.present?  
-  #summary
-    /.description Povzetek
-    .value= @recipe_info.summary
+  - if @recipe_info.summary.present?  
+    #summary
+      /.description Povzetek
+      .value= @recipe_info.summary
 
-- if @recipe_info.preparation.present?  
-  #preperation
-    .description Priprava
-    .value= @recipe_info.preparation
+  - if @recipe_info.preparation.present?  
+    #preperation
+      .description Priprava
+      .value= @recipe_info.preparation
 
-- if @recipe_info.suggestion.present?  
-  #suggestion
-    .description Sugestije
-    .value= @recipe_info.suggestion
+  - if @recipe_info.suggestion.present?  
+    #suggestion
+      .description Sugestije
+      .value= @recipe_info.suggestion
 
-= link_to_back
+  = link_to_back
+%aside

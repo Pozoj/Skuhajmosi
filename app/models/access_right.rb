@@ -32,18 +32,58 @@ class AccessRight < ActiveRecord::Base
     {:value => [:destroy, ExternalContent], :title => "Lahko briše zunanje vsebine"} 
   ]
   
-  #Returns an array of hashes representing every needed premeision on accessible classes
-  # Returned hash looks like this:
-  #   [ {:title => "Title", :value => { :right => right_key, :name => model_key} }, ..]
-  #
-  def self.all_rights 
-    all_rights = Array.new
-    MODELS.each do |mk, mv|
-      RIGHTS.each do |rk, rv|
-        all_rights << { :title => rv + ' ' + mv, :value => [rk, mk] } 
+  
+  class << self
+    #Returns an array of hashes representing every needed premeision on accessible classes
+    # Returned hash looks like this:
+    #   [ {:title => "Title", :value => { :right => right_key, :name => model_key} }, ..]
+    #
+    def all_rights 
+      all_rights = Array.new
+      MODELS.each do |mk, mv|
+        RIGHTS.each do |rk, rv|
+          all_rights << { :title => rv + ' ' + mv, :value => [rk, mk] } 
+        end
       end
+      (all_rights - USELESS_RIGHTS).sort_by {|hash| hash[:title] }
     end
-    (all_rights - USELESS_RIGHTS).sort_by {|hash| hash[:title] }
+    
+    def for_external
+      self.where(:user_kind_id => UserKind.external)
+    end
+    
+    # def for_worker
+    #   self.where(:user_kind_id => UserKind.worker)
+    # end
+    # 
+    # def for_master_cook
+    #   self.where(:user_kind_id => UserKind.master_cook)
+    # end
+    # 
+    # def for_lector
+    #   self.where(:user_kind_id => UserKind.lector)
+    # end
+    # 
+    # def for_firm
+    #   self.where(:user_kind_id => UserKind.firm)
+    # end
+    # 
+    # def for_special
+    #   self.where(:user_kind_id => UserKind.special)
+    # end
+    # 
+    # def for_other
+    #   self.where(:user_kind_id => UserKind.other)
+    # end
+  end # class << self
+  
+  
+  def user_kind
+    UserKind.find(user_kind_id)
+  end
+  
+  def user_kind=(uk)
+    self.user_kind_id = uk
   end
   
   def user_kind_right

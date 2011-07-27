@@ -18,7 +18,8 @@
           - if can? :manage, ExternalContentKind
             %li= link_to "Vrste zunanjih vsebin", external_content_kinds_path
           - if can? :manage, [User, AccessRight]
-            %li= link_to "Uporabniki", users_path
+            %li= link_to "Uporabniške pravice", user_kinds_path
+            %li= link_to "Uporabniki", users_path 
 
     #current-user
       Prijavljen

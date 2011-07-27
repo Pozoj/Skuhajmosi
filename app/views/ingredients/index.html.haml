@@ -1,10 +1,12 @@
-= title "Sestavine"
+%section
+  = title "Sestavine"
 
-- if can? :create, Ingredient
-  %nav#editors-resource-menu
-    %ul
-      %li= link_to "Dodaj sestavino", new_resource_path
+  - if can? :create, Ingredient
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj sestavino", new_resource_path
 
-= render "common/ingredient_search"
+  = render "common/ingredient_search"
       
-= collection_list_renderer(collection)
+  = collection_list_renderer(collection)
+%aside

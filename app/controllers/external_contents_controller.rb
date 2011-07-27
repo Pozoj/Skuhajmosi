@@ -9,7 +9,7 @@ class ExternalContentsController < InheritedResources::Base
   end
   
   def edit
-    @external_authors = User.all.reject {|user| user.user_kind != UserKind.find_by_name("Zunanji") }
+    @external_authors = User.external_authors
     edit!
   end
   

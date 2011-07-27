@@ -1,18 +1,20 @@
-= title "Prispevajte nam vaš recept"
+%section
+  = title "Prispevajte nam vaš recept"
 
-= simple_form_for resource, :html => { :multipart => true } do |f|
-  = f.input :authors_name
-  = f.input :authors_email
-  = f.input :name
-  = f.input :num_people
-  = f.input :ingredients
-  = f.input :preparation
-  = f.input :summary
-  = f.input :suggestion
-  = f.input :time_to_prepare
-  = f.input :time_to_cook
+  = simple_form_for resource, :html => { :multipart => true } do |f|
+    = f.input :authors_name
+    = f.input :authors_email
+    = f.input :name
+    = f.input :num_people
+    = f.input :ingredients
+    = f.input :preparation
+    = f.input :summary
+    = f.input :suggestion
+    = f.input :time_to_prepare
+    = f.input :time_to_cook
   
-  = f.simple_fields_for :photos do |photo_fields|
-    = photo_fields.input :photo
+    = f.simple_fields_for :photos do |photo_fields|
+      = photo_fields.input :photo
   
-  = f.button :submit, "Oddaj recept"
+    = f.button :submit, "Oddaj recept"
+%aside

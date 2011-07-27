@@ -1,28 +1,30 @@
-= title resource
+%section
+  = title resource
 
-- if can?(:update, resource) or can?(:destroy, resource) or can?(:create, Photo)
-  %nav#editors-resource-menu
-    %ul
-      - if can? :update, resource
-        %li= link_to "Uredi sestavino", edit_resource_path
-      - if can? :destroy, resource
-        %li= link_to "Odstrani sestavino", resource, :method => :delete, :confirm => destroy_confirmation(resource)
-      - if can? :create, Photo
-        %li= link_to "Dodaj fotografijo", new_ingredient_photo_path(resource)
+  - if can?(:update, resource) or can?(:destroy, resource) or can?(:create, Photo)
+    %nav#editors-resource-menu
+      %ul
+        - if can? :update, resource
+          %li= link_to "Uredi sestavino", edit_resource_path
+        - if can? :destroy, resource
+          %li= link_to "Odstrani sestavino", resource, :method => :delete, :confirm => destroy_confirmation(resource)
+        - if can? :create, Photo
+          %li= link_to "Dodaj fotografijo", new_ingredient_photo_path(resource)
 
-#basic-info
-  = render "common/photo", :resource => resource
-  #description-bar
-    .field
-      .description Št. kalorij na 100g
-      .value= resource.calories
+  #basic-info
+    = render "common/photo", :resource => resource
+    #description-bar
+      .field
+        .description Št. kalorij na 100g
+        .value= resource.calories
 
 
-#related-info
-  - if resource.recipes.any?
-    .field
-      .description Jedi, ki vsebujejo sestavino
-      .value
-        %ul= render resource.recipes.uniq
+  #related-info
+    - if resource.recipes.any?
+      .field
+        .description Jedi, ki vsebujejo sestavino
+        .value
+          %ul= render resource.recipes.uniq
 
-= link_to_back
+  = link_to_back
+%aside

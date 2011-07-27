@@ -1,8 +1,11 @@
-= title "Vrste zunanjih vsebin"
+%section
+  = title "Vrste zunanjih vsebin"
 
-- if can? :create, RecipeKind
-  %nav#editors-resource-menu
-    %ul
-      %li= link_to "Dodaj zunanjo vsebino", new_resource_path
+  - if can? :create, RecipeKind
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj zunanjo vsebino", new_resource_path
   
-= collection_list_renderer(collection)
+  = collection_list_renderer(collection)
+
+%aside

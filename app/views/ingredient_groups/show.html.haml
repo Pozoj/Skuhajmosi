@@ -10,8 +10,7 @@
           %li= link_to "Odstrani skupino sestavin", resource, :method => :delete, :confirm => destroy_confirmation(resource)
         - if can? :create, Photo
           %li= link_to "Dodaj fotografijo", new_ingredient_group_photo_path(resource)
-    
-
+  
   #basic-info
     = render "common/photo", :resource => resource
 
@@ -21,6 +20,12 @@
         .description Sestavine v skupini
         .value
           %ul= render resource.ingredients
+
+    - if resource.ingredients.any?
+      .field
+        .description Recepti, ki vsebujejo sestavino iz skupine
+        .value
+          %ul= render @recipes_for_ingredient_groups
 
   = link_to_back
 

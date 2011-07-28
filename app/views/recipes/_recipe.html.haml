@@ -1,3 +1,13 @@
 %li
   = link_to recipe, recipe
+  .time_to_prepare
+    = distance_of_time_in_words(recipe.time_to_prepare.minutes)
+    %span Čas priprave
+  .time_to_cook
+    = distance_of_time_in_words(recipe.time_to_cook.minutes)
+    %span Čas kuhanja
+  .calories
+    = "#{number_with_precision recipe.number_of_kcal_per_meal, :precision => 3} kcal/osebo"
+    %span kcal
   = render "common/small_photo_link", :resource => recipe
+  

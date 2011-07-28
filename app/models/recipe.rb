@@ -30,6 +30,16 @@ class Recipe < ActiveRecord::Base
   NOTHING_ENTERED_MESSAGE = "Kaj iščete? Na voljo so slednji recepti."
   
   class << self
+    # Returns recipes that include ingredients that belong to given ingredient group
+    def recipes_for_ingredient_groups(ingredient_group_id)
+      ingredient_group = IngredientGroup.find_by_id(ingredient_group_id)
+      if ingredient_group
+        RecipeIngredient.where(:ingredient_id => ingredient_group.ingredient_ids )
+      end
+      
+      #TODO
+    end
+    
     
     # Returns [found_recipes_array, message]
     #

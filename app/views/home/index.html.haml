@@ -16,8 +16,12 @@
           %p.recipe_price= "Obrok za #{ recipe.num_people } #{ case recipe.num_people; when 1 : "osebo"; when 2 : "osebi"; when 3..4 : "osebe"; else "oseb"; end } stane #{ number_to_currency(recipe.calculated_price, :precision => 2) }"
         %footer
           %ul
-            %li.time_to_prepare= distance_of_time_in_words(recipe.time_to_prepare.minutes)
-            %li.cooking_time= distance_of_time_in_words(recipe.time_to_cook.minutes)
+            %li.time_to_prepare
+              = distance_of_time_in_words(recipe.time_to_prepare.minutes)
+              %span Čas priprave
+            %li.cooking_time
+              = distance_of_time_in_words(recipe.time_to_cook.minutes)
+              %span Čas kuhanja
             %li.calories= "#{number_with_precision recipe.number_of_kcal_per_meal, :precision => 3} kcal/osebo"
             
 %aside

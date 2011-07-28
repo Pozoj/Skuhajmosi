@@ -2,7 +2,7 @@ class Photo < ActiveRecord::Base
   belongs_to :holder, :polymorphic => true
   before_save :filename_to_permalink
   
-  has_attached_file :photo, :styles => { :super_small => "50x50>", :small => "150x150>", :medium => "250x250>", :big => "425x320#", :small_slice => "230x85#", :big_slice => "696x250#" },
+  has_attached_file :photo, :styles => { :super_small => "50x50>", :small => "150x150>", :medium => "250x250>", :big => "425x320#", :small_slice => "200x95#", :big_slice => "696x250#" },
                     :url  => "/system/photos/:id/:style/:basename.:extension",
                     :path => ":rails_root/public/system/photos/:id/:style/:basename.:extension"
   

@@ -4,6 +4,5 @@
   %li
     = access_right
     - if can? :manage, access_right
-      = link_to "Odstrani pravico", [access_right.user_kind, access_right], :method => :delete, :confirm => destroy_confirmation(access_right)
-      = link_to "Uredi pravico", edit_user_kind_access_right_path(access_right.user_kind, access_right)
-  
+      = link_to "Odstrani pravico", access_right, :method => :delete, :confirm => destroy_confirmation(access_right)
+      

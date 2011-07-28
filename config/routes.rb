@@ -1,7 +1,7 @@
 App::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "sessions" }
   
-  resources :access_rights, :except => [:index, :show]
+  resources :access_rights, :except => [:index, :show, :edit]
   
   resources :ingredient_groups, :product_firms, :products, :stores, :units, :user_kinds, :users, :vendors, :wines, :wine_groups, :wine_kinds, :wine_colors, :external_content_kinds, :externals
   

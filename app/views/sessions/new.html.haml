@@ -1,16 +1,16 @@
 %section
   %h2 Vpišite se
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %p
+  = form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "simple_form"} do |f|
+    %div
       = f.label :email
       %br/
       = f.text_field :email
-    %p
+    %div
       = f.label :password
       %br/
       = f.password_field :password
     - if devise_mapping.rememberable?
-      %p
+      %div
         = f.check_box :remember_me
         = f.label :remember_me
     %p= f.submit "Vpis"

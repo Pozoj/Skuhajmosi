@@ -1,6 +1,6 @@
 %section#ingredient-search
   %h2 Iskanje sestavine
-  = form_tag ingredients_path, :method => 'get' do
+  = form_tag ingredients_path, :method => 'get', :class => "searchform" do
     %p
-      = text_field :search, :ingredient, { :type => :search }
-      = submit_tag "Išči"
+      = text_field :search, :ingredient, { :class => "searchfield" }
+      = submit_tag "Išči", :class => "searchbutton"

@@ -1,5 +1,5 @@
 #recipe-search
   = form_tag recipes_path, :class => "searchform", :method => 'get' do
     %p
-      = text_field :search, :recipe, { :type => :search, :class => "searchfield" }
+      = text_field :search, :recipe, { :class => "searchfield" }
       = submit_tag "Išči", :name => nil, :class => "searchbutton"

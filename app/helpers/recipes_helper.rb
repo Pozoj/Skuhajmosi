@@ -23,18 +23,6 @@ module RecipesHelper
     end.join(', ').html_safe
   end
   
-  def ingredient_list(recipe)
-    ingredient_list_items = recipe.recipe_ingredients.collect do |recipe_ingredient|
-      ingredient_photo = []
-      ingredient, quantity_unit = recipe_ingredient.info
-      ingredient_photo << link_to(ingredient, recipe_recipe_ingredient_path(recipe.id, recipe_ingredient.id) )
-      ingredient_photo << quantity_unit
-      #ingredient_photo << link_to(image_tag(recipe_ingredient.ingredient.photos.first.photo.url(:super_small)), recipe_recipe_ingredient_path(recipe.id, recipe_ingredient.id) ) if recipe_ingredient.ingredient.photos.any?
-      content_tag(:li, ingredient_photo.to_s.html_safe) 
-    end.join.html_safe
-    content_tag(:ul, ingredient_list_items, :class => "ingredient-list")
-  end
-  
   def ingredients_text_list(recipe)
     recipe.recipe_ingredients.collect do |recipe_ingredient|
       recipe_ingredient.to_s

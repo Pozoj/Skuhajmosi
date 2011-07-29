@@ -2,7 +2,16 @@
   - if resource.recipe_ingredients.any?
     #ingredient-list
       %h2 Sestvine
-      = ingredient_list(@recipe_info.recipe)
+      %ul.ingredient-list
+        - for recipe_ingredient in @recipe_info.recipe.recipe_ingredients
+          - ingredient, quantity_unit = recipe_ingredient.info
+          %li
+            = link_to(ingredient, recipe_recipe_ingredient_path(@recipe_info.recipe.id, recipe_ingredient.id) )
+            = quantity_unit
+            - if can? :destroy, RecipeIngredient 
+              = link_to "Odstrani", recipe_recipe_ingredient_path(@recipe_info.recipe, recipe_ingredient), :method => :delete, :confirm => destroy_confirmation(recipe_ingredient)
+            - if can? :update, RecipeIngredient 
+              = link_to "Uredi", edit_recipe_recipe_ingredient_path(@recipe_info.recipe, recipe_ingredient)
 
   - if resource.recipe_kinds.any?  
     #recipe-kinds

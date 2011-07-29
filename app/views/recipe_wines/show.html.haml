@@ -22,7 +22,7 @@
     .description Vino paše tudi k naslednjim jedem
     .value
       - if resource.recipes.any? 
-        %ul= render resource.recipes
+        = render "recipes/recipe_details", :recipes => resource.recipes
   
   = link_to_back parent_path
 %aside

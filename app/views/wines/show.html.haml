@@ -32,7 +32,7 @@
       .field
         .description Jedi, h katerim paše vino
         .value
-          = association_link_list(resource, "recipes")
+          = render "recipes/recipe_details", :recipes => resource.recipes
 
   = link_to_back
 %aside

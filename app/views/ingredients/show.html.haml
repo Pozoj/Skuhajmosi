@@ -17,14 +17,24 @@
       .field
         .description Št. kalorij na 100g
         .value= resource.calories
-
+      - if resource.description.present?
+        .field
+          .description Opis sestavine
+          .value= resource.description
+      
 
   #related-info
+    - if resource.ingredient_groups.any?
+      .field
+        .description Sestavino najdemo v slednjih skupinah sestavin
+        .value
+          %ul= render resource.ingredient_groups
+    
     - if resource.recipes.any?
       .field
         .description Jedi, ki vsebujejo sestavino
         .value
-          %ul= render resource.recipes.uniq
+          = render "recipes/recipe_details", :recipes => resource.recipes.uniq
 
   = link_to_back
 %aside

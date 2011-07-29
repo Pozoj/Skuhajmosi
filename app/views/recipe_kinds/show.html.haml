@@ -19,7 +19,7 @@
       .field
         .description Jedi, ki spadajo v izbrano skupino
         .value
-          %ul= render resource.recipes
+          = render "recipes/recipe_details", :recipes => resource.recipes
 
   = link_to_back
 %aside

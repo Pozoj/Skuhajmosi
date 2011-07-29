@@ -25,7 +25,7 @@
       .field
         .description Recepti, ki vsebujejo sestavino iz skupine
         .value
-          %ul= render @recipes_for_ingredient_groups
+          = render "recipes/recipe_details", :recipes => @recipes_for_ingredient_groups
 
   = link_to_back
 

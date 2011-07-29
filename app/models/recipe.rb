@@ -31,13 +31,14 @@ class Recipe < ActiveRecord::Base
   
   class << self
     # Returns recipes that include ingredients that belong to given ingredient group
-    def recipes_for_ingredient_groups(ingredient_group_id)
+    def for_ingredient_group(ingredient_group_id)
       ingredient_group = IngredientGroup.find_by_id(ingredient_group_id)
-      if ingredient_group
-        RecipeIngredient.where(:ingredient_id => ingredient_group.ingredient_ids )
+      if ingredient_group.present?
+        recipe_ingredients = RecipeIngredient.where(:ingredient_id => ingredient_group.ingredient_ids )
+        recipes = recipe_ingredients.collect {|ri| ri.recipe }
+        return recipes.uniq
       end
-      
-      #TODO
+      []
     end
     
     

@@ -808,7 +808,7 @@ background: linear-gradient(top, #fff 0%,#eaeaea 100%); /* W3C */
 		border:none;
 		
 	}
-	.simple_form input[type="text"], .simple_form input[type="email"], .simple_form input[type="number"], .simple_form textarea, #advance_search .field, .simple_form .area, .simple_form select{
+	.simple_form input[type="text"], .simple_form input[type="email"], .simple_form input[type="number"], .simple_form input[type="password"], .simple_form textarea, #advance_search .field, .simple_form .area, .simple_form select{
 		border:1px solid #aaa;
 		box-shadow:none;
 		padding:5px;

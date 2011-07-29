@@ -2,6 +2,7 @@
   %div.admin
     - if [RecipeKind, IngredientGroup, Product, ProductFirm, Vendor, Unit, ExternalContentKind, AccessRight].collect {|m| can?(:manage, m)}.include?(true)
       %nav#admin_menu
+        %h4 ADMINISTRATIVA
         %ul
           - if can? :manage, RecipeKind
             %li= link_to "Vrste receptov", recipe_kinds_path

@@ -10,19 +10,18 @@
   = render "related_info"
 
   - if @recipe_info.summary.present?  
-    #summary
-      /.description Povzetek
-      .value= @recipe_info.summary
+    %p.summary
+      = @recipe_info.summary
 
   - if @recipe_info.preparation.present?  
     #preperation
-      .description Priprava
-      .value= @recipe_info.preparation
+      %h2 Priprava
+      = RedCloth.new(@recipe_info.preparation).to_html.html_safe if @recipe_info.preparation.present?
 
   - if @recipe_info.suggestion.present?  
     #suggestion
-      .description Sugestije
-      .value= @recipe_info.suggestion
+      %h2 Sugestije
+      = RedCloth.new(@recipe_info.suggestion).to_html.html_safe if @recipe_info.suggestion.present?
 
   = link_to_back
 %aside

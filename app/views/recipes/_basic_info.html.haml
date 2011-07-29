@@ -4,17 +4,18 @@
       = link_to image_tag( @recipe_info.photos_url(:big) ), @recipe_info.photos_url(:original)
 
   #description-bar
+    %ul
     - if resource.time_to_prepare.present?  
-      #time-to-prepare
-        .description Čas priprave
-        .value= @recipe_info.preparation_time
+      %li.time-to-prepare
+        %span Čas priprave
+        = @recipe_info.preparation_time
 
     - if resource.time_to_cook.present?  
-      #time-to-cook
-        .description Čas kuhanja
-        .value= @recipe_info.cooking_time
+      %li.time-to-cook
+        %span Čas kuhanja
+        = @recipe_info.cooking_time
 
     - if resource.num_people.present?
-      #nr-of-people
-        .description Št. oseb
-        .value= link_to @recipe_info.num_people, recipes_path(:nr_of_people => @recipe_info.num_people)
+      %li.nr-of-people
+        %span Št. oseb
+        = link_to @recipe_info.num_people, recipes_path(:nr_of_people => @recipe_info.num_people)

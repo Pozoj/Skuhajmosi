@@ -1,7 +1,7 @@
 %section
   = title resource
 
-  - if can?(:update resource) or can?(:destroy, resource)
+  - if can?(:update, resource) or can?(:destroy, resource)
     %nav#editors-resource-menu
       %ul
         - if can? :update, resource

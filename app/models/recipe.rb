@@ -17,7 +17,7 @@ class Recipe < ActiveRecord::Base
   validates_numericality_of :time_to_cook, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_cook.nil? }
   validates_length_of :summary, :maximum => 300
   
-  default_scope order("name ASC")
+  default_scope where(:status_id => "approved").order("name ASC")
   
   scope :treated, where(:status_id => "treated")
   scope :master_treated, where(:status_id => "master_treated")

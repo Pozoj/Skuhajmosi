@@ -1,17 +1,17 @@
 #basic-info
   #description-bar
     %ul
-    - if resource.time_to_prepare.present?  
-      %li.time-to-prepare
-        %span Čas priprave
-        = @recipe_info.preparation_time
+      - if resource.time_to_prepare.present?  
+        %li.time-to-prepare
+          %span Čas priprave
+          = @recipe_info.preparation_time
 
-    - if resource.time_to_cook.present?  
-      %li.time-to-cook
-        %span Čas kuhanja
-        = @recipe_info.cooking_time
+      - if resource.time_to_cook.present?  
+        %li.time-to-cook
+          %span Čas kuhanja
+          = @recipe_info.cooking_time
 
-    - if resource.num_people.present?
-      %li.nr-of-people
-        %span Št. oseb
-        = link_to @recipe_info.num_people, recipes_path(:nr_of_people => @recipe_info.num_people)
+      - if resource.num_people.present?
+        %li.nr-of-people
+          %span Št. oseb
+          = link_to @recipe_info.num_people, recipes_path(:nr_of_people => @recipe_info.num_people)

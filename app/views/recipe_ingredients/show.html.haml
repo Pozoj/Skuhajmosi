@@ -25,7 +25,8 @@
       .field
         .description Jedi, ki vsebujejo sestavino
         .value
-          %ul= render resource.ingredient.recipes.uniq
+          = render "recipes/recipe_details", :recipes => resource.ingredient.recipes.uniq
+
     - if resource.ingredient.ingredient_groups.any?
       .field
         .description Sestavina spada v slednje vrste sestavin

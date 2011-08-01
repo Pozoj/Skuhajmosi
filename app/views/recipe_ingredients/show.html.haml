@@ -21,17 +21,17 @@
         .value= resource.ingredient
 
   #related-info
-    - if resource.ingredient.recipes.any? 
-      .field
-        .description Jedi, ki vsebujejo sestavino
-        .value
-          = render "recipes/recipe_details", :recipes => resource.ingredient.recipes.uniq
-
     - if resource.ingredient.ingredient_groups.any?
       .field
         .description Sestavina spada v slednje vrste sestavin
         .value
           %ul= render resource.ingredient.ingredient_groups.uniq
+
+    - if resource.ingredient.recipes.any? 
+      .field
+        .description Jedi, ki vsebujejo sestavino
+        .value
+          = render "recipes/recipe_details", :recipes => resource.ingredient.recipes.uniq
     
   = link_to_back parent_path
 %aside

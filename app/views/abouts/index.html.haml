@@ -1,0 +1,14 @@
+%section
+  = title "O nas"
+
+  - if can? :manage, About
+    %nav#editors-resource-menu
+      %ul
+        - if collection.empty?
+          %li= link_to "Dodaj o nas", new_resource_path 
+        - else
+          %li= link_to "Uredi o nas", edit_about_path(collection.last)
+
+  - if collection.present?
+    .abouts.textilize= (textilize collection.first.content).html_safe
+%aside

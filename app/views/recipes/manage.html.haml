@@ -1,0 +1,34 @@
+%title "Upravljanje receptov"
+
+- if can?(:manage, Recipe)
+  %nav#editors-resource-menu
+    %ul
+      %li= link_to "Obdelani (#{@treated_count})", {:pick => :treated}
+      %li= link_to "Mojstrsko obdelani (#{@master_treated_count})", {:pick => :master_treated}
+      %li= link_to "Lektorirani (#{@lectored_count})", {:pick => :lectored}
+      %li= link_to "Zavrnjeni (#{@rejected_count})", {:pick => :rejected}      
+      %li= link_to "Odobreni (#{@approved_count})", {:pick => :approved}
+      
+%table
+  %thead
+    %tr
+      %th= sortable "name", "Naziv"
+      %th= "Cena"
+      %th= sortable "num_people", "Št. ljudi"
+      %th= "Kalorije"
+      %th= sortable "created_at", "Datum vnosa"
+      %th= sortable "updated_at", "Datum posodobitve"
+      %th= sortable "time_to_prepare", "Čas priprave"
+      %th= sortable "time_to_cook", "Čas kuhanja"
+  %tbody
+    - for recipe in @recipes
+      %tr.clickable
+        %td= link_to recipe.name, edit_recipe_path(recipe)
+        %td= number_to_currency(recipe.calculated_price, :sale => 2)
+        %td= recipe.num_people
+        %td= "#{recipe.number_of_kcal_per_meal} kcal"
+        %td= l recipe.created_at
+        %td= l recipe.updated_at
+        %td= distance_of_time_in_words(recipe.time_to_prepare.minutes)
+        %td= distance_of_time_in_words(recipe.time_to_cook.minutes)
+        

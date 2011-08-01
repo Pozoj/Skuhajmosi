@@ -17,8 +17,6 @@ class Recipe < ActiveRecord::Base
   validates_numericality_of :time_to_cook, :only_integer => true, :if => Proc.new { |recipe| not recipe.time_to_cook.nil? }
   validates_length_of :summary, :maximum => 300
   
-  default_scope where(:status_id => "approved").order("name ASC")
-  
   scope :treated, where(:status_id => "treated")
   scope :master_treated, where(:status_id => "master_treated")
   scope :lectored, where(:status_id => "lectored")
@@ -41,13 +39,12 @@ class Recipe < ActiveRecord::Base
       []
     end
     
-    
     # Returns [found_recipes_array, message]
     #
     def search(params)
       query = params[:search][:recipe] if params[:search][:recipe]
       if query #for recipes
-        recipe_query = self.where("name LIKE ?", "%#{query}%")
+        recipe_query = self.approved.where("name LIKE ?", "%#{query}%")
         recipes_by_ingredient_query = self.by_ingredient_search(query)
         
         if recipe_query.any?
@@ -57,10 +54,10 @@ class Recipe < ActiveRecord::Base
           count = recipes_by_ingredient_query.length 
           return [recipes_by_ingredient_query, self.build_message(count, query)]
         else
-          return [ self.scoped, FAIL_SEARCH_MESSAGE ]
+          return [ self.approved, FAIL_SEARCH_MESSAGE ]
         end
       else
-        return [ self.scoped, NOTHING_ENTERED_MESSAGE ]
+        return [ self.approved, NOTHING_ENTERED_MESSAGE ]
       end
     end
     
@@ -68,7 +65,7 @@ class Recipe < ActiveRecord::Base
     #
     def advanced_search(params)
       nr_of_people, min_price, max_price, min_kcal, max_kcal = self.load_params_for_advanced_search(params)
-      query = self.scoped
+      query = self.approved
       query = query.where(:num_people => nr_of_people) if nr_of_people > 0
       query = query.where(:id => self.ids_between_values(min_price, max_price, { :subject => :price })) if min_price > 0 or max_price > 0
       query = query.where(:id => self.ids_between_values(min_kcal,  max_kcal,  { :subject => :kcal  })) if min_kcal  > 0 or max_kcal  > 0
@@ -85,6 +82,7 @@ class Recipe < ActiveRecord::Base
         for ingredient in ingredient_query
           recipes << ingredient.recipes
         end
+        recipes.reject! {|recipe| not recipe.approved? }
         if recipes.any?
           return recipes.flatten.uniq.sort_by {|r| r.name }
         end
@@ -154,6 +152,11 @@ class Recipe < ActiveRecord::Base
     end
     
   end #class << self
+  
+  def approved?
+    RecipeStatus.find(status_id).approved?
+  end
+  
   
   # Returns a RecipeStatus instance
   def status

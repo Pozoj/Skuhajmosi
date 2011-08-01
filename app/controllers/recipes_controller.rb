@@ -2,11 +2,22 @@ class RecipesController < InheritedResources::Base
   load_and_authorize_resource
   impressionist :actions => [:show]
   
+  helper_method :sort_column, :sort_direction, :pick
+  
   def index
     index! do |format|
       format.html
       format.pdf { render :pdf => collection, :filename => "#{collection.to_s}.pdf", :type => "application/pdf", :page_size => 'A4' }
     end
+  end
+  
+  def manage
+    @treated_count = Recipe.treated.length
+    @master_treated_count = Recipe.master_treated.length
+    @lectored_count = Recipe.lectored.length
+    @rejected_count = Recipe.rejected.length
+    @approved_count = Recipe.approved.length
+    @recipes = Recipe.where(:status_id => pick).order(sort_column + " " + sort_direction)
   end
   
   def new
@@ -53,9 +64,23 @@ class RecipesController < InheritedResources::Base
     elsif params[:specifics].present?
       @recipes, flash.now[:notice] = Recipe.advanced_search(params)
     else
-      @recipes = Recipe.all
+      @recipes = Recipe.approved
     end
     @recipes
+  end
+  
+  private
+
+  def pick
+    RecipeStatus.keys.include?(params[:pick]) ? params[:pick] : "treated"
+  end
+  
+  def sort_column
+    Recipe.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
   
 end

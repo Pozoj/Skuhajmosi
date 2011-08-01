@@ -1,5 +1,5 @@
 %header.wrapper
-  = link_to "<h1 class='ir' id='title'>Skuhajmo si.</h1>".html_safe, root_path
+  = link_to "<h1 class='ir' id='title'>Skuhajmo si.</h1> <p class='bubble'>DOBER TEK</p>".html_safe, root_path
   = link_to ("Oddaj recept <span>pridruži se nam s svojim receptom</span>").html_safe, new_original_recipe_path, :class => "large red awesome"
   
 %nav#menu
@@ -7,10 +7,10 @@
     %li= link_to "Recepti", recipes_path
     %li= link_to "Vina", wines_path
     %li= link_to "Sestavine", ingredients_path
-    %li= link_to "Šola kuhanja", "#"
-    %li= link_to "Zdravo", "#"
-    %li= link_to "EKO", "#"
-    %li= link_to "Nostalgija", "#"
+    %li= link_to "Šola kuhanja", cooking_schools_path
+    %li= link_to "Zdravo", healthies_path
+    %li= link_to "EKO", ekos_path
+    %li= link_to "Nostalgija", nostalgics_path
     %li= link_to "Dobre gostilne", "#"
     
 %br.clear

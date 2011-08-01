@@ -6,8 +6,6 @@
       %ul
         - if can?(:create, Recipe)
           %li= link_to "Dodaj recept", new_resource_path
-        - if admin?
-          %li= link_to "Neobdelani recepti", original_recipes_path
     
   %nav#resource-menu
     %ul

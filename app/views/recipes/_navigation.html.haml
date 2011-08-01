@@ -15,7 +15,3 @@
         %li= link_to "Dodaj vino", new_recipe_recipe_wine_path(resource)
       - if can? :destroy, RecipeWine and @recipe_info.wines_added?
         %li= link_to "Odstrani vino", [resource, @recipe_info.wine], :method => :delete, :confirm => destroy_confirmation(@recipe_info.wine)
-
-%nav#resource-menu
-  %ul
-    %li= link_to "Prenesi pdf", recipe_path(resource, "pdf")

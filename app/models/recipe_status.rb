@@ -31,7 +31,11 @@ class RecipeStatus
 
     def to_hash
       STATUSES
-    end    
+    end
+    
+    def keys
+      ["treated", "rejected", "master_treated", "lectored", "approved" ]
+    end
   end
   
   # def untreated?

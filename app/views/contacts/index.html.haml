@@ -1,0 +1,25 @@
+%section
+  = title "Kontakt"
+
+  - if can? :manage, Contact
+    %nav#editors-resource-menu
+      %ul
+        - if collection.empty?
+          %li= link_to "Dodaj kontakt", new_resource_path
+        - else
+          %li= link_to "Uredi kontakt", edit_resource_path(collection.last)
+
+
+  - if collection.present?
+    - contact = collection.last
+    %contact_details
+      .name= contact.name
+      .address= contact.address
+      .tax_nr= contact.tax_nr
+      .telephone= contact.telephone
+      .fax= contact.fax
+      .mobile= contact.mobile
+      .email= contact.email
+      .website= contact.website
+    .notes= (textilize contact.notes).html_safe
+%aside

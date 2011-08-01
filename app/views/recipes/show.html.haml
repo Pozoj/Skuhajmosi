@@ -1,11 +1,10 @@
 %section
   = title resource
-
-  #author
-    .description Avtor
-    .value tole se bo spremenilo
   
   = render "navigation"
+  - if @recipe_info.photos_added?
+    .photos
+      = link_to image_tag( @recipe_info.photos_url(:big) ), @recipe_info.photos_url(:original)
   = render "basic_info"
   = render "related_info"
 
@@ -21,7 +20,15 @@
   - if @recipe_info.suggestion.present?  
     #suggestion
       %h2 Sugestije
-      = RedCloth.new(@recipe_info.suggestion).to_html.html_safe if @recipe_info.suggestion.present?
+      = RedCloth.new(@recipe_info.suggestion).to_html.html_safe if @recipe_info.suggestion.present?  
+
+  %nav#resource-menu
+    %ul
+      %li= link_to "Prenesi pdf", recipe_path(resource, "pdf")
+
+  #author
+    .description Avtor
+    .value tole se bo spremenilo
 
   = link_to_back
 %aside

@@ -10,12 +10,70 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110715131404) do
+ActiveRecord::Schema.define(:version => 20110729214550) do
+
+  create_table "abouts", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "access_rights", :force => true do |t|
     t.string   "user_kind_id"
     t.string   "name"
     t.string   "right"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "conditions", :force => true do |t|
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "tax_nr"
+    t.string   "telephone"
+    t.string   "fax"
+    t.string   "mobile"
+    t.string   "email"
+    t.string   "website"
+    t.text     "notes"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cooking_schools", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cooks", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ekos", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "location"
+    t.datetime "starting_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,6 +98,13 @@ ActiveRecord::Schema.define(:version => 20110715131404) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.string   "name"
+  end
+
+  create_table "healthies", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "impressions", :force => true do |t|
@@ -85,6 +150,13 @@ ActiveRecord::Schema.define(:version => 20110715131404) do
     t.decimal  "price_for_weight_in_grams", :precision => 8,  :scale => 2, :default => 0.0
     t.decimal  "weight_in_grams",           :precision => 10, :scale => 5, :default => 0.0
     t.text     "description"
+  end
+
+  create_table "nostalgia", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "original_recipes", :force => true do |t|

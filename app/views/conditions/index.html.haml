@@ -1,0 +1,14 @@
+%section
+  = title "Pogoji uporabe"
+
+  - if can? :create, About
+    %nav#editors-resource-menu
+      %ul
+        - if collection.empty?
+          %li= link_to "Dodaj pogoje uporabe", new_resource_path 
+        - else
+          %li= link_to "Uredi pogoje uporabe", edit_condition_path(collection.last)
+
+  - if collection.present?
+    .abouts.textilize= (textilize collection.first.content).html_safe
+%aside

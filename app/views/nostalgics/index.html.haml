@@ -1,0 +1,15 @@
+%section
+  = title "Nostalgija"
+  
+  %h2 Tu se lahko učite kako so kuhali včasih
+  
+  - if can? :create, Nostalgic
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj zapis", new_resource_path
+
+  - for post in collection
+    %article
+      %h1.title= link_to post.title, post
+      .content= RedCloth.new(truncate(post.content, :length => 120, :separator => ' ', :omission => '...')).to_html.html_safe
+%aside

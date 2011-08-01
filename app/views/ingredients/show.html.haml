@@ -13,30 +13,27 @@
         - else
           %li= link_to "Odstrani fotografijo", photo_path(resource.photos.last), :method => :delete, :confirm => destroy_confirmation(resource.photos.last)
 
-  = render "common/photo", :resource => resource
-  #basic-info
-    #description-bar
-      .field
-        .description Št. kalorij na 100g
-        .value= resource.calories
-      - if resource.description.present?
-        .field
-          .description Opis sestavine
-          .value= resource.description
-      
+  .ingredient_photo
+    = render "common/photo", :resource => resource
+  
+  #ingredient-info
+    %p 
+      Št. kalorij na 100g
+      = resource.calories
 
-  #related-info
-    - if resource.ingredient_groups.any?
-      .field
-        .description Sestavino najdemo v slednjih skupinah sestavin
-        .value
-          %ul= render resource.ingredient_groups
+    - if resource.description.present?
+      %p
+        Opis sestavine
+        = resource.description
     
+    - if resource.ingredient_groups.any?
+      %h3 Sestavino najdemo v slednjih skupinah sestavin
+      %ul= render resource.ingredient_groups
+  
+  #related_recipes  
     - if resource.recipes.any?
-      .field
-        .description Jedi, ki vsebujejo sestavino
-        .value
-          = render "recipes/recipe_details", :recipes => resource.recipes.uniq
+      %h3 Jedi, ki vsebujejo sestavino
+      = render "recipes/recipe_details", :recipes => resource.recipes.uniq
 
   = link_to_back
 %aside

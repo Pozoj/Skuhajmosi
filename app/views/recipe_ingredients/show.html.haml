@@ -9,29 +9,23 @@
         - if can? :destroy, resource
           %li= link_to "Odstrani sestavino", [parent, resource], :method => :delete, :confirm => destroy_confirmation(resource)    
 
-  #basic-info
-    - unless resource.ingredient.photos.empty?
+  - unless resource.ingredient.photos.empty?
+    .ingredient_photo
       - for photo in resource.ingredient.photos
-        .photo
-          = link_to image_tag(photo.photo.url(:medium)), photo.photo.url(:original)
+        = link_to image_tag(photo.photo.url(:medium)), photo.photo.url(:original)
   
-    #description-bar
-      .field
-        .description Sestavina
-        .value= resource.ingredient
+  #ingredient-info
+    %p
+      Sestavina
+      %span= resource.ingredient
 
-  #related-info
     - if resource.ingredient.ingredient_groups.any?
-      .field
-        .description Sestavina spada v slednje vrste sestavin
-        .value
-          %ul= render resource.ingredient.ingredient_groups.uniq
+      %h3 Sestavina spada v slednje vrste sestavin
+      %ul= render resource.ingredient.ingredient_groups.uniq
 
-    - if resource.ingredient.recipes.any? 
-      .field
-        .description Jedi, ki vsebujejo sestavino
-        .value
-          = render "recipes/recipe_details", :recipes => resource.ingredient.recipes.uniq
+  - if resource.ingredient.recipes.any? 
+    %h3 Jedi, ki vsebujejo sestavino
+    = render "recipes/recipe_details", :recipes => resource.ingredient.recipes.uniq
     
   = link_to_back parent_path
 %aside

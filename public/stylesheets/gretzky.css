@@ -564,6 +564,9 @@ aside .searchform .searchbutton {
 section{
 		float:left;
 		width:700px;
+		min-height:400px;
+	    height:auto !important;
+	    height:400px;
 	}
 aside{
 	color:#222;
@@ -672,7 +675,7 @@ a{text-decoration:none;}
 #main article footer ul li:hover span{
 		display:block;
 		position:absolute;
-		background:#c2d200;
+		background:#a5b300;
 		color:#fff;
 		top:-30px;
 		left:0;
@@ -785,11 +788,11 @@ section h2{
 		padding:0;
 	}
 section .photos{
-		width:429px;
-		float:right;
-		
 
+		float:right;
 	}
+
+
 section .photos img{
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
@@ -827,7 +830,7 @@ section .photos img{
 	
 
 .summary{
-		width:348px;
+		width:349px;
 		float:right;
 		background:url(../images/narekovaj.jpg) left top no-repeat #fff;
 		padding:20px 20px 20px 60px;
@@ -846,7 +849,7 @@ section .photos img{
 		width:429px;
 		float:right;
 	}
-#author, #resource-menu{display:none;}
+
 
 .to_back{
 	float:left;
@@ -858,13 +861,38 @@ section .photos img{
 	color:#fff;
 	font-weight:bold;
 	-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
 }
 .to_back:hover{
 		background:#c2d200;
 		color:#fff;
+}
+
+/***************UPRAVLJANJE RECEPTOV*************/
+
+table{width:100%;border-collapse:collapse;}
+th,caption{text-align:left;
+	font-weight:normal;
+	
+}
+
+table a{
+		color:#901b0f;
 	}
+th, td{padding:.5em 1em;line-height:1.5em;}		
+th{background:#eee;}
+th a{
+		text-decoration:underline;
+		color:#222;
+	}
+th a:hover{
+		text-decoration:none;
+	}
+td{border-bottom:1px solid #ccc;}
+/*tr:nth-child(2n){
+	 background: rgba(255, 0, 0, 0.05)
+	}*/
 /*#info{
 		float:left;
 		width:260px;

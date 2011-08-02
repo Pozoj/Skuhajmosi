@@ -1,20 +1,10 @@
 %section
   = title resource
-
-  - if can?(:update, resource) or can?(:destroy, resource) or can?(:create, Photo)
-    %nav#editors-resource-menu
-      %ul
-        - if can? :update, resource
-          %li= link_to "Uredi izdelek", edit_resource_path
-        - if can? :destroy, resource
-          %li= link_to "Odstrani izdelek", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
-        - if can? :create, Photo
-          %li= link_to "Dodaj fotografijo", new_product_photo_path(resource)
   
-
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_product_photo_path(resource)
+  = render "common/single_photo", :resource => resource    
+  
   #basic-info
-    = render "common/photo", :resource => resource
-  
     #description-bar
   
       #product

@@ -1,14 +1,9 @@
 %section
   = title resource
 
-  - if can?(:create, resource) or can?(:create, resource)
-    %nav#editors-resource-menu
-      %ul
-        - if can? :update, resource
-          %li= link_to "Uredi vino", edit_resource_path
-        - if can? :destroy, resource
-          %li= link_to "Odstrani vino", resource, :method => :delete, :confirm => destroy_confirmation(resource)
-
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_wine_photo_path(resource)
+  = render "common/single_photo", :resource => resource    
+  
   #basic-info
 
     #description-bar

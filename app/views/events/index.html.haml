@@ -8,8 +8,12 @@
 
   - for event in collection
     %article
-      %h1.title= link_to event.title, post
-      %h2.location= event.location
-      %h3.starting_at= event.starting_at
-      .content= RedCloth.new(truncate(event.content, :length => 120, :separator => ' ', :omission => '...')).to_html.html_safe
+      %h1.title= link_to event.title, event
+      %p
+        %strong Čas dogodka: 
+        = l event.starting_at, :format => :nice
+      %p
+        %strong Kraj dogodka: 
+        = event.location
+      = render "common/trunc_redcloth_it", :content => event.content, :length => 120
 %aside

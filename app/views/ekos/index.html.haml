@@ -10,6 +10,6 @@
 
   - for post in collection
     %article
-      %h1.title= link_to post.title, post
-      .content= RedCloth.new(truncate(post.content, :length => 120, :separator => ' ', :omission => '...')).to_html.html_safe
+      %h3.title= link_to post.title, post
+      = render "common/trunc_redcloth_it", :content => post.content, :length => 120
 %aside

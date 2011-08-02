@@ -1,15 +1,9 @@
 %section
   = title "Pregled uporabnika"
 
-  - if can? :manage, resource
-    %nav#editors-resource-menu
-      %ul
-        %li= link_to "Uredi uporabnika", edit_resource_path
-        %li= link_to "Odstrani uporabnika", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
-        %li= link_to "Dodaj fotografijo", new_user_photo_path(resource)  
-
-  = render "common/photo", :resource => resource
-
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_user_photo_path(resource)
+  = render "common/single_photo", :resource => resource
+  
   .field
     .description Ime in priimek
     .value= resource.full_name

@@ -1,0 +1,3 @@
+- if resource.photos.any?
+  .photo
+    = image_tag( resource.photos.order(:id).last.photo.url(:big) )

@@ -32,25 +32,6 @@ class PhotosController < ApplicationController
     redirect_to @holder
   end
 
-  # def show
-  #   @holder = find_holder
-  #   @photo = Photo.find(params[:id])
-  # end
-  # 
-  # def edit
-  #   @photo = Photo.find(params[:id])
-  # end
-  # 
-  # def update
-  #   @photo = Photo.find(params[:id])
-  #   if @photo.update_attributes(params[:photo])
-  #     flash.now[:notice] = "Fotografija je bila uspešno posodobljena."
-  #     redirect_to @photo
-  #   else
-  #     render :action => 'edit'
-  #   end
-  # end
-
   private
 
   def find_holder

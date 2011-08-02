@@ -1,0 +1,5 @@
+- if can_update_destroy_resource_photo(resource)
+  %nav#editors-resource-menu
+    %ul        
+      = render "common/update_destroy_nav", :resource => resource
+      = render "common/photo_navigation", :resource => resource, :new_photo_path => new_photo_path

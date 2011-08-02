@@ -4,11 +4,7 @@
   - if can? :manage, Contact
     %nav#editors-resource-menu
       %ul
-        - if collection.empty?
-          %li= link_to "Dodaj kontakt", new_resource_path
-        - else
-          %li= link_to "Uredi kontakt", edit_resource_path(collection.last)
-
+        = render "common/new_edit_nav", :collection => collection
 
   - if collection.present?
     - contact = collection.last

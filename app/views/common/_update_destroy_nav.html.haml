@@ -1,0 +1,4 @@
+- if can? :update, resource
+  %li= link_to "Uredi", edit_resource_path
+- if can? :destroy, resource
+  %li= link_to "Odstrani", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)

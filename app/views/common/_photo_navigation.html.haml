@@ -1,0 +1,4 @@
+- if can? :create, Photo and not resource.photos.any?
+  %li= link_to "Dodaj fotografijo", new_photo_path #new_cook_photo_path(resource)  
+- if can? :destroy, Photo and resource.photos.any?
+  %li= link_to "Odstrani fotografijo", resource.photos.last, :method => :delete, :confirm => destroy_confirmation(resource.photos.last)        

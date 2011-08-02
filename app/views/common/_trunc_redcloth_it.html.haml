@@ -1,0 +1,1 @@
+.shortened_content= RedCloth.new(truncate(content, :length => length, :separator => ' ', :omission => '...')).to_html.html_safe

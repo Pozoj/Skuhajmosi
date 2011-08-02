@@ -1,31 +1,17 @@
 %section
   = title resource
-
-  - if can?(:update, resource) or can?(:destroy, resource) or can?(:create, Photo)
-    %nav#editors-resource-menu
-      %ul        
-        - if can? :update, resource
-          %li= link_to "Uredi skupino sestavin", edit_resource_path
-        - if can? :destroy, resource
-          %li= link_to "Odstrani skupino sestavin", resource, :method => :delete, :confirm => destroy_confirmation(resource)
-        - if can? :create, Photo
-          %li= link_to "Dodaj fotografijo", new_ingredient_group_photo_path(resource)
   
-  #basic-info
-    = render "common/photo", :resource => resource
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_ingredient_group_photo_path(resource)  
+  = render "common/single_photo", :resource => resource
 
   #related-info  
     - if resource.ingredients.any?
-      .field
-        .description Sestavine v skupini
-        .value
-          %ul= render resource.ingredients
+      %h3 Sestavine v skupini
+      %ul= render resource.ingredients
 
-    - if resource.ingredients.any?
-      .field
-        .description Recepti, ki vsebujejo sestavino iz skupine
-        .value
-          = render "recipes/recipe_details", :recipes => @recipes_for_ingredient_groups
+    - if @recipes_for_ingredient_groups.any?
+      %h3 Recepti, ki vsebujejo sestavino iz skupine
+      = render "recipes/recipe_details", :recipes => @recipes_for_ingredient_groups
 
   = link_to_back
 

@@ -15,12 +15,12 @@
   - if @recipe_info.preparation.present?  
     #preperation
       %h2 Priprava
-      = RedCloth.new(@recipe_info.preparation).to_html.html_safe if @recipe_info.preparation.present?
+      = render "common/redcloth_it", :content => @recipe_info.preparation
 
   - if @recipe_info.suggestion.present?  
     #suggestion
       %h2 Sugestije
-      = RedCloth.new(@recipe_info.suggestion).to_html.html_safe if @recipe_info.suggestion.present?  
+      = render "common/redcloth_it", :content => @recipe_info.suggestion
 
   %nav#resource-menu
     %ul

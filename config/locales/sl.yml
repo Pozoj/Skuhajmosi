@@ -78,6 +78,7 @@ sl:
       short: "%d. %b ob %H:%M"
       long: "%d. %B, %Y ob %H:%M"
       simple: "%d. %B %Y"
+      nice: "%A, %d. %B %Y, ob %H:%M"
       
     am: "dopoldan"
     pm: "popoldan"

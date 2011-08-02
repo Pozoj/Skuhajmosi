@@ -1,25 +1,13 @@
 %section
   = title resource
 
-  - if can?(:update, RecipeKind) or can?(:destroy, RecipeKind) or can?(:create, Photo)
-    %nav#editors-resource-menu
-      %ul
-        - if can? :update, RecipeKind
-          %li= link_to "Uredi vrsto recepta", edit_recipe_kind_path(resource)
-        - if can? :destroy, RecipeKind
-          %li= link_to "Odstrani vrsto recepta", recipe_kind_path(resource), :method => :delete, :confirm => destroy_confirmation(resource)
-        - if can? :create, Photo
-          %li= link_to "Dodaj fotografijo", new_recipe_kind_photo_path(resource)
-
-  #basic-info
-    = render "common/photo", :resource => resource
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_recipe_kind_photo_path(resource)
+  = render "common/single_photo", :resource => resource
 
   #related-info          
     - if resource.recipes.any?
-      .field
-        .description Jedi, ki spadajo v izbrano skupino
-        .value
-          = render "recipes/recipe_details", :recipes => resource.recipes
+      %h3 Jedi, ki spadajo v izbrano skupino
+      = render "recipes/recipe_details", :recipes => resource.recipes
 
   = link_to_back
 %aside

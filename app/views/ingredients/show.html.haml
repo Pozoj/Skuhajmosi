@@ -1,20 +1,10 @@
 %section
   = title resource
 
-  - if can?(:update, resource) or can?(:destroy, resource) or can?(:create, Photo)
-    %nav#editors-resource-menu
-      %ul
-        - if can? :update, resource
-          %li= link_to "Uredi sestavino", edit_resource_path
-        - if can? :destroy, resource
-          %li= link_to "Odstrani sestavino", resource, :method => :delete, :confirm => destroy_confirmation(resource)
-        - if resource.photos.empty? and can? :create, Photo
-          %li= link_to "Dodaj fotografijo", new_ingredient_photo_path(resource)
-        - else
-          %li= link_to "Odstrani fotografijo", photo_path(resource.photos.last), :method => :delete, :confirm => destroy_confirmation(resource.photos.last)
-
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_ingredient_photo_path(resource)  
+  
   .ingredient_photo
-    = render "common/photo", :resource => resource
+    = render "common/single_photo", :resource => resource
   
   #ingredient-info
     %p 

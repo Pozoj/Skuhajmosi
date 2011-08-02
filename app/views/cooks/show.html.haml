@@ -1,25 +1,11 @@
 %section
   = title resource
 
-  - if can?(:update, resource) or can? (:destroy, resource)
-    %nav#editors-resource-menu
-      %ul
-        - if can? :update, resource
-          %li= link_to "Uredi kuharja", edit_resource_path
-        - if can? :destroy, resource
-          %li= link_to "Odstrani kuharja", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
-        - if can? :create, Photo and not resource.photos.any?
-          %li= link_to "Dodaj fotografijo", new_cook_photo_path(resource)  
-        - if can? :destroy, Photo and resource.photos.any?
-          - photo = resource.photos.order(:id).last
-          %li= link_to "Odstrani fotografijo", photo, :method => :delete, :confirm => destroy_confirmation(photo)        
-      
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_cook_photo_path(resource)
+  = render "common/single_photo", :resource => resource
+  
   #basic-info
-    - if resource.photos.any?
-      .photos
-        = image_tag( resource.photos.order(:id).last.photo.url(:big) )
-    .description= resource.description
+    = render "common/redcloth_it", :content => resource.description
     
-
   = link_to_back
 %aside

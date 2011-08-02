@@ -6,7 +6,7 @@ class Wine < ActiveRecord::Base
   
   has_many :recipe_wines
   has_many :recipes, :through => :recipe_wines
-  has_many :photos, :as => :holder
+  has_many :photos, :as => :holder, :dependent => :destroy
   
   validate :association_dependencies
   validates_presence_of :description

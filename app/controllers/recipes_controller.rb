@@ -17,7 +17,12 @@ class RecipesController < InheritedResources::Base
     @lectored_count = Recipe.lectored.length
     @rejected_count = Recipe.rejected.length
     @approved_count = Recipe.approved.length
-    @recipes = Recipe.where(:status_id => pick).order(sort_column + " " + sort_direction)
+    if recipe_kind
+      @recipes = RecipeKind.find_by_id(recipe_kind).recipes.where(:status_id => pick).order(sort_column + " " + sort_direction)
+    else
+      @recipes = Recipe.where(:status_id => pick).order(sort_column + " " + sort_direction)
+    end
+    @recipe_kinds = RecipeKind.all
   end
   
   def new
@@ -71,6 +76,10 @@ class RecipesController < InheritedResources::Base
   
   private
 
+  def recipe_kind
+    return params[:recipe_kind] if (RecipeKind.all.collect(&:id)).include?(Integer(params[:recipe_kind])) 
+  end
+  
   def pick
     RecipeStatus.keys.include?(params[:pick]) ? params[:pick] : "treated"
   end

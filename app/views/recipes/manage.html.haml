@@ -9,7 +9,13 @@
         %li= link_to "Lektorirani (#{@lectored_count})", {:pick => :lectored}
         %li= link_to "Zavrnjeni (#{@rejected_count})", {:pick => :rejected}      
         %li= link_to "Odobreni (#{@approved_count})", {:pick => :approved}
-      
+    
+    - if @recipe_kinds.present?
+      %nav#recipe_kinds
+        %ul
+          - for recipe_kind in @recipe_kinds
+            %li= link_to recipe_kind.to_s, {:recipe_kind => recipe_kind.id, :pick => params[:pick] } 
+          
   %table
     %thead
       %tr

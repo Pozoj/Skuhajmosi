@@ -13,8 +13,8 @@
     - if @recipe_kinds.present?
       %nav#recipe_kinds
         %ul
-          - for recipe_kind in @recipe_kinds
-            %li= link_to recipe_kind.to_s, {:recipe_kind => recipe_kind.id, :pick => params[:pick] } 
+          - for rk in @recipe_kinds
+            %li= link_to rk.to_s, {:recipe_kind => rk.id, :pick => params[:pick] } 
           
   %table
     %thead

@@ -2,7 +2,7 @@ class RecipesController < InheritedResources::Base
   load_and_authorize_resource
   impressionist :actions => [:show]
   
-  helper_method :sort_column, :sort_direction, :pick
+  helper_method :sort_column, :sort_direction, :pick, :recipe_kind
   
   def index
     index! do |format|

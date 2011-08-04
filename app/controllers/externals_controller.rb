@@ -3,16 +3,27 @@ class ExternalsController < InheritedResources::Base
   defaults :resource_class => ExternalContent
   
   def update
-    unless admin?
+    if admin?
+      update!
+    else
       external_content = ExternalContent.find params[:id]
       if proper_params?
         update!
       else
-        flash[:error] = "Nimaš osnovne."
+        flash[:error] = "Za urejanje vsebine nimate ustrezne avtorizacije."
         render "edit"
       end
+    end
+  end
+  
+  def destroy_photo
+    @holder = ExternalContent.find_by_id(params[:id])
+    @holder.photo.destroy
+    if @holder.save
+      flash.now[:notice] = "Uspešno ste izbrisali fotografijo."
+      render "edit"
     else
-      update!
+      render "edit"
     end
   end
   

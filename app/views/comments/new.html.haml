@@ -1,0 +1,9 @@
+%section
+  = title "Prispevajte nam Vaš komentar"
+
+  = simple_form_for resource, :html => { :multipart => true } do |f|
+    = f.input :name
+    = f.input :content
+  
+    = f.button :submit, "Oddaj komentar"
+%aside

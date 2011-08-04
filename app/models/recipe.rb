@@ -82,9 +82,10 @@ class Recipe < ActiveRecord::Base
         for ingredient in ingredient_query
           recipes << ingredient.recipes
         end
-        recipes.reject! {|recipe| not recipe.approved? }
+        recipes = recipes.flatten.uniq
+        recipes.delete_if {|recipe| recipe.status_id != "approved" }
         if recipes.any?
-          return recipes.flatten.uniq.sort_by {|r| r.name }
+          return recipes.sort_by {|r| r.name }
         end
       end
       []

@@ -3,13 +3,19 @@ App::Application.routes.draw do
   
   resources :access_rights, :except => [:index, :show, :edit]
   
-  resources :product_firms, :stores, :units, :user_kinds, :vendors,  :wine_groups, :wine_kinds, :wine_colors, :external_content_kinds, :externals
+  resources :externals do
+    member do
+      get :destroy_photo
+    end
+  end
+  
+  resources :product_firms, :stores, :units, :user_kinds, :vendors,  :wine_groups, :wine_kinds, :wine_colors, :external_content_kinds
   
   resources :abouts,    :except => [:show]
   resources :conditions,:except => [:show]
   resources :contacts,  :except => [:show]
   
-  resources :cooks, :cooking_schools, :ekos, :events, :healthies, :ingredient_groups, :ingredients, :nostalgics, :products, :recipe_kinds, :users, :wines  do
+  resources :cooks, :cooking_schools, :ekos, :events, :healthies, :know_its, :ingredient_groups, :ingredients, :nostalgics, :products, :recipe_kinds, :table_covers, :tools, :users, :wines  do
     resources :photos, :only => [:new, :create]
   end
   
@@ -18,7 +24,8 @@ App::Application.routes.draw do
   end
   
   resources :external_contents
-
+  
+  resources :comments, :except => [:edit]
   resources :original_recipes, :except => [:edit]
   
   resources :photos, :only => [:destroy]

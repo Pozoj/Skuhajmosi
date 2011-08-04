@@ -1,0 +1,13 @@
+%section
+  = title "Dobro je vedeti"
+  
+  - if can? :create, KnowIt
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj zapis dobro je vedeti", new_resource_path
+
+  - for post in collection
+    %article
+      %h3.title= link_to post.title, post
+      = render "common/trunc_redcloth_it", :content => post.content, :length => 120
+%aside

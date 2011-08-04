@@ -32,4 +32,8 @@ module ApplicationHelper
   def can_update_destroy_resource_photo(resource)
     can?(:update, resource) or can?(:destroy, resource) or can?(:create, Photo) or can?(:destroy, Photo)
   end
+  
+  def usable_external_content_kinds
+    ExternalContentKind.order(:name).reject {|content_kind| content_kind.external_contents.empty? }
+  end
 end

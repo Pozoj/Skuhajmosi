@@ -3,22 +3,22 @@
     %h3 Koristne povezave
     %nav#external-contents
       %ul
-        %li= link_to "Revije", "#"
-        %li= link_to "Knjige", "#"
+        - for kind in usable_external_content_kinds
+          %li= link_to kind, kind
     
     %nav#page-related
       %ul
         %li= link_to "Kuharji", cooks_path
-        %li= link_to "Pripomočki", "#"
-        %li= link_to "Pogrinjki", "#"
-        %li= link_to "Dobro je vedeti", "#"
+        %li= link_to "Pripomočki", tools_path
+        %li= link_to "Pogrinjki", table_covers_path
+        %li= link_to "Dobro je vedeti", know_its_path
         %li= link_to "Stoletne gostilne", "#"
         %li= link_to "Dogodki", events_path
     
     %nav#page-info
       %ul
         %li= link_to "O nas", abouts_path
-        %li= link_to "Komentiraj", "#"
+        %li= link_to "Komentiraj", new_comment_path
         %li= link_to "Kontakt", contacts_path
         %li= link_to "Pogoji uporabe", conditions_path
 

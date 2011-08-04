@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110729214550) do
+ActiveRecord::Schema.define(:version => 20110804130109) do
 
   create_table "abouts", :force => true do |t|
     t.text     "content"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20110729214550) do
     t.string   "user_kind_id"
     t.string   "name"
     t.string   "right"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -152,6 +159,13 @@ ActiveRecord::Schema.define(:version => 20110729214550) do
     t.text     "description"
   end
 
+  create_table "know_its", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "nostalgia", :force => true do |t|
     t.string   "title"
     t.text     "content"
@@ -262,6 +276,20 @@ ActiveRecord::Schema.define(:version => 20110729214550) do
     t.integer  "original_id"
     t.string   "short_name"
     t.text     "memo"
+  end
+
+  create_table "table_covers", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tools", :force => true do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "units", :force => true do |t|

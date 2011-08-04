@@ -21,7 +21,7 @@
         .description Avtor
         .value= resource.author
       
-    - if resource.url_title and resource.url
+    - if resource.url_title.present? and resource.url.present?
       .field
         .description Zunanja povezava
         .value= link_to resource.url_title, resource.url

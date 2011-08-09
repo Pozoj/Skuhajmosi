@@ -40,7 +40,7 @@ class RecipesController < InheritedResources::Base
     
     respond_to do |format|
       format.html
-      format.pdf { render :pdf => @recipe_info.recipe, :filename => "recept.pdf", :type => "application/pdf", :page_size => 'A4' }
+      format.pdf #{ render :pdf => @recipe_info.recipe, :filename => "recept.pdf", :type => "application/pdf", :page_size => 'A4' }
     end
   end
   

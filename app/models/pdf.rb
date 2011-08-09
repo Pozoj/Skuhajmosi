@@ -1,14 +1,27 @@
 class Pdf
   VERTICAL_SPACER = 10
+  DOUBLE_VERTICAL_SPACER = 20
   H1 = 25
   H2 = 20
   H3 = 15
   NORMAL_FONT_SIZE = 13
   FONT = "#{Prawn::BASEDIR}/data/fonts/DejaVuSans.ttf"
   
+  PN_FORMAT = "Stran <page> od <total>"
+  PN_OPTIONS = {
+    :at => [540 - 150, 0], 
+    :width => 150, 
+    :align => :right, 
+    :page_filter => (1..7), 
+    :start_count_at => 1,
+    :color => "333300" 
+  }
+  
+  
+  
   class << self
     def add_page_numbers(pdf)
-      pdf.number_pages "Stran <page> od <total>", [pdf.bounds.right - 80, -20]
+      pdf.number_pages "Stran <page> od <total>", [ 500, -20]
       pdf
     end
     
@@ -54,7 +67,7 @@ class Pdf
     
     def style_and_move_down(pdf, text, style)
       case style
-      when :h1 then pdf.text_box text, :align => :left, :width => 300, :size => H1
+      when :h1 then pdf.text text, :size => H1
       when :h2 then pdf.text text, :size => H2
       when :h3 then pdf.text text, :size => H3
       end

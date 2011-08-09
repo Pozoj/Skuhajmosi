@@ -15,8 +15,9 @@ gem 'mysql2', '0.2.7'
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm'
 gem 'i18n-js'
-gem "prawn", "0.8.4"
-gem "prawnto"
+# gem "prawn", "0.8.4"
+# gem "prawnto"
+gem "prawn_rails"
 gem "RedCloth", "~> 4.2.7"
 gem "impressionist"
 

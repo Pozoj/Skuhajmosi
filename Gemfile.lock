@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    Ascii85 (1.0.1)
     RedCloth (4.2.7)
     abstract (1.0.0)
     actionmailer (3.0.9)
@@ -113,17 +114,15 @@ GEM
       activerecord (>= 2.3.0)
       activesupport (>= 2.3.2)
       cocaine (>= 0.0.2)
+    pdf-reader (0.10.0)
+      Ascii85 (~> 1.0.0)
     polyglot (0.3.1)
-    prawn (0.8.4)
-      prawn-core (< 0.9, >= 0.8.4)
-      prawn-layout (< 0.9, >= 0.8.4)
-      prawn-security (< 0.9, >= 0.8.4)
-    prawn-core (0.8.4)
-    prawn-layout (0.8.4)
-    prawn-security (0.8.4)
-    prawnto (0.0.4)
-      prawn
-      rails (>= 2.1)
+    prawn (0.11.1)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.0)
+    prawn_rails (0.0.5)
+      prawn (>= 0.8.4)
+      rails (>= 3.0.0)
     rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
@@ -182,6 +181,7 @@ GEM
     thor (0.14.6)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
+    ttfunk (1.0.2)
     tzinfo (0.3.29)
     warden (1.0.4)
       rack (>= 1.0)
@@ -215,8 +215,7 @@ DEPENDENCIES
   mysql2 (= 0.2.7)
   newrelic_rpm
   paperclip
-  prawn (= 0.8.4)
-  prawnto
+  prawn_rails
   rails (= 3.0.9)
   rails-erd
   rake (~> 0.8.7)

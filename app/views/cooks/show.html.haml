@@ -4,7 +4,7 @@
   = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_cook_photo_path(resource)
   = render "common/single_photo", :resource => resource
   
-  #basic-info
+  .content
     = render "common/redcloth_it", :content => resource.description
     
   = link_to_back

@@ -36,4 +36,14 @@ module ApplicationHelper
   def usable_external_content_kinds
     ExternalContentKind.order(:name).reject {|content_kind| content_kind.external_contents.empty? }
   end
+  
+  
+  class Override < Prawn::Document
+    def initialize(opts={})
+      super(opts)
+      # text "I can override the rendering class"
+      # text "This lets me use pre-built reports and other wrappers around Prawn::Document"
+    end
+  end
+  
 end

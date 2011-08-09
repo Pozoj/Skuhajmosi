@@ -8,5 +8,4 @@ class AboutsController < InheritedResources::Base
   def update
     update! { abouts_path }
   end
-  
 end

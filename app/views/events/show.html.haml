@@ -4,9 +4,8 @@
   = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_event_photo_path(resource)
   = render "common/single_photo", :resource => resource    
 
-  #basic-info
-    #description-bar
-      = render "common/redcloth_it", :content => resource.content
+  .content
+    = render "common/redcloth_it", :content => resource.content
 
   = link_to_back
 %aside

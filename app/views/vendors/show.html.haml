@@ -8,13 +8,10 @@
           %li= link_to "Uredi ponudnika", edit_resource_path
         - if can? :destroy, resource
           %li= link_to "Odstrani ponudnika", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
-      
-
-  #basic-info
-    #description-bar
-      .field
-        .description Naziv ponudnika
-        .value= resource
+  
+  .content
+    %h2 Naziv ponudnika
+    %p= resource
 
   = link_to_back
 %aside

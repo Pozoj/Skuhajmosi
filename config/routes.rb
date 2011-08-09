@@ -39,7 +39,7 @@ App::Application.routes.draw do
       get :manage
     end
   end
-      
+  
   match "home/index", :to => "home#index"
   
   root :to => "home#index"

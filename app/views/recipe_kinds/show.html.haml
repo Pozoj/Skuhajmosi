@@ -3,11 +3,10 @@
 
   = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_recipe_kind_photo_path(resource)
   = render "common/single_photo", :resource => resource
-
-  #related-info          
-    - if resource.recipes.any?
-      %h3 Jedi, ki spadajo v izbrano skupino
-      = render "recipes/recipe_details", :recipes => resource.recipes
+  
+  - if resource.recipes.any?
+    %h3 Jedi, ki spadajo v izbrano skupino
+    = render "recipes/recipe_details", :recipes => resource.recipes
 
   = link_to_back
 %aside

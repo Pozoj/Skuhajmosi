@@ -4,25 +4,22 @@
   = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_product_photo_path(resource)
   = render "common/single_photo", :resource => resource    
   
-  #basic-info
-    #description-bar
   
-      #product
-        .description Proizvajalec izdelka
-        .value= resource.product_firm
+  #product
+    .description Proizvajalec izdelka
+    .value= resource.product_firm
+  
+  #product-name
+    .description Naziv izdelka
+    .value= resource
+
+  #product-weight
+    .description Količina
+    .value= resource.quantity_title
       
-      #product-name
-        .description Naziv izdelka
-        .value= resource
-    
-      #product-weight
-        .description Količina
-        .value= resource.quantity_title
       
-      
-  #related-info
-    .description Sestavina izdelka
-    .value= link_to resource.ingredient, resource.ingredient
+  %h3 Sestavina izdelka
+  = link_to resource.ingredient, resource.ingredient
 
   = link_to_back
 %aside

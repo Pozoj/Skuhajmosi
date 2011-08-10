@@ -4,30 +4,27 @@
   = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_wine_photo_path(resource)
   = render "common/single_photo", :resource => resource    
   
-  #basic-info
 
-    #description-bar
-      #wine-color
-        .description Barva vina
-        .value= link_to resource.wine_color, resource.wine_color 
+  #wine-color
+    .description Barva vina
+    .value= link_to resource.wine_color, resource.wine_color 
 
-      #wine-kind
-        .description Vrsta vina
-        .value= link_to resource.wine_kind, resource.wine_kind
+  #wine-kind
+    .description Vrsta vina
+    .value= link_to resource.wine_kind, resource.wine_kind
 
-      #wine-group
-        .description Skupina vin
-        .value= link_to resource.wine_group, resource.wine_group
-  
+  #wine-group
+    .description Skupina vin
+    .value= link_to resource.wine_group, resource.wine_group
+
   #short-summary
     = resource.description
 
-  #related-info
-    - if resource.recipes.any?
-      .field
-        .description Jedi, h katerim paše vino
-        .value
-          = render "recipes/recipe_details", :recipes => resource.recipes
+  - if resource.recipes.any?
+    .field
+      .description Jedi, h katerim paše vino
+      .value
+        = render "recipes/recipe_details", :recipes => resource.recipes
 
   = link_to_back
 %aside

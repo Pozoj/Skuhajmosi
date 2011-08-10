@@ -4,14 +4,13 @@
   = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_ingredient_group_photo_path(resource)  
   = render "common/single_photo", :resource => resource
 
-  #related-info  
-    - if resource.ingredients.any?
-      %h3 Sestavine v skupini
-      %ul= render resource.ingredients
+  - if resource.ingredients.any?
+    %h3 Sestavine v skupini
+    %ul= render resource.ingredients
 
-    - if @recipes_for_ingredient_groups.any?
-      %h3 Recepti, ki vsebujejo sestavino iz skupine
-      = render "recipes/recipe_details", :recipes => @recipes_for_ingredient_groups
+  - if @recipes_for_ingredient_groups.any?
+    %h3 Recepti, ki vsebujejo sestavino iz skupine
+    = render "recipes/recipe_details", :recipes => @recipes_for_ingredient_groups
 
   = link_to_back
 

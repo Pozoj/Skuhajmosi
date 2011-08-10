@@ -12,9 +12,7 @@
 
   #short-summary= resource.description
 
-  #related-info
-    - if resource.wines.any?
-      .field
-        .description Vina te skupine
-        .value= wines_link_list(resource)
+  - if resource.wines.any?
+    %h3 Vina te skupine
+    = wines_link_list(resource)
 %aside

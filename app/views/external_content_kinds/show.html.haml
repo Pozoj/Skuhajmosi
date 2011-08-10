@@ -11,8 +11,7 @@
         - if can? :create, ExternalContent
           %li= link_to "Dodaj vsebino", new_external_content_kind_external_content_path(resource)
 
-  #related-info          
-    = external_contents_link_list(resource)
+  = external_contents_link_list(resource)
 
   = link_to_back
 

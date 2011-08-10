@@ -12,5 +12,11 @@
       %li= link_to "Prenesi pdf", recipes_path("pdf")  
 
   = render "common/recipe_search"
+  %ul.alphabetical-index
+    - for initial in @initials
+      %li= link_to initial, recipes_path(:initial => initial)
+    
+  = will_paginate collection
   = render "recipes/recipe_details", :recipes => collection
+  = will_paginate collection
 %aside

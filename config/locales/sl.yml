@@ -3,6 +3,10 @@ sl:
   yes: "DA"
   no: "NE"
 
+  will_paginate:
+    previous_label: "Nazaj"
+    next_label: "Naprej"
+  
   times: "krat"
   existing_image: "Obstoječa slika"
   days:

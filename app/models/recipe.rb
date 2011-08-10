@@ -28,6 +28,11 @@ class Recipe < ActiveRecord::Base
   NOTHING_ENTERED_MESSAGE = "Kaj iščete? Na voljo so slednji recepti."
   
   class << self
+    #Returns unique initials of available recipes
+    def initials
+      Recipe.approved.order(:name).collect {|recipe| recipe.name.slice(0,1) }.uniq
+    end
+    
     # Returns recipes that include ingredients that belong to given ingredient group
     def for_ingredient_group(ingredient_group_id)
       ingredient_group = IngredientGroup.find_by_id(ingredient_group_id)

@@ -12,4 +12,7 @@
     %article
       %h3.title= link_to post.title, post
       = render "common/trunc_redcloth_it", :content => post.content, :length => 120
+      
+  - if @nostalgic_recipes.present?
+    = render "recipes/recipe_details", :recipes => @nostalgic_recipes
 %aside

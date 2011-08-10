@@ -1,5 +1,8 @@
 - collection.group_by(&:user_kind).each do |user_kind, users|
-  %h3= user_kind
+  - if user_kind.present?
+    %h3= user_kind
+  - else
+    %h3 Administratorji
   %ul
     - for user in users
       %li

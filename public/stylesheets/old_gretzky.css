@@ -75,7 +75,7 @@ button {  width: auto; overflow: visible; }
 
 body, select, input, textarea {  color: #444; }
 h1, h2, h3, h4, h5, h6 { font-weight: bold; }
-/*a, a:active, a:visited { color: #222; }*/
+a, a:active, a:visited { color: #222; }
 a:hover { color: #222; }
 
 /*
@@ -93,7 +93,7 @@ body{
 }
 
 #header-container{
-	background:url(/images/footer.jpg) repeat-x top center;
+	background:url(../images/footer.jpg) repeat-x top center;
 	
 	height:160px;
 }
@@ -104,7 +104,6 @@ body{
 	height:110px;
 
 }
-
 h2, h3{
 	margin:20px 0;
 }
@@ -149,7 +148,7 @@ h2, h3{
     width:0;
 }
 #title{
-	background:url(/images/logo.png) no-repeat;
+	background:url(../images/logo.png) no-repeat;
 	width:384px;
 	height:96px;
 	font-size:55px;
@@ -565,9 +564,9 @@ aside .searchform .searchbutton {
 section{
 		float:left;
 		width:700px;
-		min-height:500px;
+		min-height:400px;
 	    height:auto !important;
-	    height:500px;
+	    height:400px;
 	}
 aside{
 	color:#222;
@@ -583,9 +582,7 @@ aside{
 
 
 #main article p{
-	font-family:Verdana, Geneva, sans-serif;
-	font-size:12px;
-	line-height:16px;
+	font-size:14px;
 	margin-top:0;
 	padding-right:10px;
 	text-shadow:none;
@@ -608,7 +605,7 @@ aside{
 #main article header{
 	float:left;
 	margin-left:10px;
-	width:355px;
+	width:350px;
 	display:block;
 		
 	
@@ -631,13 +628,13 @@ a{text-decoration:none;}
 	}
 #main article .recipe_summary{
 		color:#777;
-		font-size:11px;
+		font-size:13px;
 		line-height:18px;
 	}
 #main article .tags{
 		padding:4px 0 2px 0;
 		color:#222;
-		font-size:11px;
+		font-size:13px;
 	}
 #main article .tags a{
 		color:#da532f;
@@ -651,14 +648,13 @@ a{text-decoration:none;}
 	}
 #main article .tags ul li{display:inline}
 #main article .recipe_price{
-		font-size:11px;
+		font-size:13px;
 		margin-bottom:15px;
 			padding:2px 0 2px 0;
 }
 #main article footer{
 		float:right;
-		width:120px;
-		font-family:Verdana, Geneva, sans-serif;
+		width:130px;
 
 }
 #main article footer ul{
@@ -668,10 +664,8 @@ a{text-decoration:none;}
 	}
 #main article footer ul li{
 		padding:0px 0 0 18px;
-		line-height:20px;
+		background:url(../images/icon.jpg) left no-repeat;
 		position:relative;
-		font-size:11px;
-			cursor:pointer;
 		
 	}
 #main article footer ul li span{
@@ -683,47 +677,35 @@ a{text-decoration:none;}
 		position:absolute;
 		background:#a5b300;
 		color:#fff;
-		top:-32px;
+		top:-30px;
 		left:0;
 		padding:5px;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
-	
 
 	
 	}
-#description-bar ul li{
-		padding:0px 0 0 24px;
-	}
-#main .time_to_prepare, .time-to-prepare{
+#main .time_to_prepare{
 		margin-bottom:5px;
-		background:url(/images/prepare.png) 0 0 no-repeat;
 	}
-#main .cooking_time, .time-to-cook{
+#main .cooking_time{
+		margin-bottom:30px;
+	}
 
-		background:url(/images/cook.png) 0 0 no-repeat;
-	}
-.calories{
-		margin-top:30px;
-		background:url(/images/calories.png) 0 2px no-repeat;
-	}
-.nr-of-people{
-		background:url(/images/people.png) 0 2px no-repeat;
-	}
 hr{	
 		display:none;
 		width:700px;
 		height:3px;
 		display:block;
-		background:url(/images/hr.jpg) no-repeat center;
+		background:url(../images/hr.jpg) no-repeat center;
 		border:none;
 	}
 	
 #footer-container{
 
 	/*background-color:#f3f3f3;*/
-	background:url(/images/footer.jpg) repeat center;
+	background:url(../images/footer.jpg) repeat center;
 	height:320px;
 
 	border-top:15px solid #222;
@@ -795,20 +777,19 @@ section h1{
 		font-size:32px;
 		text-align:left;
 		width:700px;
-		color:#da532f;
-		font-family: "Gill Sans MT", sans-serif;
+		color:#901b0f;
+		margin-bottom:10px;
 		font-weight:normal;
 
 	}
 section h2{
-		font-size:16px;
-		text-transform:uppercase;
+		font-size:22px;
 		margin:0;
 		padding:0;
 	}
 section .photos{
-		margin-top:10px;
 
+		float:right;
 	}
 
 
@@ -819,13 +800,11 @@ section .photos img{
 		padding:2px;
 		background:#fff;
 		border:1px solid #ccc;
-		float:left;
 	}
 
 #editors-resource-menu{
 		width:700px;
-		margin:10px 0 15px 0;
-
+		margin-bottom:15px;
 		background:#614032;
 		height:27px;
 		-webkit-border-radius: 4px;
@@ -843,188 +822,47 @@ section .photos img{
 #editors-resource-menu ul li a:hover{
 		color:#c2d200;
 	}
-#basic-info , #related-info{
-		float:right;
-		width:250px;
-		margin-bottom:10px;
-		font-family:Verdana, Geneva, sans-serif;
+#description-bar, #suggestion, #ingredient-list, #recipe-kinds, #calories-calculation,  #price-calculation, #recipe-wines{
+		flaot:left;
+		width:260px;
+		margin-top:10px;
 
 	}
-	#basic-info ul{
-			list-style:none;
-			margin:0;
-		}
-#basic-info ul li{
-		font-weight:bold;
-		margin:5px 0 5px 0;
-
-	}
-#basic-info ul li span{
-		font-weight:normal;
-		width:100px;
-		float:left;
-		display:block;
-	}
-
 	
-#related-info div{
-		margin-bottom:20px;
-	}	
-
 #ingredient-list{
-		background:#da532f;
 		border:1px solid #ccc;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
 	}
-#ingredient-list h2{
-		font-size:20px;
-		margin:10px 0 0 10px;
-		color:#fff;
-		font-family: "Gill Sans MT", sans-serif;
-	}
-#ingredient-list ul{
-		list-style:none;
-
-		width:220px;
-		margin:10px 0 15px 10px;
-	} 
-#ingredient-list ul li{
-		font-weight:bold;
-		color:#fff;
-		margin:5px 0 5px 0;
-	}	
-#ingredient-list ul li a{
-		color:#fff;
-		font-weight:normal;
-		
-		display:inline;
-	}
-#ingredient-list ul li a + a {
-		color:#222;
-		display:block;
-		font-size:11px;
-	}
-
-#ingredient-list ul li a:hover{
-		color:#901b0f;
-	}
-/*#ingredient-list dl {
-    margin:15px 0 10px 10px;
-	font-size:12px;
-}
- 
-#ingredient-list dl dt {
-    color:#fff;
-
-    float:left;
-	width:120px;
-    margin-right:10px;
-    padding:2px;
-	text-align:left; 
-}
-
-#ingredient-list dl dd {
-    margin:5px 0;
-    padding:4px 0;
-	
-}
-#ingredient-list dd a{
-		color:#222;
-	text-decoration:none;
-	font-size:12px;
-	}
-#ingredient-list dd a:hover{
-		color:#900;
-	}*/
-#recipe-kinds h2{
-		font-size:16px;
+#ingredient-list h2, #recipe-kinds h2{
+		font-size:18px;
 		margin-top:15px;
-		font-family: "Gill Sans MT", sans-serif;
-	}
-.recipe_kinds-list{
-		list-style:none;
-		margin:5px 0 0 0;
-	}
-.recipe_kinds-list li a{
-		float:left;
-		color:#fff;
-		display:block;
-		background:#da532f;
-		padding:3px 5px 3px 5px;
-		margin:0 10px 0 0;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
-}
-.recipe_kinds-list li a:hover{
-		background:#901b0f;	
-	}
-#calories-calculation{
-		padding-top:20px;
-		clear:both;
-}
-#price-calculation, #calories-calculation{
-		font-weight:bold;
-	}
-#price-calculation span, #calories-calculation span{
-		font-weight:normal;
-	}
-#calories-calculation span{
-		padding:0 0 0 20px;
-		background:url(/images/calories.png) 0 0 no-repeat;
-	}
-#price-calculation span{
-		padding:0 0 0 20px;
-		background:url(/images/price.png) 0 0 no-repeat;
-	}
+	} 	
+
 .summary{
 		width:349px;
-		float:left;
-		font-family:Verdana, Geneva, sans-serif;
-		background:url(/images/narekovaj.jpg) left top no-repeat #fff;
+		float:right;
+		background:url(../images/narekovaj.jpg) left top no-repeat #fff;
 		padding:20px 20px 20px 60px;
 		font-style:italic;
-		font-size:14px;
-		margin:10px 0 5px 0;
+		font-size:16px;
+		margin:0px 0 5px 0;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
 		border:1px solid #ccc;
 	}
-
-#preperation p, #suggestion p{
-		font-family:Verdana, Geneva, sans-serif;
-		}
 #suggestion h2, #preperation h2{
 		margin:15px 0 8px 0;
 	}
-#preperation h2{
-		font-size:20px;
-	}
+
+#suggestion p{
+	padding:0 20px 0 0;
+}
 #preperation{
 		width:429px;
-		float:left;
-	}
-#suggestion{
-		width:429px;
-		float:left;
+		float:right;
 	}
 
-#resource-menu, #author{
-		font-family:Verdana, Geneva, sans-serif;
-		clear:both;
-		margin:10px 0 10px 0;
-	}
-#resource-menu ul{
-		padding-top:10px;
-	}
-#resource-menu ul li a{
-		text-transform:uppercase;
-		padding:0 0 0 24px;
-		background:url(/images/pdf.png) 0 0 no-repeat;	
-	}
+
 .to_back{
 	float:left;
 	display:block;
@@ -1091,29 +929,7 @@ section h3{
 		color:#901b0f;
 	}
 /***************UPRAVLJANJE RECEPTOV*************/
-#recipe_kinds{
-			width:700px;
-		margin:10px 0 15px 0;
 
-		background:#da532f;
-		height:27px;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;	
-	}
-
-#recipe_kinds ul li a{
-		float:right;
-		display:block;
-		color:#fff;
-		padding:5px 10px 5px 10px;
-	
-	}
-#recipe_kinds ul li a:hover{
-		color:#222;
-	}
-	
-	
 table{width:100%;border-collapse:collapse; color:#222;}
 th,caption{text-align:left;font-weight:normal;
 }
@@ -1145,43 +961,6 @@ th a:hover{
 td{border-bottom:1px solid #ccc;}
 table tr:hover{
 		background:#fefefe;
-		cursor: pointer;
-	}
-/*****************EKO ZDRAVO NOSTALGIJA*****************/
-
-article .title{
-		padding:0;
-		margin:20px 0 0 0;
-	}
-article .title a{
-		color:#901b0f;
-		
-		
-	}
-.shortened_content {
-		margin-top:5px;
-
-	}
-.shortened_content{
-		font-size:22px;
-	}
-section .photo img{
-		float:right;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;	
-		padding:2px;
-		background:#fff;
-		border:1px solid #ccc;
-		margin:10px 0 15px 15px;
-	}
-
-section .content p{
-		
-		font-family:Verdana, Geneva, sans-serif;
-		font-size:12px;
-		margin-top:10px;
-		line-height:20px;
 	}
 /*tr:nth-child(2n){
 	 background: rgba(255, 0, 0, 0.05)
@@ -1432,29 +1211,27 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
 		width:700px;
 		float:left;
 		
-		
-	}
-.collection-list ul {
-		list-style:none;
-		margin:0;
 	}
 .collection-list a{color:#222;position:relative;}
-.collection-list li a:nth-child(2){
+.collection-list li a img{
 		display:none;
 	}
 
-
-.collection-list li a{
-		float:left;
-		color:#fff;
+.collection-list li a:hover a:nth-child(2) img{
+		position:absolute;
+		color:#FFFFFF;
 		display:block;
-		background:#da532f;
-		padding:3px 5px 3px 5px;
-		margin:0 10px 5px 0;
-		-webkit-border-radius: 4px;
-		-moz-border-radius: 4px;
-		border-radius: 4px;
+		left:30px;
+		margin:0;
+		padding:10px;
+		width:300px;
+		height:300px;
+		top:-10px;
+		z-index:2;
+		-webkit-border-radius: 3px; -moz-border-radius:3px;
 	}
+
+
 /*********************************************************/	
 	
 	

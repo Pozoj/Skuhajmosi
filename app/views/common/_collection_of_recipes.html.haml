@@ -1,4 +1,5 @@
 - if collection.present?
+  %h3= title
   = render "common/recipe_pagination", :collection => collection
   = render "recipes/recipe_details", :recipes => collection
   = render "common/recipe_pagination", :collection => collection

@@ -13,18 +13,8 @@
         - if can? :create, WineGroup
           %li= link_to "Dodaj grupo", new_wine_group_path
 
-  - if @wine_colors.any?
-    %h3 Barve vin
-    = array_to_link_list(@wine_colors, "wine-colors")
-
-  - if @wine_kinds.any?
-    %h3 Vrste vin
-    = array_to_link_list(@wine_kinds, "wine-kinds")
-
-  - if @wine_groups.any?
-    %h3 Grupe vin
-    = array_to_link_list(@wine_groups, "wine_groups")
-
+  = render "common/wine_menu"
+  
   = collection_list_renderer(collection)
 
 %aside

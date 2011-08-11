@@ -5,17 +5,7 @@
   = render "common/single_photo", :resource => resource    
   
 
-  #wine-color
-    .description Barva vina
-    .value= link_to resource.wine_color, resource.wine_color 
-
-  #wine-kind
-    .description Vrsta vina
-    .value= link_to resource.wine_kind, resource.wine_kind
-
-  #wine-group
-    .description Skupina vin
-    .value= link_to resource.wine_group, resource.wine_group
+  = render "common/wine_menu"
 
   #short-summary
     = resource.description

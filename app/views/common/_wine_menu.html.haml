@@ -1,0 +1,14 @@
+- if @wine_colors.any?
+  .wine-color-list
+    %h3 Barve vin
+    = array_to_link_list(@wine_colors, "wine-colors")
+
+- if @wine_kinds.any?
+  .wine-kinds-list
+    %h3 Vrste vin
+    = array_to_link_list(@wine_kinds, "wine-kinds")
+
+- if @wine_groups.any?
+  .wine_groups-list
+    %h3 Grupe vin
+    = array_to_link_list(@wine_groups, "wine_groups")

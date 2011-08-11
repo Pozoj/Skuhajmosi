@@ -16,7 +16,7 @@
     - for initial in @initials
       %li= link_to initial, recipes_path(:initial => initial)
     
-  = will_paginate collection
+  = render "common/recipe_pagination", :collection => collection
   = render "recipes/recipe_details", :recipes => collection
-  = will_paginate collection
+  = render "common/recipe_pagination", :collection => collection
 %aside

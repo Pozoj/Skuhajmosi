@@ -1,6 +1,7 @@
 %section
+  = title "Priljubljeni recepti"
   = render "common/recipe_search"
-
+  
   - if @top_5_recipes.any?
     = render "recipes/recipe_details", :recipes => @top_5_recipes
 %aside

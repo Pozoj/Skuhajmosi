@@ -8,7 +8,7 @@ class RecipesController < InheritedResources::Base
     @initials = Recipe.initials
     index! do |format|
       format.html
-      format.pdf { render :pdf => collection, :filename => "#{collection.to_s}.pdf", :type => "application/pdf", :page_size => 'A4' }
+      format.pdf #{ render :pdf => collection, :filename => "#{collection.to_s}.pdf", :type => "application/pdf", :page_size => 'A4' }
     end
   end
   
@@ -65,18 +65,21 @@ class RecipesController < InheritedResources::Base
   def collection
     if params[:initial].present?
       if Recipe.initials.include?(params[:initial])
-        @recipes = Recipe.approved.where("name LIKE ?", "#{params[:initial]}%").page(params[:page]).order(:name)
+        @recipes = Recipe.approved.where("short_name LIKE ?", "#{params[:initial]}%").order(:short_name).page(params[:recipe_page])
       else 
-        @recipes = Recipe.approved.page(params[:page])
+        @recipes = Recipe.approved.page(params[:recipe_page])
       end
     elsif params[:nr_of_people].present?
-      @recipes, flash.now[:notice] = Recipe.by_nr_of_people(params[:nr_of_people]).page(params[:page])
+      @recipes, flash.now[:notice] = Recipe.by_nr_of_people(params[:nr_of_people])
+      @recipes = @recipes.page(params[:recipe_page])
     elsif params[:search].present?
-      @recipes, flash.now[:notice] = Recipe.search(params).page(params[:page])
+      @recipes, flash.now[:notice] = Recipe.search(params)
+      @recipes = @recipes.page(params[:recipe_page])
     elsif params[:specifics].present?
-      @recipes, flash.now[:notice] = Recipe.advanced_search(params).page(params[:page])
+      @recipes, flash.now[:notice] = Recipe.advanced_search(params)
+      @recipes = @recipes.page(params[:recipe_page])
     else
-      @recipes = Recipe.approved.page(params[:page])
+      @recipes = Recipe.approved.order(:short_name).page(params[:recipe_page])
     end
     @recipes
   end

@@ -1,4 +1,6 @@
 %section
+  = render "common/wine_menu"
+  
   = title "Vina"
 
   - if can?(:create, Wine) or can?(:create, WineColor) or can?(:create, WineKind) or can?(:create, WineGroup)
@@ -12,8 +14,6 @@
           %li= link_to "Dodaj vrsto", new_wine_kind_path
         - if can? :create, WineGroup
           %li= link_to "Dodaj grupo", new_wine_group_path
-
-  = render "common/wine_menu"
   
   = collection_list_renderer(collection)
 

@@ -610,7 +610,7 @@ aside{
 	margin-left:10px;
 	width:355px;
 	display:block;
-		
+
 	
 	/*-webkit-box-shadow:0 45px 60px -60px #AAA;
 	   -moz-box-shadow:0 45px 60px -60px #AAA;
@@ -625,6 +625,7 @@ a{text-decoration:none;}
 	font-size:18px;
 	color:#901b0f;
 	line-height:18px;
+	
 }
 #main article header .recipe_title:hover{
 	color:#da532f;
@@ -856,7 +857,7 @@ section .photos img{
 		}
 #basic-info ul li{
 		font-weight:bold;
-		margin:5px 0 5px 0;
+		margin:8px 0 8px 0;
 
 	}
 #basic-info ul li span{
@@ -877,6 +878,7 @@ section .photos img{
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
+		margin:3px 0 3px 0;
 	}
 #ingredient-list h2{
 		font-size:20px;
@@ -1006,10 +1008,12 @@ section .photos img{
 #preperation{
 		width:429px;
 		float:left;
+		margin-bottom:5px;
 	}
 #suggestion{
 		width:429px;
 		float:left;
+		margin-bottom:15px;
 	}
 
 #resource-menu, #author{
@@ -1017,9 +1021,7 @@ section .photos img{
 		clear:both;
 		margin:10px 0 10px 0;
 	}
-#resource-menu ul{
-		padding-top:10px;
-	}
+
 #resource-menu ul li a{
 		text-transform:uppercase;
 		padding:0 0 0 24px;
@@ -1034,6 +1036,7 @@ section .photos img{
 	padding:5px;
 	color:#fff;
 	font-weight:bold;
+
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
@@ -1087,7 +1090,8 @@ section .photos img{
 section h3{
 		clear:both;
 		font-size:26px;
-		padding-top:20px;
+		padding-top:2px;
+		margin:0;
 		color:#901b0f;
 	}
 /***************UPRAVLJANJE RECEPTOV*************/
@@ -1436,7 +1440,7 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
 	}
 .collection-list ul {
 		list-style:none;
-		margin:0;
+		margin: 15px 0;
 	}
 .collection-list a{color:#222;position:relative;}
 .collection-list li a:nth-child(2){
@@ -1455,10 +1459,78 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
 		-moz-border-radius: 4px;
 		border-radius: 4px;
 	}
+	
+.wine-colors-list, .wine-kinds-list, .wine_groups-list{
+		width:230px;
+		float:left;
+	}
+.wine-colors-list ul, .wine-kinds-list ul, .wine_groups-list ul, .wines-list{
+		list-style:none;
+		margin:10px 0 0 0;
+	}
+.wine-colors-list ul li a, .wine-kinds-list ul li a, .wine_groups-list ul li a, .wines-list li a{
+		background:url(/images/wine.png) 0 2px no-repeat;
+		padding-left:22px;
+		color:#222;
+		font-size:15px;
+	}
+.wine-colors-list ul li a:hover, .wine-kinds-list ul li a:hover, .wine_groups-list ul li a:hover, .wines-list li a:hover{
+		color:#901b0f;
+	}
+#short-summary{
+		margin-bottom:20px;
+	}
+/*****************************PAGINATION****************************/	
+.alphabetical-index{
+		list-style:none;
+		margin:0;
+	}
+.alphabetical-index li a{
+		float:left;
+		display:block;
+		width:24px;
+		color:#fff;
+
+		text-align:center;
+		background:#614032;
+		padding:3px 0 3px 0;
+		margin:0 5px 5px 0;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+	}
+.alphabetical-index li a:hover{
+		background:#26110a;
+	}
+.recipe_pagination{
+		clear:both;
+		height:30px;
+	}
+.previous_page, .next_page, .current, .recipe_pagination a{
+			float:left;
+		display:block;
+
+		color:#fff;
+
+		text-align:center;
+				background:#614032;
+		padding:5px 10px 5px 10px;
+		margin:0 5px 5px 0;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+	}
+.current, .recipe_pagination a:hover{
+		background:#26110a;
+	}
+
+.disabled{
+		text-decoration:line-through;
+		background:rgba(38,17,10,0.3);
+	}
+	
 /*********************************************************/	
-	
-	
-		
+/*********************************************************/			
 .clear{clear:both;}
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
 .hidden { display: none; visibility: hidden; }

@@ -1,5 +1,7 @@
+- @wine_colors, @wine_kinds, @wine_groups = WineColor.order(:name), WineKind.order(:name), WineGroup.order(:name)
+
 - if @wine_colors.any?
-  .wine-color-list
+  .wine-colors-list
     %h3 Barve vin
     = array_to_link_list(@wine_colors, "wine-colors")
 

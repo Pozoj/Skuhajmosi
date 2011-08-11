@@ -1,0 +1,7 @@
+- if collection.present?
+  = render "common/post_pagination", :collection => collection
+  - for post in collection
+    %article
+      %h3.title= link_to post.title, post
+      = render "common/trunc_redcloth_it", :content => post.content, :length => 120
+  = render "common/post_pagination", :collection => collection

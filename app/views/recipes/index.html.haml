@@ -14,7 +14,7 @@
   = render "common/recipe_search"
   %ul.alphabetical-index
     - for initial in @initials
-      %li= link_to initial, recipes_path(:initial => initial)
+      %li= link_to initial, recipes_path(:initial => initial, :recipe_page => params[:recipe_page])
     
   = render "common/recipe_pagination", :collection => collection
   = render "recipes/recipe_details", :recipes => collection

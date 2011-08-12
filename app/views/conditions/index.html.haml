@@ -1,7 +1,7 @@
 %section
   = title "Pogoji uporabe"
 
-  - if can? :create, About
+  - if can? :manage, Condition
     %nav#editors-resource-menu
       %ul
         = render "common/new_edit_nav", :collection => collection

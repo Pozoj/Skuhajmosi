@@ -804,7 +804,7 @@ section h1{
 section h2{
 		font-size:16px;
 		text-transform:uppercase;
-		margin:0;
+		margin:0 0 20px 0;
 		padding:0;
 	}
 section .photos{
@@ -1156,14 +1156,16 @@ table tr:hover{
 article .title{
 		padding:0;
 		margin:20px 0 0 0;
+		font-size:20px;
+		font-weight:bold;
 	}
-article .title a{
+article .title:hover{
 		color:#901b0f;
 		
 		
 	}
 .shortened_content {
-		margin-top:5px;
+		margin:5px 0 20px 0;
 
 	}
 .shortened_content{
@@ -1453,16 +1455,21 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
 		color:#fff;
 		display:block;
 		background:#da532f;
-		padding:3px 5px 3px 5px;
+		padding:4px 5px 4px 5px;
 		margin:0 10px 5px 0;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
+		text-transform:uppercase;
+	}
+.collection-list li a:hover{
+		background:#901b0f;
 	}
 	
 .wine-colors-list, .wine-kinds-list, .wine_groups-list{
 		width:230px;
 		float:left;
+		margin-bottom:20px;
 	}
 .wine-colors-list ul, .wine-kinds-list ul, .wine_groups-list ul, .wines-list{
 		list-style:none;
@@ -1472,7 +1479,7 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
 		background:url(/images/wine.png) 0 2px no-repeat;
 		padding-left:22px;
 		color:#222;
-		font-size:15px;
+		font-size:16px;
 	}
 .wine-colors-list ul li a:hover, .wine-kinds-list ul li a:hover, .wine_groups-list ul li a:hover, .wines-list li a:hover{
 		color:#901b0f;
@@ -1502,25 +1509,23 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
 .alphabetical-index li a:hover{
 		background:#26110a;
 	}
-.recipe_pagination{
+.recipe_pagination, .post_pagination{
 		clear:both;
-		height:30px;
+
 	}
-.previous_page, .next_page, .current, .recipe_pagination a{
-			float:left;
+.previous_page, .next_page, .current, .recipe_pagination a, .post_pagination a{
+		float:left;
 		display:block;
-
 		color:#fff;
-
 		text-align:center;
-				background:#614032;
+		background:#614032;
 		padding:5px 10px 5px 10px;
-		margin:0 5px 5px 0;
+		margin:0 5px 20px 0;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
 	}
-.current, .recipe_pagination a:hover{
+.current, .recipe_pagination a:hover, .post_pagination a:hover{
 		background:#26110a;
 	}
 

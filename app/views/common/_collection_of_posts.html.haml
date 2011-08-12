@@ -1,5 +1,4 @@
 - if collection.present?
-  = render "common/post_pagination", :collection => collection
   - for post in collection
     %article
       %h3.title= link_to post.title, post

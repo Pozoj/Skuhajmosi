@@ -25,7 +25,7 @@ class Recipe < ActiveRecord::Base
   
   
   FAIL_SEARCH_MESSAGE = "Žal iskanega recepta ne moremo najti. Na voljo so slednji recepti."
-  NOTHING_ENTERED_MESSAGE = "Kaj iščete? Na voljo so slednji recepti."
+  NOTHING_ENTERED_MESSAGE = "Niste vnesni ničesar. Na voljo so slednji recepti."
   
   class << self
     #Returns unique initials of available recipes
@@ -41,21 +41,21 @@ class Recipe < ActiveRecord::Base
         recipes = recipe_ingredients.collect {|ri| ri.recipe }
         return recipes.uniq
       end
-      []
+      return [ self.approved, FAIL_SEARCH_MESSAGE ]
     end
     
     # Returns [found_recipes_array, message]
     #
     def search(params)
       query = params[:search][:recipe] if params[:search][:recipe]
-      if query #for recipes
+      if query.present? #for recipes
         recipe_query = self.approved.where("name LIKE ?", "%#{query}%")
         recipes_by_ingredient_query = self.by_ingredient_search(query)
         
         if recipe_query.any?
           count = recipe_query.length
           return [ recipe_query, self.build_message(count) ]
-        elsif recipes_by_ingredient_query.any?
+        elsif recipes_by_ingredient_query.any? and recipes_by_ingredient_query != self.approved
           count = recipes_by_ingredient_query.length 
           return [recipes_by_ingredient_query, self.build_message(count, query)]
         else
@@ -83,17 +83,9 @@ class Recipe < ActiveRecord::Base
     def by_ingredient_search(query)
       ingredient_query = Ingredient.where('name LIKE ?', "%#{query}%")
       if ingredient_query.any?
-        recipes = []
-        for ingredient in ingredient_query
-          recipes << ingredient.recipes
-        end
-        recipes = recipes.flatten.uniq
-        recipes.delete_if {|recipe| recipe.status_id != "approved" }
-        if recipes.any?
-          return recipes.sort_by {|r| r.name }
-        end
+        return  self.approved.where(:id => ingredient_query.collect(&:recipes).flatten.uniq.collect(&:id))
       end
-      []
+      return self.approved
     end
 
     # Returns a proper search query message

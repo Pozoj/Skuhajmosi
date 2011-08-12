@@ -4,8 +4,10 @@
       %nav#admin_menu
         %h4 ADMINISTRATIVA
         %ul
+          - if can? :manage, Comment
+            %li= link_to "Uporabniški komentarji", comments_path
           - if can? :manage, OriginalRecipe
-            %li= link_to "Neobdelani recepti", original_recipes_path
+            %li= link_to "Uporabniški recepti", original_recipes_path
           - if can? :manage, Recipe
             %li= link_to "Upravljanje z recepti", manage_recipes_path
           - if can? :manage, RecipeKind

@@ -6,10 +6,10 @@ class RecipesController < InheritedResources::Base
   
   def index
     @initials = Recipe.initials
-    index! do |format|
-      format.html
-      format.pdf #{ render :pdf => collection, :filename => "#{collection.to_s}.pdf", :type => "application/pdf", :page_size => 'A4' }
-    end
+    # index! do |format|
+    #   format.html
+    #   format.pdf #{ render :pdf => collection, :filename => "#{collection.to_s}.pdf", :type => "application/pdf", :page_size => 'A4' }
+    # end
   end
   
   def manage

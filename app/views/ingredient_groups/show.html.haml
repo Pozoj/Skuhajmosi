@@ -6,7 +6,7 @@
 
   - if resource.ingredients.any?
     %h3 Sestavine v skupini
-    %ul= render resource.ingredients
+    = collection_list_renderer(resource.ingredients) 
 
   - if @recipes_for_ingredient_groups.any?
     %h3 Recepti, ki vsebujejo sestavino iz skupine

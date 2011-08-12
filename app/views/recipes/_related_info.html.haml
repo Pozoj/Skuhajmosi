@@ -1,7 +1,7 @@
 #related-info
   - if resource.recipe_ingredients.any?
     #ingredient-list
-      %h2 Sestvine
+      %h2 Sestavine
       %ul.ingredient-list
         - for recipe_ingredient in @recipe_info.recipe.recipe_ingredients
           - ingredient, quantity_unit = recipe_ingredient.info

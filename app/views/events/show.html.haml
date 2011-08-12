@@ -1,11 +1,18 @@
 %section
   = title resource.title
-
   = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_event_photo_path(resource)
-  = render "common/single_photo", :resource => resource    
+  = render "common/single_photo", :resource => resource      
+
+  %p
+    %strong Čas dogodka: 
+    = l resource.starting_at, :format => :nice
+
+  %p
+    %strong Kraj dogodka: 
+    = resource.location
 
   .content
     = render "common/redcloth_it", :content => resource.content
-
+  
   = link_to_back
 %aside

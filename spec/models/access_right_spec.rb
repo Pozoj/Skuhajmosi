@@ -7,42 +7,148 @@ describe AccessRight do
   
   it "should return these proper rights" do
     AccessRight.all_rights.sort_by {|hash| hash[:title] }.should == [
-      {:value=>[:destroy, ProductFirm], :title=>"Lahko briše proizvajalce produktov"},
-      {:value=>[:create,  ProductFirm], :title=>"Lahko ustvarja proizvajalce produktov"},
-      {:value=>[:update,  ProductFirm], :title=>"Lahko ureja proizvajalce produktov"},
-      {:value=>[:manage,  ProductFirm], :title=>"Lahko upravlja proizvajalce produktov"},
-      {:value=>[:destroy, Unit], :title=>"Lahko briše enote"},
-      {:value=>[:create,  Unit], :title=>"Lahko ustvarja enote"},
-      {:value=>[:update,  Unit], :title=>"Lahko ureja enote"}   ,
-      {:value=>[:manage,  Unit], :title=>"Lahko upravlja enote"},
-      {:value=>[:destroy, IngredientGroup], :title=>"Lahko briše skupine sestavin"},
-      {:value=>[:create,  IngredientGroup], :title=>"Lahko ustvarja skupine sestavin"},
-      {:value=>[:update,  IngredientGroup], :title=>"Lahko ureja skupine sestavin"},
-      {:value=>[:manage,  IngredientGroup], :title=>"Lahko upravlja skupine sestavin"},
-      {:value=>[:destroy, Product], :title=>"Lahko briše izdelke"},
-      {:value=>[:create,  Product], :title=>"Lahko ustvarja izdelke"},
-      {:value=>[:update,  Product], :title=>"Lahko ureja izdelke"},
-      {:value=>[:manage,  Product], :title=>"Lahko upravlja izdelke"},
-      {:value=>[:destroy, Ingredient], :title=>"Lahko briše sestavine"},
-      {:value=>[:create,  Ingredient], :title=>"Lahko ustvarja sestavine"},
-      {:value=>[:update,  Ingredient], :title=>"Lahko ureja sestavine"},
-      {:value=>[:manage,  Ingredient], :title=>"Lahko upravlja sestavine"},
-      {:value=>[:destroy, Vendor], :title=>"Lahko briše ponudnike"},
-      {:value=>[:create,  Vendor], :title=>"Lahko ustvarja ponudnike"},
-      {:value=>[:update,  Vendor], :title=>"Lahko ureja ponudnike"},
-      {:value=>[:manage,  Vendor], :title=>"Lahko upravlja ponudnike"},
-      {:value=>[:destroy, Recipe], :title=>"Lahko briše recepte"},
-      {:value=>[:create,  Recipe], :title=>"Lahko ustvarja recepte"},
-      {:value=>[:update,  Recipe], :title=>"Lahko ureja recepte"},
-      {:value=>[:manage,  Recipe], :title=>"Lahko upravlja recepte"},
-      {:value=>[:destroy, RecipeKind], :title=>"Lahko briše vrste receptov"},
-      {:value=>[:create,  RecipeKind], :title=>"Lahko ustvarja vrste receptov"},
-      {:value=>[:update,  RecipeKind], :title=>"Lahko ureja vrste receptov"},
-      {:value=>[:manage,  RecipeKind], :title=>"Lahko upravlja vrste receptov"},
-      {:value=>[:destroy, Photo], :title=>"Lahko briše fotografije"},
-      {:value=>[:create,  Photo], :title=>"Lahko ustvarja fotografije"},
-      {:value=>[:manage,  Photo], :title=>"Lahko upravlja fotografije"},
-      {:value=>[:update,  ExternalContent], :title=>"Lahko ureja zunanje vsebine"}
+      {:value=>[:create,  About], :title=>"O nas - Ustvarjanje"},
+      {:value=>[:update,  About], :title=>"O nas - Urejanje"},
+      {:value=>[:manage,  About], :title=>"O nas - Upravljanje"},
+
+      {:value=>[:create,  Condition], :title=>"Pogoji uporabe - Ustvarjanje"},
+      {:value=>[:update,  Condition], :title=>"Pogoji uporabe - Urejanje"},
+      {:value=>[:manage,  Condition], :title=>"Pogoji uporabe - Upravljanje"},
+  
+      {:value=>[:create,  Contact], :title=>"Kontakt - Ustvarjanje"},
+      {:value=>[:update,  Contact], :title=>"Kontakt - Urejanje"},
+      {:value=>[:manage,  Contact], :title=>"Kontakt - Upravljanje"},
+
+      {:value=>[:destroy, CookingSchool], :title=>"Šola kuhanja - Brisanje"},
+      {:value=>[:create,  CookingSchool], :title=>"Šola kuhanja - Ustvarjanje"},
+      {:value=>[:update,  CookingSchool], :title=>"Šola kuhanja - Urejanje"},
+      {:value=>[:manage,  CookingSchool], :title=>"Šola kuhanja - Upravljanje"},
+
+      {:value=>[:destroy, Cook], :title=>"Kuharji - Brisanje"},
+      {:value=>[:create,  Cook], :title=>"Kuharji - Ustvarjanje"},
+      {:value=>[:update,  Cook], :title=>"Kuharji - Urejanje"},
+      {:value=>[:manage,  Cook], :title=>"Kuharji - Upravljanje"},
+
+      {:value=>[:destroy, Eko], :title=>"Eko - Brisanje"},
+      {:value=>[:create,  Eko], :title=>"Eko - Ustvarjanje"},
+      {:value=>[:update,  Eko], :title=>"Eko - Urejanje"},
+      {:value=>[:manage,  Eko], :title=>"Eko - Upravljanje"},
+
+      {:value=>[:destroy, Event], :title=>"Dogodki - Brisanje"},
+      {:value=>[:create,  Event], :title=>"Dogodki - Ustvarjanje"},
+      {:value=>[:update,  Event], :title=>"Dogodki - Urejanje"},
+      {:value=>[:manage,  Event], :title=>"Dogodki - Upravljanje"},
+
+      {:value=>[:destroy, ExternalContentKind], :title=>"Vrste zunanjih vsebin - Brisanje"},
+      {:value=>[:create,  ExternalContentKind], :title=>"Vrste zunanjih vsebin - Ustvarjanje"},
+      {:value=>[:update,  ExternalContentKind], :title=>"Vrste zunanjih vsebin - Urejanje"},
+      {:value=>[:manage,  ExternalContentKind], :title=>"Vrste zunanjih vsebin - Upravljanje"},
+
+      {:value=>[:update,  ExternalContent], :title=>"Zunanje vsebine - Urejanje"},
+
+      {:value=>[:destroy, Healthy], :title=>"Zdravo - Brisanje"},
+      {:value=>[:create,  Healthy], :title=>"Zdravo - Ustvarjanje"},
+      {:value=>[:update,  Healthy], :title=>"Zdravo - Urejanje"},
+      {:value=>[:manage,  Healthy], :title=>"Zdravo - Upravljanje"},
+
+      {:value=>[:destroy, IngredientGroup], :title=>"Skupine sestavin - Brisanje"},
+      {:value=>[:create,  IngredientGroup], :title=>"Skupine sestavin - Ustvarjanje"},
+      {:value=>[:update,  IngredientGroup], :title=>"Skupine sestavin - Urejanje"},
+      {:value=>[:manage,  IngredientGroup], :title=>"Skupine sestavin - Upravljanje"},
+
+      {:value=>[:destroy, Ingredient], :title=>"Sestavine - Brisanje"},
+      {:value=>[:create,  Ingredient], :title=>"Sestavine - Ustvarjanje"},
+      {:value=>[:update,  Ingredient], :title=>"Sestavine - Urejanje"},
+      {:value=>[:manage,  Ingredient], :title=>"Sestavine - Upravljanje"},
+
+      {:value=>[:destroy, KnowIt], :title=>"Dobro je vedeti - Brisanje"},
+      {:value=>[:create,  KnowIt], :title=>"Dobro je vedeti - Ustvarjanje"},
+      {:value=>[:update,  KnowIt], :title=>"Dobro je vedeti - Urejanje"},
+      {:value=>[:manage,  KnowIt], :title=>"Dobro je vedeti - Upravljanje"},
+
+      {:value=>[:destroy, Nostalgic], :title=>"Nostalgija - Brisanje"},
+      {:value=>[:create,  Nostalgic], :title=>"Nostalgija - Ustvarjanje"},
+      {:value=>[:update,  Nostalgic], :title=>"Nostalgija - Urejanje"},
+      {:value=>[:manage,  Nostalgic], :title=>"Nostalgija - Upravljanje"},
+
+      {:value=>[:destroy, Photo], :title=>"Fotografije - Brisanje"},
+      {:value=>[:create,  Photo], :title=>"Fotografije - Ustvarjanje"},
+      {:value=>[:manage,  Photo], :title=>"Fotografije - Upravljanje"},
+
+      {:value=>[:destroy, ProductFirm], :title=>"Proizvajalci izdelkov - Brisanje"},
+      {:value=>[:create,  ProductFirm], :title=>"Proizvajalci izdelkov - "},
+      {:value=>[:update,  ProductFirm], :title=>"Proizvajalci izdelkov - Urejanje"},
+      {:value=>[:manage,  ProductFirm], :title=>"Proizvajalci izdelkov - Upravljanje"},
+
+      {:value=>[:destroy, Product], :title=>"Izdelki - Brisanje"},
+      {:value=>[:create,  Product], :title=>"Izdelki - Ustvarjanje"},
+      {:value=>[:update,  Product], :title=>"Izdelki - Urejanje"},
+      {:value=>[:manage,  Product], :title=>"Izdelki - Upravljanje"},
+
+      {:value=>[:destroy, RecipeIngredient], :title=>"Sestavina recepta - Brisanje"},
+      {:value=>[:create,  RecipeIngredient], :title=>"Sestavina recepta - Ustvarjanje"},
+      {:value=>[:update,  RecipeIngredient], :title=>"Sestavina recepta - Urejanje"},
+      {:value=>[:manage,  RecipeIngredient], :title=>"Sestavina recepta - Upravljanje"},
+
+      {:value=>[:destroy, RecipeKind], :title=>"Vrste receptov - Brisanje"},
+      {:value=>[:create,  RecipeKind], :title=>"Vrste receptov - Ustvarjanje"},
+      {:value=>[:update,  RecipeKind], :title=>"Vrste receptov - Urejanje"},
+      {:value=>[:manage,  RecipeKind], :title=>"Vrste receptov - Upravljanje"},
+
+      {:value=>[:destroy, RecipeWine], :title=>"Vino recepta - Brisanje"},
+      {:value=>[:create,  RecipeWine], :title=>"Vino recepta - Ustvarjanje"},
+      {:value=>[:update,  RecipeWine], :title=>"Vino recepta - Urejanje"},
+      {:value=>[:manage,  RecipeWine], :title=>"Vino recepta - Upravljanje"},
+
+      {:value=>[:destroy, Recipe], :title=>"Recepti - Brisanje"},
+      {:value=>[:create,  Recipe], :title=>"Recepti - Ustvarjanje"},
+      {:value=>[:update,  Recipe], :title=>"Recepti - Urejanje"},
+      {:value=>[:manage,  Recipe], :title=>"Recepti - Upravljanje"},
+
+      {:value=>[:destroy, TableCover], :title=>"Pogrinjki - Brisanje"},
+      {:value=>[:create,  TableCover], :title=>"Pogrinjki - Ustvarjanje"},
+      {:value=>[:update,  TableCover], :title=>"Pogrinjki - Urejanje"},
+      {:value=>[:manage,  TableCover], :title=>"Pogrinjki - Upravljanje"},
+
+      {:value=>[:destroy, Tool], :title=>"Pripomočki - Brisanje"},
+      {:value=>[:create,  Tool], :title=>"Pripomočki - Ustvarjanje"},
+      {:value=>[:update,  Tool], :title=>"Pripomočki - Urejanje"},
+      {:value=>[:manage,  Tool], :title=>"Pripomočki - Upravljanje"},
+      
+      {:value=>[:destroy, Unit], :title=>"Enote - Brisanje"},
+      {:value=>[:create,  Unit], :title=>"Enote - Ustvarjanje"},
+      {:value=>[:update,  Unit], :title=>"Enote - Urejanje"}   ,
+      {:value=>[:manage,  Unit], :title=>"Enote - Upravljanje"},
+      
+      {:value=>[:destroy, Vendor], :title=>"Ponudniki - Brisanje"},
+      {:value=>[:create,  Vendor], :title=>"Ponudniki - Ustvarjanje"},
+      {:value=>[:update,  Vendor], :title=>"Ponudniki - Urejanje"},
+      {:value=>[:manage,  Vendor], :title=>"Ponudniki - Upravljanje"},
+      
+      {:value=>[:destroy, VendorsProduct], :title=>"Ponudnikovi produkti - Brisanje"},
+      {:value=>[:create,  VendorsProduct], :title=>"Ponudnikovi produkti - Ustvarjanje"},
+      {:value=>[:update,  VendorsProduct], :title=>"Ponudnikovi produkti - Urejanje"},
+      {:value=>[:manage,  VendorsProduct], :title=>"Ponudnikovi produkti - Upravljanje"},
+      
+      {:value=>[:destroy, WineColor], :title=>"Barva vina - Brisanje"},
+      {:value=>[:create,  WineColor], :title=>"Barva vina - Ustvarjanje"},
+      {:value=>[:update,  WineColor], :title=>"Barva vina - Urejanje"},
+      {:value=>[:manage,  WineColor], :title=>"Barva vina - Upravljanje"},
+      
+      {:value=>[:destroy, WineGroup], :title=>"Skupina vina - Brisanje"},
+      {:value=>[:create,  WineGroup], :title=>"Skupina vina - Ustvarjanje"},
+      {:value=>[:update,  WineGroup], :title=>"Skupina vina - Urejanje"},
+      {:value=>[:manage,  WineGroup], :title=>"Skupina vina - Upravljanje"},
+      
+      {:value=>[:destroy, WineKind], :title=>"Vrsta vina - Brisanje"},
+      {:value=>[:create,  WineKind], :title=>"Vrsta vina - Ustvarjanje"},
+      {:value=>[:update,  WineKind], :title=>"Vrsta vina - Urejanje"},
+      {:value=>[:manage,  WineKind], :title=>"Vrsta vina - Upravljanje"},
+      
+      {:value=>[:destroy, Wine], :title=>"Vino - Brisanje"},
+      {:value=>[:create,  Wine], :title=>"Vino - Ustvarjanje"},
+      {:value=>[:update,  Wine], :title=>"Vino - Urejanje"},
+      {:value=>[:manage,  Wine], :title=>"Vino - Upravljanje"}
     ].sort_by {|hash| hash[:title] }
   end
   
@@ -61,7 +167,7 @@ describe AccessRight do
   end
   
   it "should return a user_kind_right hash" do
-    subject.user_kind_right.should == { :title=>"Lahko upravlja recepte", :value => [:manage,  Recipe]  }
+    subject.user_kind_right.should == { :title=>"Recepti - Upravljanje", :value => [:manage,  Recipe]  }
   end
   
 end

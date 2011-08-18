@@ -73,7 +73,11 @@ class RecipesController < InheritedResources::Base
       recipes_count = all_found_recipes.size
       ingredients_count = params[:ingredient_tokens][:ingredient].size
       @recipes = all_found_recipes.page(params[:recipe_page])
-      flash.now[:notice] = "Našli smo #{recipes_count} #{case recipes_count; when 1 : "recept"; when 2 : "recepta"; when 3,4 : "recepte"; else "receptov"; end}, ki #{case recipes_count; when 1 : "vsebuje"; when 2 : "vsebujeta"; else "vsebujejo"; end} #{case ingredients_count; when 1 : "navedeno sestavino"; else "eno ali več navedenih sestavin"; end}."
+      if recipes_count > 0
+        flash.now[:notice] = "Našli smo #{recipes_count} #{case recipes_count; when 1 : "recept"; when 2 : "recepta"; when 3,4 : "recepte"; else "receptov"; end}, ki #{case recipes_count; when 1 : "vsebuje"; when 2 : "vsebujeta"; else "vsebujejo"; end} #{case ingredients_count; when 1 : "navedeno sestavino"; else "eno ali več navedenih sestavin"; end}."
+      else
+        "Žal nismo našli nobenega recepta, ki bi vseboval #{case ingredients_count; when 1 : "navedeno sestavino"; else "eno ali več navedenih sestavin"; end}."
+      end
     elsif params[:nr_of_people].present?
       @recipes, flash.now[:notice] = Recipe.by_nr_of_people(params[:nr_of_people])
       @recipes = @recipes.page(params[:recipe_page])

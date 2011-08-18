@@ -1,7 +1,6 @@
 class RecipesController < InheritedResources::Base
   load_and_authorize_resource
   impressionist :actions => [:show]
-  
   helper_method :sort_column, :sort_direction, :pick, :recipe_kind
   
   def index
@@ -11,7 +10,7 @@ class RecipesController < InheritedResources::Base
     #   format.pdf #{ render :pdf => collection, :filename => "#{collection.to_s}.pdf", :type => "application/pdf", :page_size => 'A4' }
     # end
   end
-  
+    
   def manage
     @treated_count = Recipe.treated.length
     @master_treated_count = Recipe.master_treated.length
@@ -69,9 +68,17 @@ class RecipesController < InheritedResources::Base
       else 
         @recipes = Recipe.approved.page(params[:recipe_page])
       end
+    elsif params[:ingredient_tokens].present? and params[:ingredient_tokens][:ingredient].present?
+      all_found_recipes = Recipe.approved.refrigerator_search(params[:ingredient_tokens][:ingredient])
+      recipes_count = all_found_recipes.size
+      ingredients_count = params[:ingredient_tokens][:ingredient].size
+      @recipes = all_found_recipes.page(params[:recipe_page])
+      flash.now[:notice] = "Našli smo #{recipes_count} #{case recipes_count; when 1 : "recept"; when 2 : "recepta"; when 3,4 : "recepte"; else "receptov"; end}, ki #{case recipes_count; when 1 : "vsebuje"; when 2 : "vsebujeta"; else "vsebujejo"; end} #{case ingredients_count; when 1 : "navedeno sestavino"; else "eno ali več navedenih sestavin"; end}."
     elsif params[:nr_of_people].present?
       @recipes, flash.now[:notice] = Recipe.by_nr_of_people(params[:nr_of_people])
       @recipes = @recipes.page(params[:recipe_page])
+    elsif params[:refrigerator_search].present?
+      @recipes = Recipe.refrigerator_search(params[:q])
     elsif params[:search].present?
       @recipes, flash.now[:notice] = Recipe.search(params)
       @recipes = @recipes.page(params[:recipe_page])

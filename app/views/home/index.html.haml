@@ -4,5 +4,7 @@
   
   - if @top_5_recipes.any?
     = render "recipes/recipe_details", :recipes => @top_5_recipes
+    
 %aside
   = render "common/advanced_search"
+  = render "common/refrigerator_search"

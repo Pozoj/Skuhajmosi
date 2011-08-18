@@ -6,5 +6,5 @@
       %ul
         %li= link_to "Dodaj vrsto recepta", new_resource_path
   
-  = collection_list_renderer(collection)
+  = render "common/alphabetically_seperated_collections", :collection => collection
 %aside

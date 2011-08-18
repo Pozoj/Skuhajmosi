@@ -19,7 +19,8 @@ class Ability
     else # User is a visitor
       can :read, :all
       can :create, OriginalRecipe
-      cannot :read, [AccessRight, UserKind, User, OriginalRecipe]
+      can :create, Comment
+      cannot :read, [Comment, AccessRight, UserKind, User, OriginalRecipe]
       cannot :destroy, [Photo, Recipe]
       cannot :manage, AccessRight
       cannot :manage, UserKind

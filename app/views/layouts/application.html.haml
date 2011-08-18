@@ -13,9 +13,9 @@
   %title= yield(:title).empty?? "Skuhajmo.si" : yield(:title)
   %link{:rel => "shortcut icon", :href => "/images/favicon.png", :type => "image/png"}  
   %link{:rel => "apple-touch-icon", :href => "/apple-touch-icon.png"}  
-  = stylesheet_link_tag 'gretzky', :media => 'screen, projection'
+  = stylesheet_link_tag 'gretzky', "token-input", :media => 'screen, projection'
   = stylesheet_link_tag 'compiled/print', :media => 'print'
-  = javascript_include_tag 'lib/modernizr.2.0.6', 'lib/jquery', 'lib/jquery.form', 'lib/rails', 'table_row_links', 'lib/rails-autocomplete', 'application', :cache => true
+  = javascript_include_tag 'lib/modernizr.2.0.6', 'lib/jquery', 'lib/jquery.form', 'lib/rails', 'table_row_links', 'lib/rails-autocomplete', 'application', 'jquery.tokeninput', :cache => true
   = yield :javascripts
   = csrf_meta_tag
 %body{body_attrs}

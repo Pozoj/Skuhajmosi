@@ -1,5 +1,10 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+$(function() {
+	$("#ingredient_tokens_ingredient").tokenInput("/ingredients.json", {
+		crossDomain: false
+	})
+});
 
 String.prototype.is_empty = function() {
   return $.trim(this) == ""

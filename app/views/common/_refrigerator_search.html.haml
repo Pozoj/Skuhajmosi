@@ -1,0 +1,7 @@
+#refrigerator_search
+  %h4 KAJ BI KUHAL, ČE IMAM
+  = form_tag recipes_path, :class => "searchform", :method => 'get' do
+    %p
+      = text_field :ingredient_tokens, :ingredient
+      = submit_tag "Išči", :name => nil, :class => "searchbutton"
+  

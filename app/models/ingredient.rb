@@ -33,6 +33,9 @@ class Ingredient < ActiveRecord::Base
       "Našli smo #{count} #{ case count; when 1 : "sestavino"; when 2 : "sestavini"; when 3..4 : "sestavine"; else "sestavin"; end }."
     end
      
+    def jsonized_all
+      select('distinct id, name') #.collect { |i| {:id => i.id, :name => i.name } }
+    end
   end #class << self
   
   def price_per_gram

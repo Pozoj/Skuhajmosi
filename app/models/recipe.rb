@@ -28,6 +28,12 @@ class Recipe < ActiveRecord::Base
   NOTHING_ENTERED_MESSAGE = "Niste vnesni ničesar. Na voljo so slednji recepti."
   
   class << self
+    
+    #Returns recipes, that include one or more given ingredients
+    def refrigerator_search(ingredient_ids)
+      select('DISTINCT recipes.*').joins(:recipe_ingredients).where('recipe_ingredients.ingredient_id' => ingredient_ids)
+    end
+    
     #Returns unique initials of available recipes
     def initials
       Recipe.approved.order(:short_name).collect {|recipe| recipe.short_name.slice(0,1).upcase }.uniq

@@ -21,6 +21,7 @@ gem "prawn_rails"
 gem "RedCloth", "~> 4.2.7"
 gem "impressionist"
 gem 'will_paginate', '~> 3.0'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'rails-erd'

@@ -37,10 +37,10 @@ App::Application.routes.draw do
     
     collection do
       get :manage
+      get :refrigerator_search
     end
   end
   
   match "home/index", :to => "home#index"
-  
   root :to => "home#index"
 end

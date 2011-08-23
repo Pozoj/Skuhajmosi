@@ -1,0 +1,10 @@
+%section
+  = title "Vrste virov receptov"
+  
+  - if can? :create, RecipeSourceKind
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj vrsto vira", new_resource_path
+  
+  = collection_list_renderer(collection)
+%aside

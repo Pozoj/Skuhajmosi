@@ -1,14 +1,13 @@
 class Recipe < ActiveRecord::Base
   is_impressionable
-  #belongs_to :author, :class_name => "User", :foreign_key => "author_id"
   belongs_to :original, :class_name => "OriginalRecipe", :foreign_key => "original_id"
-  has_one :recipe_source
-  has_many :recipe_ingredients, :dependent => :destroy
-  has_many :ingredients, :through => :recipe_ingredients
-  has_many :photos, :as => :holder, :dependent => :destroy
+  has_one   :origin
+  has_many  :recipe_ingredients, :dependent => :destroy
+  has_many  :ingredients, :through => :recipe_ingredients
+  has_many  :photos, :as => :holder, :dependent => :destroy
+  has_many  :recipe_wines, :dependent => :destroy
+  has_many  :wines, :through => :recipe_wines
   has_and_belongs_to_many :recipe_kinds
-  has_many :recipe_wines, :dependent => :destroy
-  has_many :wines, :through => :recipe_wines
   
   validates_presence_of :name, :short_name, :num_people, :summary, :preparation, :suggestion, :time_to_prepare, :time_to_cook, :status_id
   

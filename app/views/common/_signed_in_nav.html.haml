@@ -22,6 +22,12 @@
             %li= link_to "Ponudniki", vendors_path
           - if can? :manage, Unit
             %li= link_to "Enote", units_path
+          - if can? :manage, RecipeAuthor
+            %li= link_to "Avtorji receptov", recipe_authors_path
+          - if can? :manage, RecipeSourceKind
+            %li= link_to "Vrste virov receptov", recipe_source_kinds_path
+          - if can? :manage, RecipeSource
+            %li= link_to "Viri", recipe_sources_path
           - if can? :manage, ExternalContentKind
             %li= link_to "Vrste zunanjih vsebin", external_content_kinds_path
           - if can? :manage, [User, AccessRight]

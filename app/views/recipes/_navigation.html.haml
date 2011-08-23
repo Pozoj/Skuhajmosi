@@ -11,7 +11,11 @@
         %li= link_to "Dodaj fotografijo", new_recipe_photo_path(resource)  
       - if can? :destroy, Photo and @recipe_info.photos_added?
         %li= link_to "Odstrani fotografijo", @recipe_info.photo, :method => :delete, :confirm => destroy_confirmation(@recipe_info.photo)
-      - if can? :create, Wine and not @recipe_info.wines_added?
+      - if can? :create, RecipeWine and not @recipe_info.wines_added?
         %li= link_to "Dodaj vino", new_recipe_recipe_wine_path(resource)
       - if can? :destroy, RecipeWine and @recipe_info.wines_added?
         %li= link_to "Odstrani vino", [resource, @recipe_info.wine], :method => :delete, :confirm => destroy_confirmation(@recipe_info.wine)
+      - if can? :create, Origin and not @recipe_info.origin_added?
+        %li= link_to "Dodaj vir", new_recipe_origin_path(resource)
+      - if can? :destroy, Origin and @recipe_info.origin_added?
+        %li= link_to "Odstrani vir", [resource, @recipe_info.origin], :method => :delete, :confirm => destroy_confirmation(@recipe_info.origin)

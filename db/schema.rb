@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804130109) do
+ActiveRecord::Schema.define(:version => 20110823141714) do
 
   create_table "abouts", :force => true do |t|
     t.text     "content"
@@ -188,6 +188,13 @@ ActiveRecord::Schema.define(:version => 20110804130109) do
     t.datetime "updated_at"
   end
 
+  create_table "origins", :force => true do |t|
+    t.integer  "recipe_source_id"
+    t.integer  "recipe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "photos", :force => true do |t|
     t.integer  "holder_id"
     t.string   "holder_type"
@@ -217,12 +224,14 @@ ActiveRecord::Schema.define(:version => 20110804130109) do
   end
 
   create_table "recipe_authors", :force => true do |t|
-    t.integer  "recipe_source_id"
     t.string   "first_name"
     t.string   "last_name"
     t.text     "about"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
+    t.text     "url"
+    t.string   "url_title"
   end
 
   create_table "recipe_ingredients", :force => true do |t|
@@ -247,12 +256,20 @@ ActiveRecord::Schema.define(:version => 20110804130109) do
     t.integer "recipe_kind_id"
   end
 
-  create_table "recipe_sources", :force => true do |t|
-    t.integer  "recipe_id"
+  create_table "recipe_source_kinds", :force => true do |t|
     t.string   "title"
     t.text     "description"
+    t.text     "url"
+    t.string   "url_title"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "recipe_sources", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "recipe_source_kind_id"
+    t.integer  "recipe_author_id"
   end
 
   create_table "recipe_wines", :force => true do |t|

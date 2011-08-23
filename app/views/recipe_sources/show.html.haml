@@ -1,0 +1,19 @@
+%section
+  = title resource
+  
+  - if resource.recipe_author.email.present?
+    .email= mail_to resource.recipe_author.email
+  
+  = render "common/redcloth_it", :content => resource.recipe_author.about
+  
+  - if resource.recipe_author.url.present? and resource.recipe_author.url_title.present?
+    .authors_link= link_to resource.recipe_author.url_title, resource.recipe_author.url
+  
+  = render "common/redcloth_it", :content => resource.recipe_source_kind.description
+  
+  - if resource.recipe_source_kind.url.present? and resource.recipe_source_kind.url_title.present?
+    .authors_link= link_to resource.recipe_source_kind.url_title, resource.recipe_source_kind.url
+  
+  = link_to_back
+  
+%aside

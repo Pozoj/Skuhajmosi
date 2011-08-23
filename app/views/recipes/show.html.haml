@@ -28,9 +28,10 @@
     %ul
       %li= link_to "Prenesi pdf", recipe_path(resource, "pdf")
 
-  #author
-    .description Avtor
-    .value tole se bo spremenilo
+  - if @recipe_info.origin_added?
+    #author
+      Avtor recepta je
+      = @recipe_info.origin
 
   = link_to_back
 %aside

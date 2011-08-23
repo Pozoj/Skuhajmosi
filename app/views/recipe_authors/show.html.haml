@@ -1,0 +1,12 @@
+%section
+  = title resource.full_name
+  - if resource.email.present?
+    %p= mail_to resource.email
+  
+  = render "common/redcloth_it", :content => resource.about
+  
+  -if resource.url.present? and resource.url_title.present?
+    %p= link_to resource.url_title, resource.url
+  
+  = link_to_back
+%aside

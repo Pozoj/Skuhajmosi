@@ -1,0 +1,16 @@
+class OriginsController < InheritedResources::Base
+  load_and_authorize_resource
+  belongs_to :recipe, :singleton => true
+    
+  def create
+    create! { parent_path }
+  end
+  
+  def update
+    update! { parent_path }
+  end
+  
+  def destroy
+    destroy! { parent_path }
+  end
+end

@@ -9,13 +9,15 @@ App::Application.routes.draw do
     end
   end
   
-  resources :product_firms, :stores, :units, :user_kinds, :vendors,  :wine_groups, :wine_kinds, :wine_colors, :external_content_kinds
+  resources :external_content_kinds, :product_firms, :recipe_authors, :recipe_source_kinds, 
+            :recipe_sources, :stores, :units, :user_kinds, :vendors,  :wine_groups, :wine_kinds, :wine_colors
   
   resources :abouts,    :except => [:show]
   resources :conditions,:except => [:show]
   resources :contacts,  :except => [:show]
   
-  resources :cooks, :cooking_schools, :ekos, :events, :healthies, :know_its, :ingredient_groups, :ingredients, :nostalgics, :products, :recipe_kinds, :table_covers, :tools, :users, :wines  do
+  resources :cooks, :cooking_schools, :ekos, :events, :healthies, :know_its, :ingredient_groups, 
+            :ingredients, :nostalgics, :products, :recipe_kinds, :table_covers, :tools, :users, :wines  do
     resources :photos, :only => [:new, :create]
   end
   
@@ -33,6 +35,7 @@ App::Application.routes.draw do
   resources :recipes do
     resources :recipe_ingredients, :except => [:index]
     resources :recipe_wines, :except => [:index]
+    resources :origins, :except => [:index]
     resources :photos, :only => [:new, :create]
     
     collection do

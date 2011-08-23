@@ -1,0 +1,10 @@
+%section
+  = title "Viri"
+  
+  - if can? :create, RecipeSource
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj vir", new_resource_path
+  
+  = collection_list_renderer(collection)
+%aside

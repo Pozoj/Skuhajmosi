@@ -1,0 +1,9 @@
+%section
+  = title resource
+  = render "common/redcloth_it", :content => resource.description
+  
+  - if resource.url.present? and resource.url_title.present?
+    %p= link_to resource.url_title, resource.url
+  
+  = link_to_back
+%aside

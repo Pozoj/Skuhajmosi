@@ -1,0 +1,13 @@
+%section
+  = title "Avtorji receptov"
+  
+  - if can? :create, RecipeAuthor
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj avtorja", new_resource_path
+  
+  - collection.group_by{|content| content.first_name.slice(0,1).titleize }.each do |initial, contents|
+    %h3= initial
+    %hr
+    = collection_list_renderer(contents)
+%aside

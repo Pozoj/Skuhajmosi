@@ -27,10 +27,13 @@
         %th= sortable "updated_at", "Datum posodobitve"
         %th= sortable "time_to_prepare", "Čas priprave"
         %th= sortable "time_to_cook", "Čas kuhanja"
+        %th Vrste recepta
+        %th Dodane sestavine
+        %th Fotografija
     %tbody
       - for recipe in @recipes
         %tr.clickable
-          %td= link_to recipe.name, edit_recipe_path(recipe)
+          %td= link_to recipe.name, recipe_path(recipe)
           %td= number_to_currency(recipe.calculated_price, :sale => 2)
           %td= recipe.num_people
           %td= "#{recipe.number_of_kcal_per_meal} kcal"
@@ -38,4 +41,20 @@
           %td= l recipe.updated_at
           %td= distance_of_time_in_words(recipe.time_to_prepare.minutes)
           %td= distance_of_time_in_words(recipe.time_to_cook.minutes)
+          %td
+            - if recipe.recipe_kinds.present?
+              = recipe.recipe_kinds.join(', ') 
+            - else
+              ✗
+          %td
+            - if recipe.ingredients.present?
+              = recipe.ingredients.join(', ') 
+            - else
+              ✗
+          %td
+            - if recipe.photos.any?
+              .small-photo
+                = image_tag( recipe.photos.order(:id).last.photo.url(:super_small) )
+            - else
+              ✗
 %aside        

@@ -1,5 +1,8 @@
 %section
   = title resource.full_name
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_recipe_author_photo_path(resource)
+  = render "common/single_photo", :resource => resource
+  
   - if resource.email.present?
     %p= mail_to resource.email
   

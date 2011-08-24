@@ -1,5 +1,8 @@
 %section
   = title resource
+  = render "common/update_destroy_resource_photo_menu", :resource => resource, :new_photo_path => new_recipe_source_kind_photo_path(resource)
+  = render "common/single_photo", :resource => resource
+  
   = render "common/redcloth_it", :content => resource.description
   
   - if resource.url.present? and resource.url_title.present?

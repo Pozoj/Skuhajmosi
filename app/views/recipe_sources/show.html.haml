@@ -1,6 +1,9 @@
 %section
   = title resource
-  
+  %nav#editors-resource-menu
+    %ul        
+      = render "common/update_destroy_nav", :resource => resource
+      
   - if resource.recipe_author.email.present?
     .email= mail_to resource.recipe_author.email
   

@@ -1,4 +1,13 @@
 module RecipesHelper
+  def missing_ingredients(params, ingredient_ids)
+    if params[:ingredient_tokens].present? and params[:ingredient_tokens][:ingredient].present?
+      given_ingredient_ids = params[:ingredient_tokens][:ingredient].split(',').collect{|i| i.to_i}
+      missing_ingredients = ingredient_ids.reject {|ingredient_id| given_ingredient_ids.include?(ingredient_id) }
+      if missing_ingredients.present?
+        render "recipes/missing_ingredients", :missing_ingredients => Ingredient.where(:id => missing_ingredients).order(:name)
+      end
+    end
+  end
   
   def recipe_kinds_link_list(recipe)
     association_link_list(recipe, "recipe_kinds")
@@ -27,5 +36,5 @@ module RecipesHelper
     recipe.recipe_ingredients.collect do |recipe_ingredient|
       recipe_ingredient.to_s
     end.join(', ')
-  end
+  end  
 end

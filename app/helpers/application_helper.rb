@@ -14,6 +14,14 @@ module ApplicationHelper
     content_tag(:ul, list_items, :class => "#{title}-list")
   end
   
+  def array_to_unordered_list(array_of_objects)
+    list_items = array_of_objects.collect do |obj|
+      content_tag(:li, obj.to_s) 
+    end.join.html_safe
+    content_tag(:ul, list_items)
+  end
+  
+  
   def collection_list_renderer(collection)
     if Array(collection).any?
       content_tag(:div, content_tag(:ul, render(collection)), :class => "collection-list")

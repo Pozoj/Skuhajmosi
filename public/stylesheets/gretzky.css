@@ -93,7 +93,7 @@ body{
 }
 
 #header-container{
-	background:url(../images/footer.jpg) repeat-x top center;
+	background:url(/images/footer.jpg) repeat-x top center;
 	
 	height:160px;
 }
@@ -149,7 +149,7 @@ h2, h3{
     width:0;
 }
 #title{
-	background:url(../images/logo.png) no-repeat;
+	background:url(/images/logo.png) no-repeat;
 	width:384px;
 	height:96px;
 	font-size:3.4375em;
@@ -239,7 +239,7 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
   		 height: 19px;
  float: left;
   margin: 0 5px 2px 0;
-		background:url(../images/admin.png) no-repeat 0 1px;
+		background:url(/images/admin.png) no-repeat 0 1px;
 	}
 .admin nav ul li a:hover{
 		background:#a5b300;
@@ -535,6 +535,59 @@ aside{
 	color:#222;
 }
 
+
+#main .missing_ingredients{
+		position:absolute;
+	}
+	
+#main .missing_ingredients span{
+		display:block;
+		width:18px;
+		margin:3px 0 0 3px;
+		background:#901b0f;
+		color:#fff;
+		font-weight:bold;
+		text-align:center;
+		padding:5px;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		cursor:pointer;
+	}	
+	
+#main .missing_ingredients .missing_ingredients_list{
+		display:none;
+	}	
+#main .missing_ingredients span:hover + .missing_ingredients_list{
+		display:block;
+		
+	}	
+	
+.missing_ingredients_list{
+		background:#901b0f;
+		list-style:none;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		margin:-3px 0 0 28px;
+		padding:8px 10px 8px 10px;
+	}	
+.missing_ingredients_list h5{
+		font-size:0.75em;
+		text-transform:uppercase;
+		color:#fff;
+		margin-bottom:5px;
+	}
+.missing_ingredients_list ul{
+		color:#fff;
+		margin:0 0 0 20px;
+	}
+.missing_ingredients_list ul li {
+	color:#fff;
+	font-size:0.875em;
+
+}
+	
 #main article img{
 		float:left;
 		padding:2px;
@@ -646,32 +699,32 @@ a{text-decoration:none;}
 	}
 #main .time_to_prepare, .time-to-prepare{
 		margin-bottom:5px;
-		background:url(../images/prepare.png) 0 0 no-repeat;
+		background:url(/images/prepare.png) 0 0 no-repeat;
 	}
 #main .cooking_time, .time-to-cook{
 
-		background:url(../images/cook.png) 0 0 no-repeat;
+		background:url(/images/cook.png) 0 0 no-repeat;
 	}
 .calories{
 		margin-top:30px;
-		background:url(../images/calories.png) 0 2px no-repeat;
+		background:url(/images/calories.png) 0 2px no-repeat;
 	}
 .nr-of-people{
-		background:url(../images/people.png) 0 2px no-repeat;
+		background:url(/images/people.png) 0 2px no-repeat;
 	}
 hr{	
 		display:none;
 		width:700px;
 		height:3px;
 		display:block;
-		background:url(../images/hr.jpg) no-repeat center;
+		background:url(/images/hr.jpg) no-repeat center;
 		border:none;
 	}
 	
 #footer-container{
 
 	/*background-color:#f3f3f3;*/
-	background:url(../images/footer.jpg) repeat center;
+	background:url(/images/footer.jpg) repeat center;
 	height:320px;
 
 	border-top:15px solid #222;
@@ -713,7 +766,7 @@ hr{
   		 height: 19px;
  float: left;
   margin: 0 10px 2px 0;
-		background:url(../images/fav.png) no-repeat 0 3px;
+		background:url(/images/fav.png) no-repeat 0 3px;
 	}
 #footer-container nav ul li a:hover{
 		background:#a5b300;
@@ -869,27 +922,27 @@ section .photos img{
 
 	}
 /*#ingredient-list .buy_ingredient{
-		background:url(../images/buy.png) no-repeat 0 0;
+		background:url(/images/buy.png) no-repeat 0 0;
 		padding-left:20px;
 	}*/
-.kupi{
+.missing{
 		display:block;
 		position:absolute;
-		background:#a5b300;
+		background:#901b0f;
 		color:#fff;
 		font-size:0.75em;
 		margin-top:-1px;
-		margin-left:-115px;
-		padding:3px;
+		margin-left:-24px;
+		padding:2px 3px 3px 3px;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
 		}
-.kupi.left {
+.missing.left {
 	margin-left:50px;
-	background:#f3961c;
+	background:#901b0f;
 }
-.kupi:after{
+.missing:after{
 		content:"";
 	position:absolute;
 		top:1px; /* controls vertical position */
@@ -898,7 +951,7 @@ section .photos img{
     left:auto;
 	border-width:8px 0 8px 10px;/* vary these values to change the angle of the vertex */
 	border-style:solid;
-	border-color:transparent #a5b300;;
+	border-color:transparent #901b0f;;
     /* reduce the damage in FF3.0 */
     display:block; 
     width:0;
@@ -978,17 +1031,17 @@ section .photos img{
 	}
 #calories-calculation span{
 		padding:0 0 0 20px;
-		background:url(../images/calories.png) 0 0 no-repeat;
+		background:url(/images/calories.png) 0 0 no-repeat;
 	}
 #price-calculation span{
 		padding:0 0 0 20px;
-		background:url(../images/price.png) 0 0 no-repeat;
+		background:url(/images/price.png) 0 0 no-repeat;
 	}
 .summary{
 		width:349px;
 		float:left;
 		font-family:Verdana, Geneva, sans-serif;
-		background:url(../images/narekovaj.jpg) left top no-repeat #fff;
+		background:url(/images/narekovaj.jpg) left top no-repeat #fff;
 		padding:20px 20px 20px 60px;
 		font-style:italic;
 		
@@ -1029,7 +1082,7 @@ section .photos img{
 #resource-menu ul li a{
 		text-transform:uppercase;
 		padding:0 0 0 24px;
-		background:url(../images/pdf.png) 0 0 no-repeat;	
+		background:url(/images/pdf.png) 0 0 no-repeat;	
 	}
 .to_back{
 	float:left;
@@ -1389,7 +1442,7 @@ background: linear-gradient(top, #614032 0%,#26110a 100%); /* W3C */
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
-		min-height:70px;
+		min-height:90px;
 	}
 #refrigerator_search .token-input-list input{
 		width:200px;
@@ -1526,7 +1579,7 @@ transition: all 200ms ease-in-out;
 		margin:10px 0 0 0;
 	}
 .wine-colors-list ul li a, .wine-kinds-list ul li a, .wine_groups-list ul li a, .wines-list li a{
-		background:url(../images/wine.png) 0 2px no-repeat;
+		background:url(/images/wine.png) 0 2px no-repeat;
 		padding-left:22px;
 		color:#222;
 		font-size:1em;

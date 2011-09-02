@@ -5,7 +5,7 @@ class RecipeInfo
   delegate :recipe_wines, :photos, :time_to_prepare, :time_to_cook, :num_people, :recipe_ingredients, :recipe_kinds, :origin, :number_of_kcal_per_meal, :calculated_price, :summary, :preparation, :suggestion, :to => :recipe
   
   def initialize(params)
-    @recipe = Recipe.find_by_id(params[:id])
+    @recipe = Recipe.approved.find_by_id(params[:id])
   end
   
   def recipe

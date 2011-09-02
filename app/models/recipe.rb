@@ -1,7 +1,7 @@
 class Recipe < ActiveRecord::Base
   is_impressionable
   belongs_to :original, :class_name => "OriginalRecipe", :foreign_key => "original_id"
-  has_one   :origin
+  has_one   :origin, :dependent => :destroy
   has_many  :recipe_ingredients, :dependent => :destroy
   has_many  :ingredients, :through => :recipe_ingredients
   has_many  :photos, :as => :holder, :dependent => :destroy

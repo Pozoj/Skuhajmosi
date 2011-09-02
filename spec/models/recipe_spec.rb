@@ -13,13 +13,13 @@ describe Recipe do
   end
   
   describe "associations" do
-    it { should have_one :recipe_source }
     it { should have_many :ingredients  }
     it { should have_many :recipe_ingredients }
     it { should have_many :photos }
     it { should have_and_belong_to_many :recipe_kinds }
     it { should have_many :recipe_wines }
-    it { should have_many(:wines).through(:recipe_wines) }    
+    it { should have_many(:wines).through(:recipe_wines) }
+    it { should have_one :origin }
   end
   
   it "should return name when to_s is called" do

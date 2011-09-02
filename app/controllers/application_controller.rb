@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :error => exception.message
   end
-  
+    
   protected
   def admin?
     current_user and current_user.admin

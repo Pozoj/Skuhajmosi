@@ -38,10 +38,15 @@ App::Application.routes.draw do
     resources :recipe_wines, :except => [:index]
     resources :origins, :except => [:index]
     resources :photos, :only => [:new, :create]
-    
     collection do
       get :manage
       get :refrigerator_search
+    end
+  end
+  
+  resources :recipe_menus, :only => [:index] do 
+    member do 
+      get :add_day_and_recipe_to_menu
     end
   end
   

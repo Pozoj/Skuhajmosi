@@ -47,8 +47,10 @@ class RecipesController < InheritedResources::Base
   def advanced_search
     render "recipes/index"
   end
-  
+    
+  #########
   protected
+  #########
   
   def append_original_recipe
     @recipe.original = OriginalRecipe.find_by_id(params[:original_id]) if params[:original_id]
@@ -95,8 +97,10 @@ class RecipesController < InheritedResources::Base
     @recipes
   end
   
+  #######
   private
-
+  #######
+  
   def recipe_kind
     return params[:recipe_kind] if (RecipeKind.all.collect(&:id)).include?(Integer(params[:recipe_kind])) 
   end
@@ -111,6 +115,6 @@ class RecipesController < InheritedResources::Base
 
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
-  end
+  end  
   
 end

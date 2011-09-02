@@ -1,6 +1,42 @@
+Factory.define :about do |f|
+  f.content "Mora bit"
+end
+
 Factory.define :access_right do |f|
   f.user_kind_right "manageRecipe"
   f.user_kind_id "worker"
+end
+
+Factory.define :comment do |f|
+  f.name "Branko Copic"
+  f.content "Men je sajt ful kul"
+end
+
+Factory.define :condition do |f|
+  f.content "Mora bit"
+end
+
+Factory.define :contact do |f|
+  f.name "Pozoj d.o.o." 
+  f.address "Uzad dijaskega" 
+  f.tax_nr "102031"
+  f.telephone "0321031202031" 
+  f.fax "032103201032012" 
+  f.mobile "123-12123-123"
+  f.email "info@pozoj.si"
+  f.website "www.pozoj.si"
+  f.notes "tu smo in ga trgamo"
+end
+
+Factory.define :cook do |f|
+  f.first_name "Brane"
+  f.last_name "Oblak"
+  f.description "Tudi on kuha"
+end
+
+Factory.define :cooking_school do |f|
+  f.title "Nemaveze"
+  f.content "Neki more met not, sicer ni neech"
 end
 
 Factory.define :external_content do |f|
@@ -8,8 +44,25 @@ Factory.define :external_content do |f|
   f.title "Na danasnji dan ga trgamo."
 end
 
+Factory.define :eko do |f|
+  f.title "Nemaveze"
+  f.content "Neki more met not, sicer ni neech"
+end
+
+Factory.define :event do |f|
+  f.title "Piknik stari moj"
+  f.content "Piknik bo, kdor ne pride je supakfejs"
+  f.location "Uzad grada, kjer se masti"
+  f.starting_at DateTime.now
+end
+
 Factory.define :external_content_kind do |f|
   f.name "Revija"
+end
+
+Factory.define :healthy do |f|
+  f.title "Nemaveze"
+  f.content "Neki more met not, sicer ni neech"
 end
 
 Factory.define :ingredient do |f|
@@ -20,6 +73,21 @@ end
 
 Factory.define :ingredient_group do |f|
   f.name "Ribe"
+end
+
+Factory.define :know_it do |f|
+  f.title "Nemaveze"
+  f.content "Neki more met not, sicer ni neech"  
+end
+
+Factory.define :nostalgic do |f|
+  f.title "Nemaveze"
+  f.content "Neki more met not, sicer ni neech"
+end
+
+Factory.define :origin do |f|
+  f.association :recipe
+  f.association :recipe_source
 end
 
 Factory.define :photo do |f|
@@ -63,7 +131,6 @@ end
 Factory.define :recipe_author do |f|
   f.first_name "Slavko"
   f.last_name "Adamlje"
-  f.association :recipe_source
 end
 
 Factory.define :recipe_ingredient do |f|
@@ -79,14 +146,30 @@ Factory.define :recipe_kind do |f|
 end
 
 Factory.define :recipe_source do |f|
-  f.association :recipe
-  f.title "Velika kuharska knjiga"
+  f.association :recipe_author
+  f.association :recipe_source_kind
+end
+
+Factory.define :recipe_source_kind do |f|
+  f.title "Uporabniski recepti"
+  f.description "Stga je pa uporabnik vneso"
 end
 
 Factory.define :recipe_wine do |f|
   f.association :recipe
   f.association :wine
 end
+
+Factory.define :table_cover do |f|
+  f.title "Nemaveze"
+  f.content "Neki more met not, sicer ni neech"
+end
+
+Factory.define :tool do |f|
+  f.title "Nemaveze"
+  f.content "Neki more met not, sicer ni neech"
+end
+
 
 Factory.define :unit do |f|
   f.name "gram"

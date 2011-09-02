@@ -1,29 +1,6 @@
 class AccessRight < ActiveRecord::Base
-  #belongs_to :user_kind
-  
   validates_presence_of :user_kind_id, :name, :right
   validate :validate_selected_right
-      
-  # RIGHTS = {
-  #   :manage => "Lahko upravlja",
-  #   :create => "Lahko ustvarja",
-  #   #:read => "Lahko bere",
-  #   :update => "Lahko ureja",
-  #   :destroy => "Lahko briše"
-  # }
-  
-  # MODELS = {
-  #   Ingredient => "sestavine", 
-  #   IngredientGroup => "skupine sestavin", 
-  #   Photo => "fotografije",
-  #   Product => "izdelke",
-  #   ProductFirm => "proizvajalce produktov", 
-  #   Recipe => "recepte", 
-  #   RecipeKind => "vrste receptov", 
-  #   Unit => "enote",
-  #   Vendor => "ponudnike",
-  #   ExternalContent => "zunanje vsebine"
-  # }
 
   RIGHTS = [
     "manage",
@@ -34,6 +11,7 @@ class AccessRight < ActiveRecord::Base
   
   MODELS = [
     "About",
+    "Comment",
     "Condition",
     "Contact",
     "CookingSchool",
@@ -47,11 +25,15 @@ class AccessRight < ActiveRecord::Base
     "Ingredient",
     "KnowIt",
     "Nostalgic",
+    "Origin",
     "Photo",
     "ProductFirm",
     "Product",
+    "RecipeAuthor",
     "RecipeIngredient",
     "RecipeKind",
+    "RecipeSourceKind",
+    "RecipeSource",
     "RecipeWine",
     "Recipe",
     "TableCover",
@@ -69,6 +51,8 @@ class AccessRight < ActiveRecord::Base
     {:value=>[:create,  About], :title=>"O nas - Ustvarjanje"},
     {:value=>[:update,  About], :title=>"O nas - Urejanje"},
     {:value=>[:manage,  About], :title=>"O nas - Upravljanje"},
+
+    {:value=>[:read,  Comment], :title=>"Komentar - Branje"},
 
     {:value=>[:create,  Condition], :title=>"Pogoji uporabe - Ustvarjanje"},
     {:value=>[:update,  Condition], :title=>"Pogoji uporabe - Urejanje"},
@@ -125,6 +109,11 @@ class AccessRight < ActiveRecord::Base
     {:value=>[:update,  KnowIt], :title=>"Dobro je vedeti - Urejanje"},
     {:value=>[:manage,  KnowIt], :title=>"Dobro je vedeti - Upravljanje"},
 
+    {:value=>[:destroy, Origin], :title=>"Vir recepta - Brisanje"},
+    {:value=>[:create,  Origin], :title=>"Vir recepta - Ustvarjanje"},
+    {:value=>[:update,  Origin], :title=>"Vir recepta - Urejanje"},
+    {:value=>[:manage,  Origin], :title=>"Vir recepta - Upravljanje"},
+
     {:value=>[:destroy, Nostalgic], :title=>"Nostalgija - Brisanje"},
     {:value=>[:create,  Nostalgic], :title=>"Nostalgija - Ustvarjanje"},
     {:value=>[:update,  Nostalgic], :title=>"Nostalgija - Urejanje"},
@@ -144,6 +133,11 @@ class AccessRight < ActiveRecord::Base
     {:value=>[:update,  Product], :title=>"Izdelki - Urejanje"},
     {:value=>[:manage,  Product], :title=>"Izdelki - Upravljanje"},
 
+    {:value=>[:destroy, RecipeAuthor], :title=>"Avtor recepta - Brisanje"},
+    {:value=>[:create,  RecipeAuthor], :title=>"Avtor recepta - Ustvarjanje"},
+    {:value=>[:update,  RecipeAuthor], :title=>"Avtor recepta - Urejanje"},
+    {:value=>[:manage,  RecipeAuthor], :title=>"Avtor recepta - Upravljanje"},
+
     {:value=>[:destroy, RecipeIngredient], :title=>"Sestavina recepta - Brisanje"},
     {:value=>[:create,  RecipeIngredient], :title=>"Sestavina recepta - Ustvarjanje"},
     {:value=>[:update,  RecipeIngredient], :title=>"Sestavina recepta - Urejanje"},
@@ -153,6 +147,16 @@ class AccessRight < ActiveRecord::Base
     {:value=>[:create,  RecipeKind], :title=>"Vrste receptov - Ustvarjanje"},
     {:value=>[:update,  RecipeKind], :title=>"Vrste receptov - Urejanje"},
     {:value=>[:manage,  RecipeKind], :title=>"Vrste receptov - Upravljanje"},
+
+    {:value=>[:destroy, RecipeSourceKind], :title=>"Vrste virov receptov - Brisanje"},
+    {:value=>[:create,  RecipeSourceKind], :title=>"Vrste virov receptov - Ustvarjanje"},
+    {:value=>[:update,  RecipeSourceKind], :title=>"Vrste virov receptov - Urejanje"},
+    {:value=>[:manage,  RecipeSourceKind], :title=>"Vrste virov receptov - Upravljanje"},
+
+    {:value=>[:destroy, RecipeSource], :title=>"Vir - Brisanje"},
+    {:value=>[:create,  RecipeSource], :title=>"Vir - Ustvarjanje"},
+    {:value=>[:update,  RecipeSource], :title=>"Vir - Urejanje"},
+    {:value=>[:manage,  RecipeSource], :title=>"Vir - Upravljanje"},    
 
     {:value=>[:destroy, RecipeWine], :title=>"Vino recepta - Brisanje"},
     {:value=>[:create,  RecipeWine], :title=>"Vino recepta - Ustvarjanje"},

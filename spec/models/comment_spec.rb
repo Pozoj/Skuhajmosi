@@ -1,5 +1,12 @@
 require 'spec_helper'
 
 describe Comment do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { Factory :comment }
+  
+  describe "validations" do
+    it { should be_valid }
+    it { should validate_presence_of :name }
+    it { should validate_presence_of :content }
+  end
+  
 end

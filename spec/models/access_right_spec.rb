@@ -11,10 +11,12 @@ describe AccessRight do
       {:value=>[:update,  About], :title=>"O nas - Urejanje"},
       {:value=>[:manage,  About], :title=>"O nas - Upravljanje"},
 
+      {:value=>[:read,  Comment], :title=>"Komentar - Branje"},
+
       {:value=>[:create,  Condition], :title=>"Pogoji uporabe - Ustvarjanje"},
       {:value=>[:update,  Condition], :title=>"Pogoji uporabe - Urejanje"},
       {:value=>[:manage,  Condition], :title=>"Pogoji uporabe - Upravljanje"},
-  
+
       {:value=>[:create,  Contact], :title=>"Kontakt - Ustvarjanje"},
       {:value=>[:update,  Contact], :title=>"Kontakt - Urejanje"},
       {:value=>[:manage,  Contact], :title=>"Kontakt - Upravljanje"},
@@ -66,6 +68,11 @@ describe AccessRight do
       {:value=>[:update,  KnowIt], :title=>"Dobro je vedeti - Urejanje"},
       {:value=>[:manage,  KnowIt], :title=>"Dobro je vedeti - Upravljanje"},
 
+      {:value=>[:destroy, Origin], :title=>"Vir recepta - Brisanje"},
+      {:value=>[:create,  Origin], :title=>"Vir recepta - Ustvarjanje"},
+      {:value=>[:update,  Origin], :title=>"Vir recepta - Urejanje"},
+      {:value=>[:manage,  Origin], :title=>"Vir recepta - Upravljanje"},
+
       {:value=>[:destroy, Nostalgic], :title=>"Nostalgija - Brisanje"},
       {:value=>[:create,  Nostalgic], :title=>"Nostalgija - Ustvarjanje"},
       {:value=>[:update,  Nostalgic], :title=>"Nostalgija - Urejanje"},
@@ -85,6 +92,11 @@ describe AccessRight do
       {:value=>[:update,  Product], :title=>"Izdelki - Urejanje"},
       {:value=>[:manage,  Product], :title=>"Izdelki - Upravljanje"},
 
+      {:value=>[:destroy, RecipeAuthor], :title=>"Avtor recepta - Brisanje"},
+      {:value=>[:create,  RecipeAuthor], :title=>"Avtor recepta - Ustvarjanje"},
+      {:value=>[:update,  RecipeAuthor], :title=>"Avtor recepta - Urejanje"},
+      {:value=>[:manage,  RecipeAuthor], :title=>"Avtor recepta - Upravljanje"},
+
       {:value=>[:destroy, RecipeIngredient], :title=>"Sestavina recepta - Brisanje"},
       {:value=>[:create,  RecipeIngredient], :title=>"Sestavina recepta - Ustvarjanje"},
       {:value=>[:update,  RecipeIngredient], :title=>"Sestavina recepta - Urejanje"},
@@ -94,6 +106,16 @@ describe AccessRight do
       {:value=>[:create,  RecipeKind], :title=>"Vrste receptov - Ustvarjanje"},
       {:value=>[:update,  RecipeKind], :title=>"Vrste receptov - Urejanje"},
       {:value=>[:manage,  RecipeKind], :title=>"Vrste receptov - Upravljanje"},
+
+      {:value=>[:destroy, RecipeSourceKind], :title=>"Vrste virov receptov - Brisanje"},
+      {:value=>[:create,  RecipeSourceKind], :title=>"Vrste virov receptov - Ustvarjanje"},
+      {:value=>[:update,  RecipeSourceKind], :title=>"Vrste virov receptov - Urejanje"},
+      {:value=>[:manage,  RecipeSourceKind], :title=>"Vrste virov receptov - Upravljanje"},
+
+      {:value=>[:destroy, RecipeSource], :title=>"Vir - Brisanje"},
+      {:value=>[:create,  RecipeSource], :title=>"Vir - Ustvarjanje"},
+      {:value=>[:update,  RecipeSource], :title=>"Vir - Urejanje"},
+      {:value=>[:manage,  RecipeSource], :title=>"Vir - Upravljanje"},    
 
       {:value=>[:destroy, RecipeWine], :title=>"Vino recepta - Brisanje"},
       {:value=>[:create,  RecipeWine], :title=>"Vino recepta - Ustvarjanje"},
@@ -114,37 +136,37 @@ describe AccessRight do
       {:value=>[:create,  Tool], :title=>"Pripomočki - Ustvarjanje"},
       {:value=>[:update,  Tool], :title=>"Pripomočki - Urejanje"},
       {:value=>[:manage,  Tool], :title=>"Pripomočki - Upravljanje"},
-      
+
       {:value=>[:destroy, Unit], :title=>"Enote - Brisanje"},
       {:value=>[:create,  Unit], :title=>"Enote - Ustvarjanje"},
       {:value=>[:update,  Unit], :title=>"Enote - Urejanje"}   ,
       {:value=>[:manage,  Unit], :title=>"Enote - Upravljanje"},
-      
+
       {:value=>[:destroy, Vendor], :title=>"Ponudniki - Brisanje"},
       {:value=>[:create,  Vendor], :title=>"Ponudniki - Ustvarjanje"},
       {:value=>[:update,  Vendor], :title=>"Ponudniki - Urejanje"},
       {:value=>[:manage,  Vendor], :title=>"Ponudniki - Upravljanje"},
-      
+
       {:value=>[:destroy, VendorsProduct], :title=>"Ponudnikovi produkti - Brisanje"},
       {:value=>[:create,  VendorsProduct], :title=>"Ponudnikovi produkti - Ustvarjanje"},
       {:value=>[:update,  VendorsProduct], :title=>"Ponudnikovi produkti - Urejanje"},
       {:value=>[:manage,  VendorsProduct], :title=>"Ponudnikovi produkti - Upravljanje"},
-      
+
       {:value=>[:destroy, WineColor], :title=>"Barva vina - Brisanje"},
       {:value=>[:create,  WineColor], :title=>"Barva vina - Ustvarjanje"},
       {:value=>[:update,  WineColor], :title=>"Barva vina - Urejanje"},
       {:value=>[:manage,  WineColor], :title=>"Barva vina - Upravljanje"},
-      
+
       {:value=>[:destroy, WineGroup], :title=>"Skupina vina - Brisanje"},
       {:value=>[:create,  WineGroup], :title=>"Skupina vina - Ustvarjanje"},
       {:value=>[:update,  WineGroup], :title=>"Skupina vina - Urejanje"},
       {:value=>[:manage,  WineGroup], :title=>"Skupina vina - Upravljanje"},
-      
+
       {:value=>[:destroy, WineKind], :title=>"Vrsta vina - Brisanje"},
       {:value=>[:create,  WineKind], :title=>"Vrsta vina - Ustvarjanje"},
       {:value=>[:update,  WineKind], :title=>"Vrsta vina - Urejanje"},
       {:value=>[:manage,  WineKind], :title=>"Vrsta vina - Upravljanje"},
-      
+
       {:value=>[:destroy, Wine], :title=>"Vino - Brisanje"},
       {:value=>[:create,  Wine], :title=>"Vino - Ustvarjanje"},
       {:value=>[:update,  Wine], :title=>"Vino - Urejanje"},

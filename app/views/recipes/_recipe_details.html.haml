@@ -22,3 +22,5 @@
           = distance_of_time_in_words(recipe.time_to_cook.minutes)
           %span Čas kuhanja
         %li.calories= "#{number_with_precision recipe.number_of_kcal_per_meal, :precision => 3} kcal/osebo"
+      = render "common/add_recipe_to_users_cookies", :resource => recipe
+      

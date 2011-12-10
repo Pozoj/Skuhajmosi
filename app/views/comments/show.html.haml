@@ -1,5 +1,15 @@
 %section
   = title "Komentar osebe #{resource}"
+  
+  - if can?(:read, Comment) or can?(:destroy, Comment)
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Odstrani komentar", resource_path, :method => :delete, :confirm => destroy_confirmation(resource)
+  %p
+    %strong
+      Datum objave:
+    = l resource.created_at, :format => :nice
   %p= resource.content
+  
   = link_to_back
 %aside

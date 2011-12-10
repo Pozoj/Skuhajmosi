@@ -2,6 +2,8 @@
 db/*.sqlite3
 log/*.log
 tmp/
-public/system/photos/
+public/system/
 TODO.txt
-*.DS_Store
+.DS_Store
+.rvmrc
+*.PDF

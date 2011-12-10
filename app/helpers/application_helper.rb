@@ -1,5 +1,23 @@
 module ApplicationHelper
   
+  def helpas(user_help)
+    content_tag(:div, :class => "help") do
+      content_tag(:h3, "Pomoč") +
+      (can?(:manage, Helpster) ? link_to("Uredi pomoč", edit_helpster_path(user_help)) : "") +
+      content_tag(:p, user_help.help)
+    end
+  end
+  
+  def helpster(container_id)
+    if Container.find(container_id).present? and current_user.present? and (current_user.user_kind_id.present? or current_user.admin?)
+      user_kind_id = current_user.admin ? "admin" : current_user.user_kind_id
+      user_help = Helpster.find_by_user_kind_id_and_container_id(user_kind_id, container_id)
+      
+      return unless user_help.present?
+      return helpas(user_help)
+    end
+  end
+  
   def association_link_list(resource, associations)
     list_items = resource.send(associations).collect do |associated_item|
       content_tag(:li, link_to(associated_item, associated_item)) 

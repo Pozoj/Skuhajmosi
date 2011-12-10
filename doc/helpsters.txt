@@ -1,0 +1,55 @@
+1)"O nas" => "Na tej strani upravljate samo z enim zapisom, katerega lahko urejate."
+
+2)"Komentarji" => "Pregled uporabniških komentarjev. Ko izberete komentatorja, vidite komentar in imate možnost brisanja komentarja. Komentarji so vidni samo prijavljenemu uporabniku."
+
+3)"Pogoji uporabe" => "Na tej strani upravljate samo z enim zapisom, katerega lahko urejate."
+
+4)"Sola kuhanja" => "Zapis z naslovom in vsebino dodate z izbiro dodaj zapis. Urejanje zapisa in dodajanje ali odstranjevanje slike zapisu je možno v pregledu ustvarjenega zapisa."
+
+5)"Kuharji" => "Kuharja dodate z izbiro gumba "Dodaj kuharja". Ko izberete kuharja, vidite njegove podatke in imate možnost dodajanja slike, v kolikor je ni, oz. odstranjevanja slike, v kolikor je."
+
+6)"Eko" => "Zapis z naslovom in vsebino dodate z izbiro dodaj zapis. Urejanje zapisa in dodajanje ali odstranjevanje slike zapisu je možno v pregledu ustvarjenega zapisa."
+
+7)"Dogodki" => "Dogodek dodate z izbiro gumba "Dodaj dogodek". Izbor ustvarjenega dogodka Vam omogoči dodajanje ali odstranjevanje slike."
+
+8)"Vrste zunanjih vsebin" => "Vrste zunanjih vsebin so delovna okolja za naše zunanje sodelvce (revije, knjige, itd.). Ko ustvarite vrsto zunanjih vsebin (primer: revije), lahko znotraj izbrane vrste zunanjih vsebin ustvarite vsebino (primer: revija Delo), ki jo ob ustvarjanju vežete na uporabnika, kateremu želite omogočiti dostop do vsebine. Da bi lahko povezali uporabnika, mora ta biti predhodno ustvarjen in imeti vrsto "Zunanji". Vrsta uporabnika "Zunanji" mora imeti samo eno pravico, in sicer "Zunanje vsebine - Urejanje". Dodana je logika, ki skrbi, da ima uporabnik pravico urejati samo vsebino, ki ste mu jo določili."
+
+9)"Zdravo" => "Zapis z naslovom in vsebino dodate z izbiro dodaj zapis. Urejanje zapisa in dodajanje ali odstranjevanje slike zapisu je možno v pregledu ustvarjenega zapisa."
+
+10)"Dobro je vedeti" => "Zapis z naslovom in vsebino dodate z izbiro dodaj zapis. Urejanje zapisa in dodajanje ali odstranjevanje slike zapisu je možno v pregledu ustvarjenega zapisa."
+
+11)"Nostalgija" => "Zapis z naslovom in vsebino dodate z izbiro dodaj zapis. Urejanje zapisa in dodajanje ali odstranjevanje slike zapisu je možno v pregledu ustvarjenega zapisa."
+
+12)"Pogrinjki" => "Zapis z naslovom in vsebino dodate z izbiro dodaj zapis. Urejanje zapisa in dodajanje ali odstranjevanje slike zapisu je možno v pregledu ustvarjenega zapisa."
+
+13)"Tools" => "Zapis z naslovom in vsebino dodate z izbiro dodaj zapis. Urejanje zapisa in dodajanje ali odstranjevanje slike zapisu je možno v pregledu ustvarjenega zapisa."
+
+14)"Vrste uporabnikov" => "Na tej strani lahko preglejujete, dajtete in odvzemate pravice podanim vrstam uporabnikov (Posebnež, Delavec, Zunanji, Mojster, Dodatna vrsta, Lektor, Podjetje). Izbira "Dodaj pravico vrsti uporabnika" Vam dan na voljo izbirno polje za izbor pravice znotraj informacijskega sistema. Kadar ustvarjate uporabnika, uporabniku določite vrsto, in z vrsto vse vrsti podane pravice."
+
+15)"Uporabniki" => "Na tej strani lahko preglejujete in urejate obstoječe uporabnike, ter dodajate nove uporabnike. Uporabniku lahko spremenite osnovne podatke, vrsto, geslo in sliko, novemu uporabniku pa podate vse našteto."
+
+16)"Skupine sestavin" => "Skupine sestavin ustvarimo z izbiro Dodaj skupino sestavin. Ob ustvarjanju podamo samo naziv skupine sestavin. Ko je skupina sestavin ustvarjena, ji lahko dodamo ali odstranimo fotografijo."
+
+17)"Sestavine" => "Sestavine dodamo z izborom Dodaj sestavino. Pri dodajanju sestavine moramo biti pozorni na ceno na težo v gramih. Skupino sestavin, v katero sestavina spada lahko dodamo naknadno pri urejanju. Skupino sestavin seveda ustvarimo na podstrani skupine sestavin. Ko je sestavina ustvarjena ji lahko ob pregledu sestavine dodamo sliko."
+
+18)"Oporabniški recepti" => "Uporabniški recepti so recepti, ki so nam jih posredovali uporabniki z izbiro Oddaj recept. Ta podstran je namenjena urejanju posredovanega recepta na način, da imamo pregled nad vsebino, ki so nam jo poslali in možnost vnosa novega recepta. Opombe so administratorsko polje za opombe. S statusom določimo korak obdelave posredovanega recepta."
+
+19)"Proizvajalci" => "Proizvajalce ustvarimo z izbiro Dodaj proizvajalca. Podamo samo naziv proizvajalca."
+
+20)"Izdelki" => "Izdelek dodamo z izbiro Dodaj izdelek. Pri dodajanju je zaželjeno, da imamo točne podatke o produktu, kot so cena, količina, koda izdelka,..."
+
+21)"Avtorji receptov" => "Podstran je namenjena promociji avtorjev receptov. Avtorja dodamo z izbiro Dodaj avtorja. Avtorju lahko podamo fotografijo, ko je že ustvarjen."
+
+22)"Vrste receptov" => "Vrsto recepta dodamo z izbiro Dodaj vrsto recepta. Vrsti recepta lahko podamo fotografijo, ko je že enkrat ustvarjena."
+
+23)"Vrste virov receptov" => "Vrste virov receptov se uporabljajo v povezavi z avtorji receptov in s to povezavo tvorijo vir receptov, katerega lahko vežemo na recept. Vrsto virov receptov ustvarimo z izbiro Dodaj vrsto vira. Lahko ji tudi dodamo fotografijo, ko je že enkrat ustvarjena."
+
+24)"Viri" => "Viri tvorijo povezavo med avtorji receptov in vrsto virov receptov. Vire lahko po ustvarjanju vežemo na recept. Vire dodamo z izbiro Dodaj vir. Ko je vir ustvarjen, ga lahko v pregledu uredimo ali odstranimo."
+
+25)"Recepti" => "Recept ustvarimo z izbiro Dodaj recept. Recepti imajo več stadijev, kjer določamo katera oseba bi naj v nadaljnje imela opravka z receptom. Stadij se določi z izbiro statusa. Ko je recept enkrat ustvarjen, mu lahko v pregledu dodamo vir, vino, fotografijo in sestavino." 
+
+26)"Enote" => "Enoto ustvarimo z izbiro Dodaj enoto. V kolikor je enota pretvorbena količina je potrebno izbrati Pretvorbena količina in navesti imenovalec, ki predstavlja razmerje enote do kilograma tako, da je kilogram v razmerju proti kilogramu 1:1 in je imenovalec 1, v primeru dekagrama je imenovalec 100, v primeru grama 1000, itd.."
+
+27)"Ponudniki" => "Ponudnike ustvarimo z izbiro Dodaj ponudnik. Ob ustvarjanju podamo samo naziv ponudnika."
+
+28)"Vina" => "Vino je skupek povezav barve, vrste in grupe vin. Ko želimo ustvariti vino, ki bi ga kasneje lahko povezali na recept, je potrebno predhodno ustvariti barvo, vrsto in grupo. Enkrat ustvarjenemu vinu lahko v pregledu dodamo ali odstranimo fotografijo."

@@ -1,7 +1,8 @@
 %section
   = title "Zdravo"
-  
   %h2 Tu se lahko učite kako jemo zdravo
+  
+  = helpster("healthies")
   
   - if can? :create, Healthy
     %nav#editors-resource-menu

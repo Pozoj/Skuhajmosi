@@ -9,7 +9,7 @@ App::Application.routes.draw do
     end
   end
   
-  resources :external_content_kinds, :product_firms, :recipe_sources, :stores, :units, :user_kinds, 
+  resources :external_content_kinds, :helpsters, :product_firms, :recipe_sources, :stores, :units, :user_kinds, 
             :vendors, :wine_groups, :wine_kinds, :wine_colors
   
   resources :abouts,    :except => [:show]

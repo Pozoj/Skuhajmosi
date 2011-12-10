@@ -21,4 +21,9 @@ describe Product do
     subject.quantity_title.should == "56.0 g"
   end
   
+  it "should have preferred and deal_description among attributes" do
+    subject.attributes.include?("preferred").should be_true
+    subject.attributes.include?("deal_description").should be_true
+  end
+  
 end

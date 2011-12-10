@@ -1,8 +1,8 @@
 %section
   = title "Šola kuhanja"
-  
   %h2 Tu se lahko učite kuharskih veščin
   
+  = helpster("cooking_schools")
   - if can? :create, CookingSchool
     %nav#editors-resource-menu
       %ul

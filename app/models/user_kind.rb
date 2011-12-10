@@ -4,12 +4,15 @@ class UserKind
   USER_KINDS = {
     :external     => "Zunanji",
     :worker       => "Delavec",
+    :vendor       => "Veletrgovec",
     :master_cook  => "Mojster",
     :lector       => "Lektor",
     :firm         => "Podjetje",
     :special      => "Posebnež",
     :other        => "Dodatna vrsta"
   }
+  
+  ALL_USER_KINDS = USER_KINDS.merge({ :admin => "Administrator" })
   
   def initialize(options = {})
     self.id = options[:id].to_sym if options[:id]
@@ -23,9 +26,19 @@ class UserKind
       id = id.to_sym
       self.new :id => id, :title => USER_KINDS[id]
     end
-
+    
+    def find_among_all(id)
+      return unless id and ALL_USER_KINDS.include?(id.to_sym)
+      id = id.to_sym
+      self.new :id => id, :title => ALL_USER_KINDS[id]
+    end
+    
     def all
       USER_KINDS.map { |array| self.new :id => array[0], :title => array[1] }
+    end
+    
+    def all_with_admin
+      ALL_USER_KINDS.map { |array| self.new :id => array[0], :title => array[1] }
     end
 
     def to_hash
@@ -52,6 +65,10 @@ class UserKind
       "special"
     end
     
+    def vendor
+      "vendor"
+    end
+    
     def firm
       "firm"
     end
@@ -59,8 +76,10 @@ class UserKind
     def other
       "other"
     end
-    
-    
+  end
+  
+  def vendor?
+    id == :vendor
   end
   
   def external?

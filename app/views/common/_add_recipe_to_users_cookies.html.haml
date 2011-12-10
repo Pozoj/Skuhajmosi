@@ -1,17 +1,17 @@
-.recipe-to-users-menu
-  %ul
-    %li
-      %abbr{ :title => "Ponedeljek" }= link_to "P", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "mon")
-    %li
-      %abbr{ :title => "Torek" }= link_to "T", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "tue")
-    %li
-      %abbr{ :title => "Sreda" }= link_to "S", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "wed")
-    %li
-      %abbr{ :title => "Četrtek" }= link_to "Č", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "thu")
-    %li
-      %abbr{ :title => "Petek" }= link_to "P", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "fri")
-    %li
-      %abbr{ :title => "Sobota" }= link_to "S", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "sat")
-    %li
-      %abbr{ :title => "Nedelja" }= link_to "N", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "sun")
+%h5 Dodaj v svoj meni
+%ul
+  %li
+    = link_to "Ponedeljek", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "mon")
+  %li
+    = link_to "Torek", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "tue")
+  %li
+    = link_to "Sreda", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "wed")
+  %li
+    = link_to "Četrtek", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "thu")
+  %li
+    = link_to "Petek", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "fri")
+  %li
+    = link_to "Sobota", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "sat")
+  %li
+    = link_to "Nedelja", add_day_and_recipe_to_menu_recipe_menu_path(:id => resource.id, :day => "sun")
   

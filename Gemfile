@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rake', '~> 0.8.7'
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.0'
+gem 'rake', '~> 0.9.2'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'cancan'
 gem 'devise'
@@ -11,17 +11,16 @@ gem 'haml'
 gem 'compass'
 gem 'paperclip'
 gem 'jquery-rails'
-gem 'mysql2', '0.2.7'
+gem 'mysql2', '~> 0.3.6'
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm'
 gem 'i18n-js'
-# gem "prawn", "0.8.4"
-# gem "prawnto"
 gem "prawn_rails"
 gem "RedCloth", "~> 4.2.7"
 gem "impressionist"
 gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
+gem "nokogiri", "~> 1.5.0"
 
 group :development, :test do
   gem 'rails-erd'
@@ -39,4 +38,12 @@ group :development, :test do
   gem 'rcov'
   gem 'rspec-rails', "~> 2.6.0"
   gem 'mocha'
+end
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', "  ~> 3.1.0"
+  gem 'coffee-rails', "~> 3.1.0"
+  gem 'uglifier'
 end

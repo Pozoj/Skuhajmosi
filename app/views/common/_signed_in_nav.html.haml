@@ -4,6 +4,8 @@
       %nav#admin_menu
         %h4 ADMINISTRATIVA
         %ul
+          - if can? :manage, Helpster
+            %li= link_to "Pomoč uporabnikom", helpsters_path
           - if can? :manage, Comment
             %li= link_to "Uporabniški komentarji", comments_path
           - if can? :manage, OriginalRecipe

@@ -1,6 +1,6 @@
 %section
   = render "common/wine_menu"
-  
+  = helpster("wines")
   = title "Vina"
 
   - if can?(:create, Wine) or can?(:create, WineColor) or can?(:create, WineKind) or can?(:create, WineGroup)

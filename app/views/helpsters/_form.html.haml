@@ -1,0 +1,6 @@
+= simple_form_for resource do |f|
+  = f.input :container, :as => :select, :collection => Container.all, :prompt => "Izberite vsebnik", :value_method => Proc.new {|container| container.id }
+  = f.input :user_kind, :as => :select, :collection => UserKind.all_with_admin, :prompt => "Izberite vrsto uporabnika", :value_method => Proc.new {|user_kind| user_kind.id }
+  = f.input :help
+  
+  = f.submit

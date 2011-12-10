@@ -1,7 +1,10 @@
 %section
   = title "Pregled vrst uporabnikov"
-
+  = helpster("user_kinds")
+  
   - for user_kind in UserKind.all
+    %br
+    %hr
     %h2= user_kind
     - access_rights = AccessRight.where(:user_kind_id => user_kind.id)
     = link_to "Dodaj pravico vrsti uporabnika", new_access_right_path(:user_kind_id => user_kind.id)
@@ -11,6 +14,7 @@
           %li
             = access_right
             = link_to "Odstrani pravico", access_right, :method => :delete, :confirm => destroy_confirmation(resource)
+    
 %aside
     
   

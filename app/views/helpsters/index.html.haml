@@ -1,0 +1,27 @@
+%section
+  = title "Pregled pomočnikov"
+
+  - if can? :create, Helpster
+    %nav#editors-resource-menu
+      %ul
+        %li= link_to "Dodaj pomoč uporabniku", new_resource_path
+
+  %ul
+    - collection.group_by{|helpsterino| Container.find(helpsterino.container_id).title }.each do |container, helpsters|
+      %li        
+        Pomoč za podstran
+        %strong= " #{container}:"
+        - if helpsters.any? 
+          %ul
+            - for helpster in helpsters
+              %li
+                Namenenjeno vrsti uporabnika 
+                %em= UserKind.find_among_all(helpster.user_kind_id)
+                (
+                = link_to "Uredi", edit_helpster_path(helpster)
+                , 
+                = link_to "Izbriši", helpster, :method => :delete, :confirm => destroy_confirmation(helpster)
+                )
+                %p
+                  %strong Vsebina:
+                  = helpster.help

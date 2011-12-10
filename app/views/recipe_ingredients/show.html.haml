@@ -23,9 +23,9 @@
       %h3 Sestavina spada v slednje vrste sestavin
       %ul= render resource.ingredient.ingredient_groups.uniq
 
-  - if resource.ingredient.recipes.any? 
+  - if resource.ingredient.recipes.approved.any? 
     %h3 Jedi, ki vsebujejo sestavino
-    = render "recipes/recipe_details", :recipes => resource.ingredient.recipes.uniq
+    = render "recipes/recipe_details", :recipes => resource.ingredient.recipes.approved.uniq
     
   = link_to_back parent_path
 %aside

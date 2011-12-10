@@ -1,0 +1,3 @@
+class VendingsController < ApplicationController
+  
+end

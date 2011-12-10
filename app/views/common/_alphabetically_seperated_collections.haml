@@ -1,4 +1,4 @@
-- collection.group_by{|content| content.name.slice(0,1).titleize }.each do |initial, contents|
+- collection.group_by{|content| content.name.chars.first.upcase }.each do |initial, contents|
   %h3= initial
   %hr
   = collection_list_renderer(contents)

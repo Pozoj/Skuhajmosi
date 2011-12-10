@@ -1,7 +1,7 @@
 %section
   = render "common/ingredient_search"
   = title "Sestavine"
-
+  = helpster("ingredients")
   - if can? :create, Ingredient
     %nav#editors-resource-menu
       %ul

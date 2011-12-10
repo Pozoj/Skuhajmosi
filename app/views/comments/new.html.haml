@@ -2,8 +2,8 @@
   = title "Prispevajte nam Vaš komentar"
 
   = simple_form_for resource, :html => { :multipart => true } do |f|
-    = f.input :name
-    = f.input :content
+    = f.input :name, :label => "Ime Vam je"
+    = f.input :content, :label => "in Vaš komentar glasi"
   
     = f.button :submit, "Oddaj komentar"
 %aside

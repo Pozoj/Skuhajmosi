@@ -1,25 +1,22 @@
 #users-recipe-menu
-  %table
-    %thead
-      %tr
-        - @day_nr, @days_arr = Date.today.wday, ["Ponedeljek", "Torek", "Sreda", "Četrtek", "Petek", "Sobota", "Nedelja"]
-        - @day_nr -=1 
-        - for day in @days_arr
-          - if (day == @days_arr[@day_nr]) or (@day_nr == -1)
-            %td.current= day
-          - else
-            %td= day
-    %tbody
-      %tr
-        %td= link_to @mon_recipe, @mon_recipe if @mon_recipe.present?
-        %td= link_to @tue_recipe, @tue_recipe if @tue_recipe.present?
-        %td= link_to @wed_recipe, @wed_recipe if @wed_recipe.present?
-        %td= link_to @thu_recipe, @thu_recipe if @thu_recipe.present?
-        %td= link_to @fri_recipe, @fri_recipe if @fri_recipe.present?
-        %td= link_to @sat_recipe, @sat_recipe if @sat_recipe.present?
-        %td= link_to @sun_recipe, @sun_recipe if @sun_recipe.present?
-        
-        
-        
-        
-        
+  - @daily_recipes.each do |daily_recipe_hash|
+    %fieldset
+      %legend= daily_recipe_hash[:day][1]
+      
+      .daily-menu
+        .main-info
+          = link_to daily_recipe_hash[:recipe], daily_recipe_hash[:recipe], :class => "recipe_title"
+          .sestavine
+            %span Sestavine:
+            = daily_recipe_hash[:recipe].ingredients.join(", ")
+        .cooking-info
+          .time_to_prepare
+            = distance_of_time_in_words(daily_recipe_hash[:recipe].time_to_prepare.minutes)
+            %span Čas priprave
+          .cooking_time
+            = distance_of_time_in_words(daily_recipe_hash[:recipe].time_to_cook.minutes)
+            %span Čas kuhanja
+          .calories
+            = "#{number_with_precision daily_recipe_hash[:recipe].number_of_kcal_per_meal, :precision => 3} kcal/osebo"
+            %span Kilo kalorije
+      

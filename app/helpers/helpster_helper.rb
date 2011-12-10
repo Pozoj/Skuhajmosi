@@ -1,0 +1,2 @@
+module HelpsterHelper
+end

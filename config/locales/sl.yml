@@ -114,6 +114,7 @@ sl:
       external_content: "Zunanje vsebine"
       external_content_kind: "Vrste zunanjih vsebin"
       healthy: "Zdravo"
+      helpster: "Pomočnik"
       ingredient: "Sestavina"
       ingredient_group: "Skupina sestavin"
       nostalgia: "Nostalgija"
@@ -144,7 +145,10 @@ sl:
     attributes:
       access_right:
         user_kind_right: "Pravica dostopa"
-        
+      helpster:
+        user_kind: "Vrsta uprabnika"
+        container: "Vsebnik"
+        help: "Pomoč uporabniku"
       external_content:
         content: "Vsebina"
         url_title: "Naziv spletnega naslova"

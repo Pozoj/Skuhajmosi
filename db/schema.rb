@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823141714) do
+ActiveRecord::Schema.define(:version => 20111207130102) do
 
   create_table "abouts", :force => true do |t|
     t.text     "content"
@@ -110,6 +110,14 @@ ActiveRecord::Schema.define(:version => 20110823141714) do
   create_table "healthies", :force => true do |t|
     t.string   "title"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "helpsters", :force => true do |t|
+    t.string   "container_id"
+    t.string   "user_kind_id"
+    t.text     "help"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -218,9 +226,11 @@ ActiveRecord::Schema.define(:version => 20110823141714) do
     t.integer  "product_firm_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "quantity",        :precision => 8, :scale => 2, :default => 0.0
+    t.decimal  "quantity",         :precision => 8, :scale => 2, :default => 0.0
     t.integer  "unit_id"
     t.string   "product_code"
+    t.boolean  "preferred",                                      :default => false
+    t.text     "deal_description"
   end
 
   create_table "recipe_authors", :force => true do |t|

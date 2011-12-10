@@ -19,12 +19,10 @@ class RecipeMenusController < ApplicationController
   private 
   
   def load_recipes_from_cookies
-     @mon_recipe = Recipe.approved.find_by_id(cookies[:mon])
-     @tue_recipe = Recipe.approved.find_by_id(cookies[:tue])
-     @wed_recipe = Recipe.approved.find_by_id(cookies[:wed])
-     @thu_recipe = Recipe.approved.find_by_id(cookies[:thu])
-     @fri_recipe = Recipe.approved.find_by_id(cookies[:fri])
-     @sat_recipe = Recipe.approved.find_by_id(cookies[:sat])
-     @sun_recipe = Recipe.approved.find_by_id(cookies[:sun])
+    @daily_recipes = [[:mon, :Ponedeljek], [:tue, :Torek], [:wed, :Sreda], [:thu, :"Četrtek"], [:fri, :Petek], [:sat, :Sobota], [:sun, :Nedelja]].map do |day|
+      if recipe = Recipe.approved.find_by_id(cookies[day.first])
+        {:day => day, :recipe => recipe}
+      end
+    end.reject { |x| x.nil? }
    end
 end

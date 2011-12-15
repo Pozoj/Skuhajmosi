@@ -4,7 +4,7 @@ require "./config/capistrano_extra"
 default_run_options[:pty] = true  # Must be set for the password prompt from git to work
 
 set :application, "Skuhajmo.si"
-set :repository,  "git@staging:skuhajmo.git"
+set :repository,  "git@github.com:mihar/Skuhajmosi.git"
 set :scm, :git
 set :scm_verbose, true
 set :deploy_via, :remote_cache
@@ -22,6 +22,10 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+  task :link_rvmrc do
+     run "ln -s #{shared_path}/rvmrc #{latest_release}/.rvmrc"
+     run "ln -s #{shared_path}/config/setup_load_paths.rb #{latest_release}/config/setup_load_paths.rb"
+   end
 end
 
 task :uname do
@@ -33,3 +37,5 @@ require 'config/boot'
 # Hoptoad
 require 'hoptoad_notifier/capistrano'
 after "deploy:update", "deploy:notify_hoptoad"
+# Link rvm.
+after "deploy:update", "deploy:link_rvmrc"

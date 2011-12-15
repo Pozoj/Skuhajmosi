@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <product>
+    <ingredient_id>1</ingredient_id>
+    <product_code>123213asdf</product_code>
+    <product_firm_name>Chikitabannana</product_firm_name>
+    <product_name>Chikitabannana banana</product_name>
+    <preferred>1</preferred>
+    <deal_description>Danes so banane 30% bolj poceni kot sicer.</deal_description>
+    <product_price>xx</product_price>
+    <product_quantity>xx</product_quantity>
+  </product>
+  <product>
+    <ingredient_id>2</ingredient_id>
+    <product_code>1223213asdf</product_code>
+    <product_firm_name>Chikitajabuka</product_firm_name>
+    <product_name>Chikitajabuka jabuka</product_name>
+    <preferred>1</preferred>
+    <deal_description>Danes so banane 30% bolj poceni kot sicer.</deal_description>
+    <product_price>sestinpetdeset</product_price>
+    <product_quantity>xx</product_quantity>
+  </product>
+</products>

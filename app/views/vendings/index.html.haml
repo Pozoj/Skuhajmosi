@@ -1,0 +1,7 @@
+%section
+  = title "Oddajanje xml-jev"
+  
+  = simple_form_for :process_xml_vending, :html => {:multipart => true } do |f|
+    = f.file_field  :xml
+    = f.button  :submit
+%aside

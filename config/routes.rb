@@ -50,6 +50,13 @@ App::Application.routes.draw do
     end
   end
   
+  
+  resources :vendings, :only => [:index, :create] do 
+    member do 
+      get :finish_up
+    end
+  end
+  
   match "home/index", :to => "home#index"
   root :to => "home#index"
 end

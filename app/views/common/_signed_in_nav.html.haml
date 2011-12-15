@@ -4,6 +4,8 @@
       %nav#admin_menu
         %h4 ADMINISTRATIVA
         %ul
+          - if can? :manage, Parsing
+            %li= link_to "Nalaganje xml datoteke", vendings_path
           - if can? :manage, Helpster
             %li= link_to "Pomoč uporabnikom", helpsters_path
           - if can? :manage, Comment

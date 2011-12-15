@@ -10,8 +10,8 @@ describe Product do
   it { should have_many :photos  }
   
   it { should validate_presence_of :name }
-  it { should validate_presence_of :product_firm }
-  it { should validate_presence_of :ingredient }
+  it { should validate_presence_of :product_firm_id }
+  it { should validate_presence_of :ingredient_id }
   
   it "should return name when to_s is called" do
     subject.to_s.should == subject.name

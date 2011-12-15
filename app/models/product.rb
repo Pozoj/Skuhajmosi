@@ -7,8 +7,8 @@ class Product < ActiveRecord::Base
   has_many :vendors, :through => :vendors_products
   
   validates_presence_of :name
-  validates_presence_of :product_firm
-  validates_presence_of :ingredient
+  validates_presence_of :product_firm_id
+  validates_presence_of :ingredient_id
   
   default_scope order("name ASC")
   

@@ -26,6 +26,7 @@ class AccessRight < ActiveRecord::Base
     "KnowIt",
     "Nostalgic",
     "Origin",
+    "Parsing",
     "Photo",
     "ProductFirm",
     "Product",
@@ -118,6 +119,8 @@ class AccessRight < ActiveRecord::Base
     {:value=>[:create,  Nostalgic], :title=>"Nostalgija - Ustvarjanje"},
     {:value=>[:update,  Nostalgic], :title=>"Nostalgija - Urejanje"},
     {:value=>[:manage,  Nostalgic], :title=>"Nostalgija - Upravljanje"},
+
+    {:value=>[:manage,  Parsing], :title=>"Nalaganje XML datoteke - Upravljanje"},
 
     {:value=>[:destroy, Photo], :title=>"Fotografije - Brisanje"},
     {:value=>[:create,  Photo], :title=>"Fotografije - Ustvarjanje"},

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207130102) do
+ActiveRecord::Schema.define(:version => 20111214142339) do
 
   create_table "abouts", :force => true do |t|
     t.text     "content"
@@ -201,6 +201,13 @@ ActiveRecord::Schema.define(:version => 20111207130102) do
     t.integer  "recipe_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "parsings", :force => true do |t|
+    t.string   "xml_file_name"
+    t.string   "xml_content_type"
+    t.integer  "xml_file_size"
+    t.datetime "xml_updated_at"
   end
 
   create_table "photos", :force => true do |t|

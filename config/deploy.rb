@@ -8,6 +8,12 @@ set :repository,  "git@github.com:mihar/Skuhajmosi.git"
 set :scm, :git
 set :scm_verbose, true
 set :deploy_via, :remote_cache
+set :deploy_to, "/webroot/skuhajmosi"
+set :branch, "master"
+set :use_sudo, false
+set :user, "deploy"
+set :rails_env, "production"
+server "racker-deploy", :app, :web, :db, :primary => true
 
 ssh_options[:compression] = "none"
 
@@ -31,8 +37,6 @@ end
 task :uname do
   run "uname -a"
 end
-
-require 'config/boot'
 
 # Hoptoad
 require 'hoptoad_notifier/capistrano'

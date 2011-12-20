@@ -35,7 +35,9 @@ module LinkHelper
         raise ArgumentError
       end
     end
-    link_to("&larr; Nazaj".html_safe, path, :class => 'to_back')
+    content_tag :div, :class => "back-button" do
+      link_to("&larr; Nazaj".html_safe, path, :class => 'to_back')
+    end
   end
   
   def link_to_self(url)

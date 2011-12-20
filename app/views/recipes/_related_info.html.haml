@@ -21,6 +21,8 @@
     #recipe-kinds
       %h2 Vrste receptov
       = recipe_kinds_link_list(@recipe_info.recipe)
+  
+  = render "basic_info"
       
   #calories-calculation
     %span Število kalorij

@@ -37,6 +37,7 @@ class RecipesController < InheritedResources::Base
   
   def show
     @recipe_info = RecipeInfo.new(params) #app/presenters/recipe_info.rb
+    raise CanCan::AccessDenied unless ( @recipe_info.recipe.approved? or (current_user.present? and (current_user.admin? or (current_user.user_kind.present? and [:worker, :master_cook, :lector].include?(current_user.user_kind.id)))) )
     
     respond_to do |format|
       format.html

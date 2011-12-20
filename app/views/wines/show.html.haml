@@ -7,22 +7,13 @@
   #short-summary
     = resource.description
 
-  .wine-colors-list
-    %h3 Barva vina
+  .wine-info
+    %h3 Opredelitev
     %ul
       %li= link_to resource.wine_color, resource.wine_color 
-  
-  .wine-kinds-list
-    %h3 Vrsta vina
-    %ul
       %li= link_to resource.wine_kind, resource.wine_kind
-  
-  .wine_groups-list
-    %h3 Skupina vin
-    %ul
       %li= link_to resource.wine_group, resource.wine_group
-  
-
+      
   - if resource.recipes.any?
     %h3 Jedi, h katerim paše vino
     = render "recipes/recipe_details", :recipes => resource.recipes

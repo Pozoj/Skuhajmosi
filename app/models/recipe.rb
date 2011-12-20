@@ -35,7 +35,7 @@ class Recipe < ActiveRecord::Base
     
     #Returns unique initials of available recipes
     def initials
-      Recipe.approved.order(:short_name).collect {|recipe| recipe.short_name.slice(0,1).upcase }.uniq
+      Recipe.approved.order(:short_name).collect { |recipe| recipe.short_name.chars.first.upcase }.uniq
     end
     
     # Returns recipes that include ingredients that belong to given ingredient group

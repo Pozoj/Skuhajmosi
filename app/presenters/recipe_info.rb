@@ -7,8 +7,7 @@ class RecipeInfo
   def initialize(params)
     #@recipe = Recipe.approved.find_by_id(params[:id])
     @recipe = Recipe.find_by_id(params[:id])
-    raise CanCan::AccessDenied unless recipe.approved?
-  end
+  end     
   
   def recipe
     @recipe

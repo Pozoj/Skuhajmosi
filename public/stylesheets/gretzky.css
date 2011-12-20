@@ -707,8 +707,9 @@ div > .tooltip, li > .tooltip, div > .tooltip, span > .tooltip {
 			background:#da532f;		
 	}
 
-.tooltip ul h5{
-		font-size:1em;
+.tooltip h5{
+		font-size:1.2em;
+
 		text-transform:uppercase;
 	}
 .tooltip ul{
@@ -1151,17 +1152,17 @@ section .photos img{
 #basic-info , #related-info{
 		float:right;
 		width:250px;
-		margin-bottom:10px;
+		margin-bottom:0px;
 		font-family:Verdana, Geneva, sans-serif;
 
 	}
 	#basic-info ul{
 			list-style:none;
-			margin:0;
+			margin:30px 0 0 0;
 		}
 #basic-info ul li{
 		font-weight:bold;
-		margin:8px 0 8px 0;
+		margin:10px 0 8px 0;
 		font-size:0.75em;
 
 	}
@@ -1184,7 +1185,7 @@ section .photos img{
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
-		margin:3px 0 3px 0;
+		margin:0 0 3px 0;
 	}
 #ingredient-list h2{
 		font-size:1.25em;
@@ -1309,7 +1310,7 @@ section .photos img{
 		background:#901b0f;	
 	}
 #calories-calculation{
-		padding-top:20px;
+		padding-top:10px;
 		clear:both;
 }
 #price-calculation, #calories-calculation{
@@ -1374,12 +1375,17 @@ section .photos img{
 		padding:0 0 0 24px;
 		background:url(/images/pdf.png) 0 0 no-repeat;	
 	}
+.back-button{
+		width:680px; 
+		float:left;
+	}
 .to_back{
 	float:left;
 	display:block;
 	margin-top:20px;
 	background:#a5b300;
 	width:60px;
+	
 	padding:5px;
 	color:#fff;
 	font-weight:bold;
@@ -1880,6 +1886,34 @@ transition: all 200ms ease-in-out;
 #short-summary{
 		margin-bottom:20px;
 	}
+	
+/*********KATEGORIJE VINA IZ OPISA*********/
+.wine-info{height:50px;}
+.wine-info h3{
+		color:#da532f;
+		font-size:1.2em;	
+	}
+.wine-info ul{
+		list-style:none;
+		margin:5px 0 0 0;
+		font-size:0.75em;
+	}
+
+
+.wine-info ul li a{
+		float:left;
+		color:#fff;
+		display:block;
+		background:#da532f;
+		padding:5px 5px 5px 5px;
+		margin:0 5px 5px 0;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+}
+.wine-info ul li a:hover{
+		background:#901b0f;	
+	}
 /*****************************PAGINATION****************************/	
 .alphabetical-index{
 		list-style:none;
@@ -1893,7 +1927,7 @@ transition: all 200ms ease-in-out;
 
 		text-align:center;
 		background:#614032;
-		padding:3px 0 3px 0;
+		padding:1px 0 1px 0;
 		margin:0 5px 15px 0;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
@@ -1912,7 +1946,7 @@ transition: all 200ms ease-in-out;
 		color:#fff;
 		text-align:center;
 		background:#614032;
-		padding:5px 10px 5px 10px;
+		padding:2px 6px 2px 6px;
 		margin:0 5px 20px 0;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
@@ -1984,6 +2018,7 @@ legend{
 		padding:2px 5px;	
 		color:#835f50;
 		font-size:1.2em;
+		background:#f3f3f3;
 	}
 	
 .today{color:#27120b;}
@@ -2096,7 +2131,90 @@ transition: all 400ms ease-in-out;
 
 	
 	}
+	
+	/*************SHOPPING LIST*********************/
+#shopping-list{
+	background:#fff;
+	border:1px solid #ddd;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	
+}
+#shopping-list h3{
+		font-size:1.125em;
+		padding:0px;
+		margin:20px 0 0 15px;
+		color:#da532f;
+		
+	}
+#shopping-list p{
+		margin-left:15px;
+		color:#999;
+		font-size:0.875em;
+		margin-bottom:20px;
+	}
+#shopping-list ul{
+	
+	margin:0 0 20px 0px;	
+	list-style:none;
+	
+}
+#shopping-list li{
+		font-weight:bold;
+		margin-bottom:2px;
+		padding-left:15px;
+		color:#444;
+		font-size:0.875em;
+		-webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;
+transition: all 200ms ease-in-out;
 
+	}
+#shopping-list li:hover{
+		background:#eee;
+	}
+#shopping-list ul li a{
+		display:block;
+		color:#da532f;
+		font-weight:normal;
+		font-size:1em;
+		-webkit-transition: all 200ms ease-in-out;
+-moz-transition: all 200ms ease-in-out;
+-o-transition: all 200ms ease-in-out;
+transition: all 200ms ease-in-out;
+	}
+#shopping-list ul li a:hover{
+			color:#901b0f;
+	}
+#shopping-list ul li span{
+		font-style:italic;
+		color:#999;
+		width:120px;
+		float:left;
+		display:block;
+		margin-right:50px;
+		font-weight:normal;
+		font-size:0.875em;
+	}
+#shopping-price{
+		border-top:2px dashed #222;
+		margin:10px 20px 20px 15px;
+		padding-top:10px;
+	}
+#shopping-price b{
+		font-size:1.250em;
+	}
+#shopping-price b span{
+		font-style:italic;
+		color:#999;
+		width:100px;
+		float:left;
+		display:block;
+		margin-right:50px;
+		font-weight:normal;
+
+	}
 /*********************************************************/	
 /*********************************************************/			
 .clear{clear:both;}

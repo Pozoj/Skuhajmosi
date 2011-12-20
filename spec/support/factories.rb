@@ -67,6 +67,7 @@ end
 
 Factory.define :ingredient do |f|
   f.name "Korencek"
+  f.calories 50
   f.price_for_weight_in_grams BigDecimal("1")
   f.weight_in_grams BigDecimal("2")
 end

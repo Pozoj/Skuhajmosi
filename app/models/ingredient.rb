@@ -6,6 +6,8 @@ class Ingredient < ActiveRecord::Base
   has_and_belongs_to_many :ingredient_groups  
   
   validates_presence_of :name, :price_for_weight_in_grams, :weight_in_grams
+  validates_presence_of :calories
+  validates_numericality_of :calories
   validates_numericality_of :price_for_weight_in_grams, :weight_in_grams, :greater_than => 0
     
   default_scope order("name ASC")

@@ -2,10 +2,12 @@ class RecipeInfo
   include ActionView::Helpers::DateHelper
   include ActionView::Helpers::NumberHelper
   
-  delegate :recipe_wines, :photos, :time_to_prepare, :time_to_cook, :num_people, :recipe_ingredients, :recipe_kinds, :origin, :number_of_kcal_per_meal, :calculated_price, :summary, :preparation, :suggestion, :to => :recipe
+  delegate :pic, :photos_added?, :recipe_wines, :photos, :time_to_prepare, :time_to_cook, :num_people, :recipe_ingredients, :recipe_kinds, :origin, :number_of_kcal_per_meal, :calculated_price, :summary, :preparation, :suggestion, :to => :recipe
   
   def initialize(params)
-    @recipe = Recipe.approved.find_by_id(params[:id])
+    #@recipe = Recipe.approved.find_by_id(params[:id])
+    @recipe = Recipe.find_by_id(params[:id])
+    raise CanCan::AccessDenied unless recipe.approved?
   end
   
   def recipe
@@ -25,13 +27,9 @@ class RecipeInfo
   def origin_added?
     origin.present?
   end
-    
-  def photos_added?
-    photos.any?
-  end
   
   def photos_url(size)
-    photos.order(:id).last.photo.url(size) if photos_added?
+    pic.photo.url(size) if photos_added?
   end
 
   def wines_added?
@@ -47,7 +45,7 @@ class RecipeInfo
   end
   
   def photo
-    photos.order(:id).last if photos_added?
+    pic
   end
   
   def preparation_time

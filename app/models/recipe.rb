@@ -160,6 +160,17 @@ class Recipe < ActiveRecord::Base
     RecipeStatus.find(status_id).approved?
   end
   
+  def photos_added?
+    photos.any? or (original.present? and original.photos.any?)
+  end
+  
+  def pic
+    if photos.any?
+      return photos.order(:id).last
+    elsif (original.present? and original.photos.any?)
+      return original.photos.order(:id).last
+    end
+  end
   
   # Returns a RecipeStatus instance
   def status

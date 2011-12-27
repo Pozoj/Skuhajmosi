@@ -4,18 +4,21 @@
       %h2 Sestavine
       %ul.ingredient-list
         - for recipe_ingredient in @recipe_info.recipe.recipe_ingredients
-          - ingredient, quantity_unit = recipe_ingredient.info
+          - ingredient, quantity, unit = recipe_ingredient.info
           %li
             - if params[:ingredient_tokens].present? and params[:ingredient_tokens][:ingredient].present?
               - unless params[:ingredient_tokens][:ingredient].split(',').collect{|i| i.to_i }.include?(ingredient.id)
                 %span.missing ✗
               
             = link_to(ingredient, recipe_recipe_ingredient_path(@recipe_info.recipe.id, recipe_ingredient.id) )
-            = quantity_unit
+            = ": #{n(quantity)} #{unit}"
+            
             - if can? :destroy, RecipeIngredient 
               = link_to "Odstrani", recipe_recipe_ingredient_path(@recipe_info.recipe, recipe_ingredient), :method => :delete, :confirm => destroy_confirmation(recipe_ingredient)
-            - if can? :update, RecipeIngredient 
+            - if can? :update, RecipeIngredient
               = link_to "Uredi", edit_recipe_recipe_ingredient_path(@recipe_info.recipe, recipe_ingredient)
+            - if can? :manage, RecipeIngredient
+              %span= "#{n(recipe_ingredient.price)} €"
 
   - if resource.recipe_kinds.any?  
     #recipe-kinds

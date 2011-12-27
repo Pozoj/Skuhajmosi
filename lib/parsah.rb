@@ -47,7 +47,7 @@ class Parsah
   end #class << self
 
   def validity_check
-    if valid_root and valid_children and valid_grandchildren then true else false end
+    !!(valid_root and valid_children and valid_grandchildren)
   end
   
   def parse

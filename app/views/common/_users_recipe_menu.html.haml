@@ -1,0 +1,26 @@
+#users-recipe-menu
+  - if @daily_recipes.empty?
+    %h2 Vaš meni še ne vsebuje recepta
+    %p Ustvarite si Vaš tedenski meni, tako, da receptu določite dan kuhe :-)
+
+  - @daily_recipes.each do |daily_recipe_hash|
+    %fieldset
+      %legend= daily_recipe_hash[:day][1]
+      - daily_recipe_hash[:recipes].sort_by{|h| h[:position]}.each do |recipe_hash|
+        .daily-menu
+          .main-info
+            = link_to "", remove_recipe_from_day_recipe_menu_path(:id => recipe_hash[:recipe].id, :day => daily_recipe_hash[:day][0], :position => recipe_hash[:position]), :class => "delete-from-menu"
+            = link_to recipe_hash[:recipe], recipe_hash[:recipe], :class => "recipe_title"
+            .sestavine
+              %span Sestavine:
+              = recipe_hash[:recipe].ingredients.join(", ")
+          .cooking-info
+            .time_to_prepare
+              = distance_of_time_in_words(recipe_hash[:recipe].time_to_prepare.minutes)
+              %span Čas priprave
+            .cooking_time
+              = distance_of_time_in_words(recipe_hash[:recipe].time_to_cook.minutes)
+              %span Čas kuhanja
+            .calories
+              = "#{number_with_precision recipe_hash[:recipe].number_of_kcal_per_meal, :precision => 3} kcal/osebo"
+              %span Kilo kalorije

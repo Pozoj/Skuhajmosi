@@ -1,4 +1,7 @@
 module ApplicationHelper
+  def n(number)
+    number_to_human(number,  :precision => 2, :separator => ',')
+  end
   
   def helpas(user_help)
     content_tag(:div, :class => "help") do

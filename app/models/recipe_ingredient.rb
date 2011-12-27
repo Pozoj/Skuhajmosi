@@ -19,7 +19,7 @@ class RecipeIngredient < ActiveRecord::Base
   end
   
   def info
-    [ingredient, ": #{quantity} #{ unit.short_name.present? ? unit.short_name : unit.name }"]
+    [ingredient, quantity, "#{ unit.short_name.present? ? unit.short_name : unit.name }"]
   end
   
   def calculated_weight_in_grams

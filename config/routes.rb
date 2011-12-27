@@ -47,6 +47,7 @@ App::Application.routes.draw do
   resources :recipe_menus, :only => [:index] do 
     member do 
       get :add_day_and_recipe_to_menu
+      get :remove_recipe_from_day
     end
   end
   

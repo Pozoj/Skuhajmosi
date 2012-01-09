@@ -1,5 +1,8 @@
 #refrigerator_search
-  %h4 KAJ BI KUHAL, ČE IMAM
+  .search_title
+    %h4 KAJ BI KUHAL, ČE IMAM
+    %p Vnesi sestavine
+
   = form_tag recipes_path, :class => "searchform", :method => 'get' do
     %p
       = text_field :ingredient_tokens, :ingredient

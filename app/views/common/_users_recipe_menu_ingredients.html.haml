@@ -1,8 +1,6 @@
 - if @ingredients.present?
   #shopping-list
-    %h3 Kaj potrebujem?
-    %h4 Sestavine potrebne za jedi v tedenskem jedilniku
-    
+    %h3 Kaj potrebujem?    
     %ul
       - @ingredients.each do |ingredient, quantity|
         %li

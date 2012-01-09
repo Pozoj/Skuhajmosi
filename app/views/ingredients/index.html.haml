@@ -1,5 +1,4 @@
 %section
-  = render "common/ingredient_search"
   = title "Sestavine"
   = helpster("ingredients")
   - if can? :create, Ingredient
@@ -8,4 +7,5 @@
         %li= link_to "Dodaj sestavino", new_resource_path
 
   = render "common/alphabetically_seperated_collections", :collection => collection
+  = render "common/ingredient_search"
 %aside

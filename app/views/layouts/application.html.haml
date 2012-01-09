@@ -11,6 +11,7 @@
   %meta{:author => "Koda: Ljubomir Marković, Oblika: Jernej Gračner, za podjetje Pozoj d.o.o."}
   %meta{:name =>"viewport", :content => "width=device-width, initial-scale=1.0"}
   %title= yield(:title).empty?? "Skuhajmo.si" : yield(:title)
+  %link{:rel => "stylesheet", :href => "http://fonts.googleapis.com/css?family=Lobster+Two", :type => "text/css"}
   %link{:rel => "shortcut icon", :href => "/images/favicon.png", :type => "image/png"}  
   %link{:rel => "apple-touch-icon", :href => "/apple-touch-icon.png"}  
   = stylesheet_link_tag 'gretzky', "token-input", :media => 'screen, projection'

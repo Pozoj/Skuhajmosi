@@ -1,20 +1,19 @@
 %section
   = title "Recepti", false
   = helpster("recipes")
-  = render "common/recipe_search"
   %h1= link_to "Recepti", recipes_path
-  
 
   - if can?(:create, Recipe) or admin?
     %nav#editors-resource-menu
       %ul
         - if can?(:create, Recipe)
           %li= link_to "Dodaj recept", new_resource_path
-          
+  
   %ul.alphabetical-index
     - for initial in @initials
       %li= link_to initial, recipes_path(:initial => initial, :recipe_page => params[:recipe_page])
       
   = render "recipes/recipe_details", :recipes => collection
   = render "common/recipe_pagination", :collection => collection
+  = render "common/recipe_search"
 %aside

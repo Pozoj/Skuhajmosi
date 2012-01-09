@@ -225,7 +225,7 @@ h3{
 
 		}
 		
-#recipes-manage .admin, #recipe_menus-index .admin{
+#recipes-manage .admin {
 		float:none;
 		width:980px;
 		margin-bottom:20px;
@@ -242,7 +242,7 @@ h3{
 		height:20px;
 		padding:2px 2px 2px 5px;
 	}
-#recipes-manage .admin nav ul li a, #recipe_menus-index .admin nav ul li a{
+#recipes-manage .admin nav ul li a {
 		display:block; float:left;
 	}
 	
@@ -545,7 +545,7 @@ section{
 	    height:auto !important;
 	    height:535px;
 	}
-#recipes-manage section, #recipe_menus-index section{
+#recipes-manage section {
 		width:980px;
 			min-height:535px;
 	    height:auto !important;
@@ -1856,7 +1856,7 @@ background: linear-gradient(top, #614032 0%,#26110a 100%);
 		background:#fff;
 		width:218px;
 		line-height:1em;
-		margin:0;
+		margin:0 0 0 15px;
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
@@ -2102,7 +2102,6 @@ transition: all 200ms ease-in-out;
 /****************TEDENSKI JEDILNIK****************/
 
 #users-recipe-menu{
-
 		margin:10px 0 0 0;
 		padding-top:5px;
 	}
@@ -2268,6 +2267,7 @@ transition: all 400ms ease-in-out;
 	/*************SHOPPING LIST*********************/
 #shopping-list{
 	background:#fff;
+	width:250px;
 	border:1px solid #ddd;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;

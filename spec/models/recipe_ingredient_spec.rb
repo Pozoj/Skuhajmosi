@@ -19,7 +19,7 @@ describe RecipeIngredient do
   end
   
   it "should return ingredient and proper string when info is called" do
-    subject.info.should == [subject.ingredient, ": #{subject.quantity} #{subject.unit.short_name}"]
+    subject.info.should == [subject.ingredient, subject.quantity, subject.unit.short_name]
   end
   
   it "should calculate corret conversion of kilograms to grams" do

@@ -66,9 +66,9 @@ class RecipeMenusController < ApplicationController
        recipe.recipe_ingredients.each do |ri|
          ingredient_name = ri.ingredient.name
          if @ingredients[ingredient_name].present?
-           @ingredients[ingredient_name] += ri.calculated_weight_in_grams
+           @ingredients[ingredient_name][:weight] += ri.calculated_weight_in_grams
          else
-           @ingredients[ingredient_name] = ri.calculated_weight_in_grams
+           @ingredients[ingredient_name] = { :id => ri.ingredient.id, :weight => ri.calculated_weight_in_grams }
          end
        end
      end

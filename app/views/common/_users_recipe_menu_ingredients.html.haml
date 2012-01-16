@@ -2,12 +2,14 @@
   #shopping-list
     %h3 Kaj potrebujem?    
     %ul
-      - @ingredients.each do |ingredient, quantity|
+      - @ingredients.each do |ingredient, id_weight_hash|
         %li
-          = ingredient
+          = link_to ingredient, ingredient_path(id_weight_hash[:id])
           %span
-            = quantity_fixer(quantity)
+            = quantity_fixer(id_weight_hash[:weight])
     
-    %h3.sum 
-      Skupaj 
-      %span= number_to_currency(@price)
+    #shopping-price
+      %b
+        %span
+          Skupaj
+        = number_to_currency(@price)
